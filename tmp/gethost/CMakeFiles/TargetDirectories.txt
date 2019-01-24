@@ -1,0 +1,3 @@
+/home/zizy/project/tcp_c/tmp/gethost/CMakeFiles/rebuild_cache.dir
+/home/zizy/project/tcp_c/tmp/gethost/CMakeFiles/edit_cache.dir
+/home/zizy/project/tcp_c/tmp/gethost/CMakeFiles/main.dir

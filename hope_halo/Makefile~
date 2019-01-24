@@ -1,0 +1,26 @@
+NAME = halotest
+OUTPUT:=../out/usr/bin
+
+EXTR_CFLAGS :=
+
+LINK_STATIC_LIB:=
+LINK_SHARED_LIB:=  -lpthread -lapplib -lrt -lapconfig \
+                   -ldl -lconfigpart -lwifi_client \
+				   -lm \
+				   -lalooper \
+				   -lstream_source \
+				   -ljson-c \
+				   -lmsg_srever_api \
+				   -lmlang \
+				   -lmedia_navi_api \
+				   -lcares \
+                   -L../../out/usr/lib
+
+INCLUDE_LOCAL_DIRS:=  -I../../include \
+                      -I. \
+
+#SRCDIR    = $(shell find -type d)
+SRCDIR    =.
+# SRC_C  = $(foreach dir, $(SRCDIR), $(wildcard $(dir)/*.c)) #zizy
+# SRC_S  = $(foreach dir, $(SRCDIR), $(wildcard $(dir)/*.S)) #zizy
+include ../app.rules

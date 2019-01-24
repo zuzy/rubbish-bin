@@ -1,0 +1,2 @@
+OBJ := md5
+all: test

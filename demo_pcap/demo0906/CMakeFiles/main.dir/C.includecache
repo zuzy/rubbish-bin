@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zizy/project/tcp_c/demo_pcap/demo0906/main.c
+stdio.h
+-
+string.h
+-
+stdint.h
+-
+stdlib.h
+-
+unistd.h
+-
+sys/types.h
+-
+alloca.h
+-
+pcap.h
+-
+
