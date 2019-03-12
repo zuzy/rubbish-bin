@@ -14,7 +14,7 @@
 #include <stdarg.h>
 #include "list.h"
 #include "common.h"
-// #include <cmockery.h>
+#include <cmockery.h>
 #define UNIT_TESTING 1
 #define main example_main
 typedef struct _st_halo_common
