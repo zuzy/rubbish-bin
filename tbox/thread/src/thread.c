@@ -71,6 +71,7 @@ tb_int_t tb_demo_platform_thread_main(tb_int_t argc, tb_char_t** argv)
     //     // exit thread
     //     tb_thread_exit(thread);
     // }
+    tb_stricmp("www", "WWW");
     tb_trace_i("!!!");
     tb_sleep(1);
     tb_trace_i("suspend");
