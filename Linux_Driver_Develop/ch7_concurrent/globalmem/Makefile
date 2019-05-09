@@ -1,5 +1,6 @@
 ifneq ($(KERNELRELEASE),)
-obj-m := driver.o
+# obj-m := driver.o
+obj-m := driver_concurrent.o
 else
 KDIR := /lib/modules/$(shell uname -r)/build
 all:
