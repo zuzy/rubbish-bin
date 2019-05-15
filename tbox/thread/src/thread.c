@@ -37,10 +37,10 @@ static tb_int_t tb_demo_thread_func(tb_cpointer_t priv)
     tb_long_t t = tb_mclock();
     // tb_thread_suspend();
 
-    while(1) {
+    do{
         tb_trace_i("thread last %ld ms", tb_mclock() - t);
         tb_sleep(1);
-    }
+    } while(0);
 
     // trace
     tb_trace_i("thread[%lx: %s]: exit", self, priv);
@@ -100,7 +100,8 @@ int main(int argc, char** argv)
     tb_demo_platform_thread_main(argc, argv);
     // tb_trace_i("assert");
     // // tb_assert_abort(1 != 2);
-    // tb_assert_leave(1 != 2);
+    // tb_assert_leave(1 == 2);
+    tb_assert(1 == 2);
     tb_exit();
     return 0;
 }
