@@ -10,7 +10,10 @@
 
 #include <linux/wait.h>
 
-
+/**
+ * ! signal pending head
+ * ! 没有pending，cpu会持续占用很高，而且无法相应kill
+ */
 #include <linux/version.h>
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
 #include <linux/sched/signal.h>
@@ -20,7 +23,7 @@
 #define MEM_CLEAR           0X1
 #define GLOBALFIFO_MAJOR     230
 
-#define MULTI_DEV
+
 #ifdef MULTI_DEV
 #define DEVICE_NUM          10
 #endif
@@ -41,12 +44,7 @@ struct globalfifo_dev *globalfifo_devp;
 
 static int globalfifo_open(struct inode *inode, struct file *filp)
 {
-    #ifdef MULTI_DEV
-    struct globalfifo_dev *dev = container_of(inode->i_cdev, struct globalfifo_dev, cdev);
-    filp->private_data = dev;
-    #else
     filp->private_data = globalfifo_devp;
-    #endif
     return 0;
 }
 
@@ -276,11 +274,7 @@ static int __init globalfifo_init(void)
     init_waitqueue_head(&globalfifo_devp->w_wait);
     return 0;
     fail_malloc:
-    #ifdef MULTI_DEV
-    unregister_chrdev_region(devno, DEVICE_NUM);
-    #else
     unregister_chrdev_region(devno, 1);
-    #endif 
     return ret;
 }
 module_init(globalfifo_init);
@@ -289,17 +283,9 @@ static void __exit globalfifo_exit(void)
 {
     int i;
     printk("--------%s--------\n", __func__);
-    #ifdef MULTI_DEV
-    for(i = 0; i < DEVICE_NUM; i++) {
-        cdev_del(&(globalfifo_devp + i)->cdev);
-    }
-    kfree(globalfifo_devp);
-    unregister_chrdev_region(MKDEV(globalfifo_major, 0), DEVICE_NUM);
-    #else
     cdev_del(&globalfifo_devp->cdev);
     kfree(globalfifo_devp);
     unregister_chrdev_region(MKDEV(globalfifo_major, 0), 1);
-    #endif
 }
 module_exit(globalfifo_exit);
 
