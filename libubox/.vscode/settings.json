@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "blobmsg_json.h": "c",
-        "blobmsg.h": "c"
-    }
-}
