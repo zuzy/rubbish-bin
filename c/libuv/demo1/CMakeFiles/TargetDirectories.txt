@@ -1,3 +1,0 @@
-/home/zizy/project/tcp_c/libuv/demo1/CMakeFiles/rebuild_cache.dir
-/home/zizy/project/tcp_c/libuv/demo1/CMakeFiles/edit_cache.dir
-/home/zizy/project/tcp_c/libuv/demo1/CMakeFiles/main.dir

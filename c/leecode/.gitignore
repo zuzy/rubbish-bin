@@ -2,6 +2,11 @@
 !.gitignore
 !*.c
 !algo/
+algo/*.out
 !arr_2d/
+arr_2d/*.out
 !No/
+No/*.out
 !string/
+string/*.out
+*~

@@ -1,4 +1,0 @@
-/home/zizy/project/tcp_c/ch3_simple_tcp/CMakeFiles/rebuild_cache.dir
-/home/zizy/project/tcp_c/ch3_simple_tcp/CMakeFiles/edit_cache.dir
-/home/zizy/project/tcp_c/ch3_simple_tcp/CMakeFiles/client.dir
-/home/zizy/project/tcp_c/ch3_simple_tcp/CMakeFiles/server.dir
