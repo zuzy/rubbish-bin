@@ -1,0 +1,7 @@
+./
+!.gitignore
+!*.c
+!algo/
+!arr_2d/
+!No/
+!string/

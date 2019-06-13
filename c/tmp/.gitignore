@@ -1,0 +1,6 @@
+*.out
+*.o
+*~
+aboutdir/CMakeFiles/
+char2arr/CMakeFiles/
+gethost/CMakeFiles/
