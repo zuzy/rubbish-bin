@@ -18,7 +18,10 @@ void print_time()
 int main(int argc, char *argv[])
 {
     print_time();
-    time_t t = (time_t)random();
+    srand(time(NULL));
+//    time_t t = (time_t)random();
+    time_t t = rand();
+    printf("random %ld\n", t);
     stime(&t);
     print_time();
     return 0;
