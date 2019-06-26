@@ -23,6 +23,10 @@ int main(int argc, char *argv[])
     time_t t = rand();
     printf("random %ld\n", t);
     stime(&t);
+    time(&t);
+    t = -1;
+    
+    printf("time is %ld\n", t);
     print_time();
     return 0;
 }

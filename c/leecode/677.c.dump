@@ -1,0 +1,927 @@
+<?xml version="1.0"?>
+<dumps>
+<dump cfg="">
+  <tokenlist>
+    <token id="0x1288420" file="677.c" linenr="9" str="struct" scope="0x12b6030" type="name"/>
+    <token id="0x12b5320" file="677.c" linenr="9" str="MapSum" scope="0x12b6030" type="name" type-scope="0x12b6d40"/>
+    <token id="0x1296320" file="677.c" linenr="9" str="{" scope="0x12b6d40" link="0x1296e20"/>
+    <token id="0x12963d0" file="677.c" linenr="10" str="char" scope="0x12b6d40" type="name" astParent="0x1296480"/>
+    <token id="0x1296480" file="677.c" linenr="10" str="*" scope="0x12b6d40" type="op" isArithmeticalOp="True" astOperand1="0x12963d0" astOperand2="0x1296530"/>
+    <token id="0x1296530" file="677.c" linenr="10" str="key" scope="0x12b6d40" type="name" varId="1" variable="0x12b9500" astParent="0x1296480"/>
+    <token id="0x12965e0" file="677.c" linenr="10" str=";" scope="0x12b6d40"/>
+    <token id="0x1296690" file="677.c" linenr="11" str="int" scope="0x12b6d40" type="name"/>
+    <token id="0x1296740" file="677.c" linenr="11" str="val" scope="0x12b6d40" type="name" varId="2" variable="0x12b9570"/>
+    <token id="0x12967f0" file="677.c" linenr="11" str=";" scope="0x12b6d40"/>
+    <token id="0x12968a0" file="677.c" linenr="12" str="void" scope="0x12b6d40" type="name" astParent="0x1296950"/>
+    <token id="0x1296950" file="677.c" linenr="12" str="*" scope="0x12b6d40" type="op" isArithmeticalOp="True" astOperand1="0x12968a0" astOperand2="0x1296a00"/>
+    <token id="0x1296a00" file="677.c" linenr="12" str="next" scope="0x12b6d40" type="name" varId="3" variable="0x12b95e0" astParent="0x1296950"/>
+    <token id="0x1296ab0" file="677.c" linenr="12" str=";" scope="0x12b6d40"/>
+    <token id="0x1296b60" file="677.c" linenr="13" str="void" scope="0x12b6d40" type="name" astParent="0x1296c10"/>
+    <token id="0x1296c10" file="677.c" linenr="13" str="*" scope="0x12b6d40" type="op" isArithmeticalOp="True" astOperand1="0x1296b60" astOperand2="0x1296cc0"/>
+    <token id="0x1296cc0" file="677.c" linenr="13" str="prev" scope="0x12b6d40" type="name" varId="4" variable="0x12b9650" astParent="0x1296c10"/>
+    <token id="0x1296d70" file="677.c" linenr="13" str=";" scope="0x12b6d40"/>
+    <token id="0x1296e20" file="677.c" linenr="14" str="}" scope="0x12b6d40" link="0x1296320"/>
+    <token id="0x12b53d0" file="677.c" linenr="14" str=";" scope="0x12b6030"/>
+    <token id="0x1297030" file="677.c" linenr="18" str="struct" scope="0x12b6030" type="name"/>
+    <token id="0x12884d0" file="677.c" linenr="18" str="MapSum" scope="0x12b6030" type="name" type-scope="0x12b6d40" astParent="0x12970e0"/>
+    <token id="0x12970e0" file="677.c" linenr="18" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astOperand1="0x12884d0" astOperand2="0x129a660"/>
+    <token id="0x1297190" file="677.c" linenr="18" str="mapSumCreate" scope="0x12b6030" type="name" function="0x12b6fa0" astParent="0x129a660"/>
+    <token id="0x129a660" file="677.c" linenr="18" str="(" scope="0x12b6030" link="0x129a710" astParent="0x12970e0" astOperand1="0x1297190"/>
+    <token id="0x129a710" file="677.c" linenr="18" str=")" scope="0x12b6030" link="0x129a660"/>
+    <token id="0x129a7c0" file="677.c" linenr="18" str="{" scope="0x12b7040" link="0x129bfd0"/>
+    <token id="0x129a870" file="677.c" linenr="19" str="struct" scope="0x12b7040" type="name"/>
+    <token id="0x12b62e0" file="677.c" linenr="19" str="MapSum" scope="0x12b7040" type="name" type-scope="0x12b6d40" astParent="0x129a920"/>
+    <token id="0x129a920" file="677.c" linenr="19" str="*" scope="0x12b7040" type="op" isArithmeticalOp="True" astOperand1="0x12b62e0" astOperand2="0x129a9d0"/>
+    <token id="0x129a9d0" file="677.c" linenr="19" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x129a920"/>
+    <token id="0x129aa80" file="677.c" linenr="19" str=";" scope="0x12b7040"/>
+    <token id="0x12a2240" file="677.c" linenr="19" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x12a2710"/>
+    <token id="0x12a2710" file="677.c" linenr="19" str="=" scope="0x12b7040" type="op" isAssignmentOp="True" astOperand1="0x12a2240" astOperand2="0x129abe0"/>
+    <token id="0x129ab30" file="677.c" linenr="19" str="malloc" scope="0x12b7040" type="name" astParent="0x129abe0"/>
+    <token id="0x129abe0" file="677.c" linenr="19" str="(" scope="0x12b7040" link="0x129af50" astParent="0x12a2710" astOperand1="0x129ab30" astOperand2="0x129ad40"/>
+    <token id="0x129ac90" file="677.c" linenr="19" str="sizeof" scope="0x12b7040" type="name" astParent="0x129ad40"/>
+    <token id="0x129ad40" file="677.c" linenr="19" str="(" scope="0x12b7040" link="0x129aea0" astParent="0x129abe0" astOperand1="0x129ac90" astOperand2="0x12b6390"/>
+    <token id="0x129adf0" file="677.c" linenr="19" str="struct" scope="0x12b7040" type="name"/>
+    <token id="0x12b6390" file="677.c" linenr="19" str="MapSum" scope="0x12b7040" type="name" type-scope="0x12b6d40" astParent="0x129ad40"/>
+    <token id="0x129aea0" file="677.c" linenr="19" str=")" scope="0x12b7040" link="0x129ad40"/>
+    <token id="0x129af50" file="677.c" linenr="19" str=")" scope="0x12b7040" link="0x129abe0"/>
+    <token id="0x129b000" file="677.c" linenr="19" str=";" scope="0x12b7040"/>
+    <token id="0x129b0b0" file="677.c" linenr="20" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x129b160"/>
+    <token id="0x129b160" file="677.c" linenr="20" str="." scope="0x12b7040" astParent="0x129b370" astOperand1="0x129b0b0" astOperand2="0x129b2c0"/>
+    <token id="0x129b2c0" file="677.c" linenr="20" str="key" scope="0x12b7040" type="name" varId="6" variable="0x12b9500" astParent="0x129b160"/>
+    <token id="0x129b370" file="677.c" linenr="20" str="=" scope="0x12b7040" type="op" isAssignmentOp="True" astOperand1="0x129b160" astOperand2="0x129b420"/>
+    <token id="0x129b420" file="677.c" linenr="20" str="0" scope="0x12b7040" type="number" isInt="True" values="0x129b428" astParent="0x129b370"/>
+    <token id="0x129b4d0" file="677.c" linenr="20" str=";" scope="0x12b7040"/>
+    <token id="0x129b580" file="677.c" linenr="21" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x129b630"/>
+    <token id="0x129b630" file="677.c" linenr="21" str="." scope="0x12b7040" astParent="0x129b840" astOperand1="0x129b580" astOperand2="0x129b790"/>
+    <token id="0x129b790" file="677.c" linenr="21" str="next" scope="0x12b7040" type="name" varId="7" variable="0x12b95e0" astParent="0x129b630"/>
+    <token id="0x129b840" file="677.c" linenr="21" str="=" scope="0x12b7040" type="op" isAssignmentOp="True" astOperand1="0x129b630" astOperand2="0x129bbb0"/>
+    <token id="0x129b8f0" file="677.c" linenr="21" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x129b9a0"/>
+    <token id="0x129b9a0" file="677.c" linenr="21" str="." scope="0x12b7040" astParent="0x129bbb0" astOperand1="0x129b8f0" astOperand2="0x129bb00"/>
+    <token id="0x129bb00" file="677.c" linenr="21" str="prev" scope="0x12b7040" type="name" varId="8" variable="0x12b9650" astParent="0x129b9a0"/>
+    <token id="0x129bbb0" file="677.c" linenr="21" str="=" scope="0x12b7040" type="op" isAssignmentOp="True" astParent="0x129b840" astOperand1="0x129b9a0" astOperand2="0x129bc60"/>
+    <token id="0x129bc60" file="677.c" linenr="21" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x129bbb0"/>
+    <token id="0x129bd10" file="677.c" linenr="21" str=";" scope="0x12b7040"/>
+    <token id="0x129bdc0" file="677.c" linenr="22" str="return" scope="0x12b7040" type="name" astOperand1="0x129be70"/>
+    <token id="0x129be70" file="677.c" linenr="22" str="obj" scope="0x12b7040" type="name" varId="5" variable="0x12b96c0" astParent="0x129bdc0"/>
+    <token id="0x129bf20" file="677.c" linenr="22" str=";" scope="0x12b7040"/>
+    <token id="0x129bfd0" file="677.c" linenr="23" str="}" scope="0x12b7040" link="0x129a7c0"/>
+    <token id="0x129c080" file="677.c" linenr="25" str="void" scope="0x12b6030" type="name"/>
+    <token id="0x129c130" file="677.c" linenr="25" str="mapSumInsert" scope="0x12b6030" type="name" function="0x12b7cb0" astParent="0x129c930"/>
+    <token id="0x129c930" file="677.c" linenr="25" str="(" scope="0x12b6030" link="0x129d0c0" astOperand1="0x129c130" astOperand2="0x129ceb0"/>
+    <token id="0x129c9e0" file="677.c" linenr="25" str="struct" scope="0x12b6030" type="name"/>
+    <token id="0x12b6440" file="677.c" linenr="25" str="MapSum" scope="0x12b6030" type="name" type-scope="0x12b6d40" astParent="0x129ca90"/>
+    <token id="0x129ca90" file="677.c" linenr="25" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astParent="0x129cbf0" astOperand1="0x12b6440" astOperand2="0x129cb40"/>
+    <token id="0x129cb40" file="677.c" linenr="25" str="obj" scope="0x12b6030" type="name" varId="9" variable="0x12b9f10" astParent="0x129ca90"/>
+    <token id="0x129cbf0" file="677.c" linenr="25" str="," scope="0x12b6030" astParent="0x129ceb0" astOperand1="0x129ca90" astOperand2="0x129cd50"/>
+    <token id="0x129cca0" file="677.c" linenr="25" str="char" scope="0x12b6030" type="name" astParent="0x129cd50"/>
+    <token id="0x129cd50" file="677.c" linenr="25" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astParent="0x129cbf0" astOperand1="0x129cca0" astOperand2="0x129ce00"/>
+    <token id="0x129ce00" file="677.c" linenr="25" str="key" scope="0x12b6030" type="name" varId="10" variable="0x12b9f80" astParent="0x129cd50"/>
+    <token id="0x129ceb0" file="677.c" linenr="25" str="," scope="0x12b6030" astParent="0x129c930" astOperand1="0x129cbf0" astOperand2="0x129d010"/>
+    <token id="0x129cf60" file="677.c" linenr="25" str="int" scope="0x12b6030" type="name"/>
+    <token id="0x129d010" file="677.c" linenr="25" str="val" scope="0x12b6030" type="name" varId="11" variable="0x12b9ff0" astParent="0x129ceb0"/>
+    <token id="0x129d0c0" file="677.c" linenr="25" str=")" scope="0x12b6030" link="0x129c930"/>
+    <token id="0x129d170" file="677.c" linenr="25" str="{" scope="0x12b7d50" link="0x12a36e0"/>
+    <token id="0x129d220" file="677.c" linenr="26" str="struct" scope="0x12b7d50" type="name"/>
+    <token id="0x12b64f0" file="677.c" linenr="26" str="MapSum" scope="0x12b7d50" type="name" type-scope="0x12b6d40" astParent="0x129d2d0"/>
+    <token id="0x129d2d0" file="677.c" linenr="26" str="*" scope="0x12b7d50" type="op" isArithmeticalOp="True" astOperand1="0x12b64f0" astOperand2="0x129d380"/>
+    <token id="0x129d380" file="677.c" linenr="26" str="tail" scope="0x12b7d50" type="name" varId="12" variable="0x12b9730" astParent="0x129d2d0"/>
+    <token id="0x129d430" file="677.c" linenr="26" str=";" scope="0x12b7d50"/>
+    <token id="0x12a2be0" file="677.c" linenr="26" str="tail" scope="0x12b7d50" type="name" varId="12" variable="0x12b9730" astParent="0x12a2f50"/>
+    <token id="0x12a2f50" file="677.c" linenr="26" str="=" scope="0x12b7d50" type="op" isAssignmentOp="True" astOperand1="0x12a2be0" astOperand2="0x129d4e0"/>
+    <token id="0x129d4e0" file="677.c" linenr="26" str="obj" scope="0x12b7d50" type="name" varId="9" variable="0x12b9f10" astParent="0x12a2f50"/>
+    <token id="0x129d590" file="677.c" linenr="26" str=";" scope="0x12b7d50"/>
+    <token id="0x129d640" file="677.c" linenr="27" str="printf" scope="0x12b7d50" type="name" astParent="0x129d6f0"/>
+    <token id="0x129d6f0" file="677.c" linenr="27" str="(" scope="0x12b7d50" link="0x129db70" astOperand1="0x129d640" astOperand2="0x129da10"/>
+    <token id="0x129d7d0" file="677.c" linenr="27" str="&quot;insert %s %d\n&quot;" scope="0x12b7d50" type="string" strlen="13" values="0x129d7d8" astParent="0x129d8b0"/>
+    <token id="0x129d8b0" file="677.c" linenr="27" str="," scope="0x12b7d50" astParent="0x129da10" astOperand1="0x129d7d0" astOperand2="0x129d960"/>
+    <token id="0x129d960" file="677.c" linenr="27" str="key" scope="0x12b7d50" type="name" varId="10" variable="0x12b9f80" astParent="0x129d8b0"/>
+    <token id="0x129da10" file="677.c" linenr="27" str="," scope="0x12b7d50" astParent="0x129d6f0" astOperand1="0x129d8b0" astOperand2="0x129dac0"/>
+    <token id="0x129dac0" file="677.c" linenr="27" str="val" scope="0x12b7d50" type="name" varId="11" variable="0x12b9ff0" astParent="0x129da10"/>
+    <token id="0x129db70" file="677.c" linenr="27" str=")" scope="0x12b7d50" link="0x129d6f0"/>
+    <token id="0x129dc20" file="677.c" linenr="27" str=";" scope="0x12b7d50"/>
+    <token id="0x129dcd0" file="677.c" linenr="28" str="do" scope="0x12b7d50" type="name"/>
+    <token id="0x129dd80" file="677.c" linenr="28" str="{" scope="0x12b7e80" link="0x129fd20"/>
+    <token id="0x129de30" file="677.c" linenr="29" str="struct" scope="0x12b7e80" type="name"/>
+    <token id="0x12b65a0" file="677.c" linenr="29" str="MapSum" scope="0x12b7e80" type="name" type-scope="0x12b6d40" astParent="0x129dee0"/>
+    <token id="0x129dee0" file="677.c" linenr="29" str="*" scope="0x12b7e80" type="op" isArithmeticalOp="True" astOperand1="0x12b65a0" astOperand2="0x129df90"/>
+    <token id="0x129df90" file="677.c" linenr="29" str="tmp" scope="0x12b7e80" type="name" varId="13" variable="0x12b9810" astParent="0x129dee0"/>
+    <token id="0x129e040" file="677.c" linenr="29" str=";" scope="0x12b7e80"/>
+    <token id="0x12a32c0" file="677.c" linenr="29" str="tmp" scope="0x12b7e80" type="name" varId="13" variable="0x12b9810" astParent="0x12a55d0"/>
+    <token id="0x12a55d0" file="677.c" linenr="29" str="=" scope="0x12b7e80" type="op" isAssignmentOp="True" astOperand1="0x12a32c0" astOperand2="0x129e1a0"/>
+    <token id="0x129e0f0" file="677.c" linenr="29" str="obj" scope="0x12b7e80" type="name" varId="9" variable="0x12b9f10" astParent="0x129e1a0"/>
+    <token id="0x129e1a0" file="677.c" linenr="29" str="." scope="0x12b7e80" astParent="0x12a55d0" astOperand1="0x129e0f0" astOperand2="0x129e300"/>
+    <token id="0x129e300" file="677.c" linenr="29" str="next" scope="0x12b7e80" type="name" varId="14" variable="0x12b95e0" astParent="0x129e1a0"/>
+    <token id="0x129e3b0" file="677.c" linenr="29" str=";" scope="0x12b7e80"/>
+    <token id="0x129e460" file="677.c" linenr="30" str="if" scope="0x12b7e80" type="name" astParent="0x129e510"/>
+    <token id="0x129e510" file="677.c" linenr="30" str="(" scope="0x12b7e80" link="0x129f220" astOperand1="0x129e460" astOperand2="0x129e880"/>
+    <token id="0x129e5c0" file="677.c" linenr="30" str="obj" scope="0x12b7e80" type="name" varId="9" variable="0x12b9f10" astParent="0x129e670"/>
+    <token id="0x129e670" file="677.c" linenr="30" str="." scope="0x12b7e80" astParent="0x129e880" astOperand1="0x129e5c0" astOperand2="0x129e7d0"/>
+    <token id="0x129e7d0" file="677.c" linenr="30" str="key" scope="0x12b7e80" type="name" varId="15" variable="0x12b9500" astParent="0x129e670"/>
+    <token id="0x129e880" file="677.c" linenr="30" str="&amp;&amp;" scope="0x12b7e80" type="op" isLogicalOp="True" astParent="0x129e510" astOperand1="0x129e670" astOperand2="0x129f010"/>
+    <token id="0x129e930" file="677.c" linenr="30" str="(" scope="0x12b7e80" link="0x129f170"/>
+    <token id="0x129e9e0" file="677.c" linenr="30" str="strcmp" scope="0x12b7e80" type="name" astParent="0x129ea90"/>
+    <token id="0x129ea90" file="677.c" linenr="30" str="(" scope="0x12b7e80" link="0x129ef60" astParent="0x129f010" astOperand1="0x129e9e0" astOperand2="0x129ee00"/>
+    <token id="0x129eb40" file="677.c" linenr="30" str="obj" scope="0x12b7e80" type="name" varId="9" variable="0x12b9f10" astParent="0x129ebf0"/>
+    <token id="0x129ebf0" file="677.c" linenr="30" str="." scope="0x12b7e80" astParent="0x129ee00" astOperand1="0x129eb40" astOperand2="0x129ed50"/>
+    <token id="0x129ed50" file="677.c" linenr="30" str="key" scope="0x12b7e80" type="name" varId="15" variable="0x12b9500" astParent="0x129ebf0"/>
+    <token id="0x129ee00" file="677.c" linenr="30" str="," scope="0x12b7e80" astParent="0x129ea90" astOperand1="0x129ebf0" astOperand2="0x129eeb0"/>
+    <token id="0x129eeb0" file="677.c" linenr="30" str="key" scope="0x12b7e80" type="name" varId="10" variable="0x12b9f80" astParent="0x129ee00"/>
+    <token id="0x129ef60" file="677.c" linenr="30" str=")" scope="0x12b7e80" link="0x129ea90"/>
+    <token id="0x129f010" file="677.c" linenr="30" str="==" scope="0x12b7e80" type="op" isComparisonOp="True" astParent="0x129e880" astOperand1="0x129ea90" astOperand2="0x129f0c0"/>
+    <token id="0x129f0c0" file="677.c" linenr="30" str="0" scope="0x12b7e80" type="number" isInt="True" values="0x129f0c8" astParent="0x129f010"/>
+    <token id="0x129f170" file="677.c" linenr="30" str=")" scope="0x12b7e80" link="0x129e930"/>
+    <token id="0x129f220" file="677.c" linenr="30" str=")" scope="0x12b7e80" link="0x129e510"/>
+    <token id="0x129f2d0" file="677.c" linenr="30" str="{" scope="0x12b7fb0" link="0x129f9b0"/>
+    <token id="0x129f380" file="677.c" linenr="31" str="obj" scope="0x12b7fb0" type="name" varId="9" variable="0x12b9f10" astParent="0x129f430"/>
+    <token id="0x129f430" file="677.c" linenr="31" str="." scope="0x12b7fb0" astParent="0x129f640" astOperand1="0x129f380" astOperand2="0x129f590"/>
+    <token id="0x129f590" file="677.c" linenr="31" str="val" scope="0x12b7fb0" type="name" varId="16" variable="0x12b9570" astParent="0x129f430"/>
+    <token id="0x129f640" file="677.c" linenr="31" str="=" scope="0x12b7fb0" type="op" isAssignmentOp="True" astOperand1="0x129f430" astOperand2="0x129f6f0"/>
+    <token id="0x129f6f0" file="677.c" linenr="31" str="val" scope="0x12b7fb0" type="name" varId="11" variable="0x12b9ff0" astParent="0x129f640"/>
+    <token id="0x129f7a0" file="677.c" linenr="31" str=";" scope="0x12b7fb0"/>
+    <token id="0x129f850" file="677.c" linenr="32" str="return" scope="0x12b7fb0" type="name"/>
+    <token id="0x129f900" file="677.c" linenr="32" str=";" scope="0x12b7fb0"/>
+    <token id="0x129f9b0" file="677.c" linenr="33" str="}" scope="0x12b7fb0" link="0x129f2d0"/>
+    <token id="0x129fa60" file="677.c" linenr="34" str="obj" scope="0x12b7e80" type="name" varId="9" variable="0x12b9f10" astParent="0x129fb10"/>
+    <token id="0x129fb10" file="677.c" linenr="34" str="=" scope="0x12b7e80" type="op" isAssignmentOp="True" astOperand1="0x129fa60" astOperand2="0x129fbc0"/>
+    <token id="0x129fbc0" file="677.c" linenr="34" str="tmp" scope="0x12b7e80" type="name" varId="13" variable="0x12b9810" astParent="0x129fb10"/>
+    <token id="0x129fc70" file="677.c" linenr="34" str=";" scope="0x12b7e80"/>
+    <token id="0x129fd20" file="677.c" linenr="35" str="}" scope="0x12b7e80" link="0x129dd80"/>
+    <token id="0x129fdd0" file="677.c" linenr="35" str="while" scope="0x12b7d50" type="name" astParent="0x129fe80"/>
+    <token id="0x129fe80" file="677.c" linenr="35" str="(" scope="0x12b7d50" link="0x12a01f0" astOperand1="0x129fdd0" astOperand2="0x129ffe0"/>
+    <token id="0x129ff30" file="677.c" linenr="35" str="obj" scope="0x12b7d50" type="name" varId="9" variable="0x12b9f10" astParent="0x129ffe0"/>
+    <token id="0x129ffe0" file="677.c" linenr="35" str="!=" scope="0x12b7d50" type="op" isComparisonOp="True" astParent="0x129fe80" astOperand1="0x129ff30" astOperand2="0x12a0140"/>
+    <token id="0x12a0140" file="677.c" linenr="35" str="tail" scope="0x12b7d50" type="name" varId="12" variable="0x12b9730" astParent="0x129ffe0"/>
+    <token id="0x12a01f0" file="677.c" linenr="35" str=")" scope="0x12b7d50" link="0x129fe80"/>
+    <token id="0x12a02a0" file="677.c" linenr="35" str=";" scope="0x12b7d50"/>
+    <token id="0x12a0350" file="677.c" linenr="38" str="struct" scope="0x12b7d50" type="name"/>
+    <token id="0x12b6650" file="677.c" linenr="38" str="MapSum" scope="0x12b7d50" type="name" type-scope="0x12b6d40" astParent="0x12a0400"/>
+    <token id="0x12a0400" file="677.c" linenr="38" str="*" scope="0x12b7d50" type="op" isArithmeticalOp="True" astOperand1="0x12b6650" astOperand2="0x12a04b0"/>
+    <token id="0x12a04b0" file="677.c" linenr="38" str="tar" scope="0x12b7d50" type="name" varId="17" variable="0x12b97a0" astParent="0x12a0400"/>
+    <token id="0x12a0560" file="677.c" linenr="38" str=";" scope="0x12b7d50"/>
+    <token id="0x12a5aa0" file="677.c" linenr="38" str="tar" scope="0x12b7d50" type="name" varId="17" variable="0x12b97a0" astParent="0x12a6180"/>
+    <token id="0x12a6180" file="677.c" linenr="38" str="=" scope="0x12b7d50" type="op" isAssignmentOp="True" astOperand1="0x12a5aa0" astOperand2="0x12a06c0"/>
+    <token id="0x12a0610" file="677.c" linenr="38" str="malloc" scope="0x12b7d50" type="name" astParent="0x12a06c0"/>
+    <token id="0x12a06c0" file="677.c" linenr="38" str="(" scope="0x12b7d50" link="0x12a0a30" astParent="0x12a6180" astOperand1="0x12a0610" astOperand2="0x12a0820"/>
+    <token id="0x12a0770" file="677.c" linenr="38" str="sizeof" scope="0x12b7d50" type="name" astParent="0x12a0820"/>
+    <token id="0x12a0820" file="677.c" linenr="38" str="(" scope="0x12b7d50" link="0x12a0980" astParent="0x12a06c0" astOperand1="0x12a0770" astOperand2="0x12b6700"/>
+    <token id="0x12a08d0" file="677.c" linenr="38" str="struct" scope="0x12b7d50" type="name"/>
+    <token id="0x12b6700" file="677.c" linenr="38" str="MapSum" scope="0x12b7d50" type="name" type-scope="0x12b6d40" astParent="0x12a0820"/>
+    <token id="0x12a0980" file="677.c" linenr="38" str=")" scope="0x12b7d50" link="0x12a0820"/>
+    <token id="0x12a0a30" file="677.c" linenr="38" str=")" scope="0x12b7d50" link="0x12a06c0"/>
+    <token id="0x12a0ae0" file="677.c" linenr="38" str=";" scope="0x12b7d50"/>
+    <token id="0x12a0b90" file="677.c" linenr="39" str="if" scope="0x12b7d50" type="name" astParent="0x12a0c40"/>
+    <token id="0x12a0c40" file="677.c" linenr="39" str="(" scope="0x12b7d50" link="0x12a0da0" astOperand1="0x12a0b90" astOperand2="0x12a0cf0"/>
+    <token id="0x12a0cf0" file="677.c" linenr="39" str="tar" scope="0x12b7d50" type="name" varId="17" variable="0x12b97a0" astParent="0x12a0c40"/>
+    <token id="0x12a0da0" file="677.c" linenr="39" str=")" scope="0x12b7d50" link="0x12a0c40"/>
+    <token id="0x12a0e50" file="677.c" linenr="39" str="{" scope="0x12b80e0" link="0x12a3630"/>
+    <token id="0x12a0f00" file="677.c" linenr="41" str="tar" scope="0x12b80e0" type="name" varId="17" variable="0x12b97a0" astParent="0x12a0fb0"/>
+    <token id="0x12a0fb0" file="677.c" linenr="41" str="." scope="0x12b80e0" astParent="0x12a11c0" astOperand1="0x12a0f00" astOperand2="0x12a1110"/>
+    <token id="0x12a1110" file="677.c" linenr="41" str="key" scope="0x12b80e0" type="name" varId="18" variable="0x12b9500" astParent="0x12a0fb0"/>
+    <token id="0x12a11c0" file="677.c" linenr="41" str="=" scope="0x12b80e0" type="op" isAssignmentOp="True" astOperand1="0x12a0fb0" astOperand2="0x12a1320"/>
+    <token id="0x12a1270" file="677.c" linenr="41" str="strdup" scope="0x12b80e0" type="name" astParent="0x12a1320"/>
+    <token id="0x12a1320" file="677.c" linenr="41" str="(" scope="0x12b80e0" link="0x12a1480" astParent="0x12a11c0" astOperand1="0x12a1270" astOperand2="0x12a13d0"/>
+    <token id="0x12a13d0" file="677.c" linenr="41" str="key" scope="0x12b80e0" type="name" varId="10" variable="0x12b9f80" astParent="0x12a1320"/>
+    <token id="0x12a1480" file="677.c" linenr="41" str=")" scope="0x12b80e0" link="0x12a1320"/>
+    <token id="0x12a1530" file="677.c" linenr="41" str=";" scope="0x12b80e0"/>
+    <token id="0x12a15e0" file="677.c" linenr="42" str="tar" scope="0x12b80e0" type="name" varId="17" variable="0x12b97a0" astParent="0x12a1690"/>
+    <token id="0x12a1690" file="677.c" linenr="42" str="." scope="0x12b80e0" astParent="0x12a18a0" astOperand1="0x12a15e0" astOperand2="0x12a17f0"/>
+    <token id="0x12a17f0" file="677.c" linenr="42" str="val" scope="0x12b80e0" type="name" varId="19" variable="0x12b9570" astParent="0x12a1690"/>
+    <token id="0x12a18a0" file="677.c" linenr="42" str="=" scope="0x12b80e0" type="op" isAssignmentOp="True" astOperand1="0x12a1690" astOperand2="0x12a1950"/>
+    <token id="0x12a1950" file="677.c" linenr="42" str="val" scope="0x12b80e0" type="name" varId="11" variable="0x12b9ff0" astParent="0x12a18a0"/>
+    <token id="0x12a1a00" file="677.c" linenr="42" str=";" scope="0x12b80e0"/>
+    <token id="0x12a1ab0" file="677.c" linenr="44" str="(" scope="0x12b80e0" link="0x12a20e0"/>
+    <token id="0x12a1b60" file="677.c" linenr="44" str="(" scope="0x12b80e0" link="0x12a1d70" astParent="0x12a2190" astOperand1="0x12a1ed0"/>
+    <token id="0x12a1c10" file="677.c" linenr="44" str="struct" scope="0x12b80e0" type="name"/>
+    <token id="0x12b67b0" file="677.c" linenr="44" str="MapSum" scope="0x12b80e0" type="name" type-scope="0x12b6d40"/>
+    <token id="0x12a1cc0" file="677.c" linenr="44" str="*" scope="0x12b80e0" type="op" isArithmeticalOp="True"/>
+    <token id="0x12a1d70" file="677.c" linenr="44" str=")" scope="0x12b80e0" link="0x12a1b60"/>
+    <token id="0x12a1e20" file="677.c" linenr="44" str="obj" scope="0x12b80e0" type="name" varId="9" variable="0x12b9f10" astParent="0x12a1ed0"/>
+    <token id="0x12a1ed0" file="677.c" linenr="44" str="." scope="0x12b80e0" astParent="0x12a1b60" astOperand1="0x12a1e20" astOperand2="0x12a2030"/>
+    <token id="0x12a2030" file="677.c" linenr="44" str="prev" scope="0x12b80e0" type="name" varId="20" variable="0x12b9650" astParent="0x12a1ed0"/>
+    <token id="0x12a20e0" file="677.c" linenr="44" str=")" scope="0x12b80e0" link="0x12a1ab0"/>
+    <token id="0x12a2190" file="677.c" linenr="44" str="." scope="0x12b80e0" astParent="0x12a23a0" astOperand1="0x12a1b60" astOperand2="0x12a22f0"/>
+    <token id="0x12a22f0" file="677.c" linenr="44" str="next" scope="0x12b80e0" type="name" astParent="0x12a2190"/>
+    <token id="0x12a23a0" file="677.c" linenr="44" str="=" scope="0x12b80e0" type="op" isAssignmentOp="True" astOperand1="0x12a2190" astOperand2="0x12a2450"/>
+    <token id="0x12a2450" file="677.c" linenr="44" str="tar" scope="0x12b80e0" type="name" varId="17" variable="0x12b97a0" astParent="0x12a23a0"/>
+    <token id="0x12a2500" file="677.c" linenr="44" str=";" scope="0x12b80e0"/>
+    <token id="0x12a25b0" file="677.c" linenr="45" str="tar" scope="0x12b80e0" type="name" varId="17" variable="0x12b97a0" astParent="0x12a2660"/>
+    <token id="0x12a2660" file="677.c" linenr="45" str="." scope="0x12b80e0" astParent="0x12a2870" astOperand1="0x12a25b0" astOperand2="0x12a27c0"/>
+    <token id="0x12a27c0" file="677.c" linenr="45" str="next" scope="0x12b80e0" type="name" varId="21" variable="0x12b95e0" astParent="0x12a2660"/>
+    <token id="0x12a2870" file="677.c" linenr="45" str="=" scope="0x12b80e0" type="op" isAssignmentOp="True" astOperand1="0x12a2660" astOperand2="0x12a2920"/>
+    <token id="0x12a2920" file="677.c" linenr="45" str="obj" scope="0x12b80e0" type="name" varId="9" variable="0x12b9f10" astParent="0x12a2870"/>
+    <token id="0x12a29d0" file="677.c" linenr="45" str=";" scope="0x12b80e0"/>
+    <token id="0x12a2a80" file="677.c" linenr="46" str="tar" scope="0x12b80e0" type="name" varId="17" variable="0x12b97a0" astParent="0x12a2b30"/>
+    <token id="0x12a2b30" file="677.c" linenr="46" str="." scope="0x12b80e0" astParent="0x12a2d40" astOperand1="0x12a2a80" astOperand2="0x12a2c90"/>
+    <token id="0x12a2c90" file="677.c" linenr="46" str="prev" scope="0x12b80e0" type="name" varId="22" variable="0x12b9650" astParent="0x12a2b30"/>
+    <token id="0x12a2d40" file="677.c" linenr="46" str="=" scope="0x12b80e0" type="op" isAssignmentOp="True" astOperand1="0x12a2b30" astOperand2="0x12a2ea0"/>
+    <token id="0x12a2df0" file="677.c" linenr="46" str="obj" scope="0x12b80e0" type="name" varId="9" variable="0x12b9f10" astParent="0x12a2ea0"/>
+    <token id="0x12a2ea0" file="677.c" linenr="46" str="." scope="0x12b80e0" astParent="0x12a2d40" astOperand1="0x12a2df0" astOperand2="0x12a3000"/>
+    <token id="0x12a3000" file="677.c" linenr="46" str="prev" scope="0x12b80e0" type="name" varId="20" variable="0x12b9650" astParent="0x12a2ea0"/>
+    <token id="0x12a30b0" file="677.c" linenr="46" str=";" scope="0x12b80e0"/>
+    <token id="0x12a3160" file="677.c" linenr="47" str="obj" scope="0x12b80e0" type="name" varId="9" variable="0x12b9f10" astParent="0x12a3210"/>
+    <token id="0x12a3210" file="677.c" linenr="47" str="." scope="0x12b80e0" astParent="0x12a3420" astOperand1="0x12a3160" astOperand2="0x12a3370"/>
+    <token id="0x12a3370" file="677.c" linenr="47" str="prev" scope="0x12b80e0" type="name" varId="20" variable="0x12b9650" astParent="0x12a3210"/>
+    <token id="0x12a3420" file="677.c" linenr="47" str="=" scope="0x12b80e0" type="op" isAssignmentOp="True" astOperand1="0x12a3210" astOperand2="0x12a34d0"/>
+    <token id="0x12a34d0" file="677.c" linenr="47" str="tar" scope="0x12b80e0" type="name" varId="17" variable="0x12b97a0" astParent="0x12a3420"/>
+    <token id="0x12a3580" file="677.c" linenr="47" str=";" scope="0x12b80e0"/>
+    <token id="0x12a3630" file="677.c" linenr="48" str="}" scope="0x12b80e0" link="0x12a0e50"/>
+    <token id="0x12a36e0" file="677.c" linenr="49" str="}" scope="0x12b7d50" link="0x129d170"/>
+    <token id="0x12a3790" file="677.c" linenr="51" str="int" scope="0x12b6030" type="name"/>
+    <token id="0x12a3840" file="677.c" linenr="51" str="mapSumSum" scope="0x12b6030" type="name" function="0x12b8210" astParent="0x12a38f0"/>
+    <token id="0x12a38f0" file="677.c" linenr="51" str="(" scope="0x12b6030" link="0x12a3e70" astOperand1="0x12a3840" astOperand2="0x12a3bb0"/>
+    <token id="0x12a39a0" file="677.c" linenr="51" str="struct" scope="0x12b6030" type="name"/>
+    <token id="0x12b6860" file="677.c" linenr="51" str="MapSum" scope="0x12b6030" type="name" type-scope="0x12b6d40" astParent="0x12a3a50"/>
+    <token id="0x12a3a50" file="677.c" linenr="51" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astParent="0x12a3bb0" astOperand1="0x12b6860" astOperand2="0x12a3b00"/>
+    <token id="0x12a3b00" file="677.c" linenr="51" str="obj" scope="0x12b6030" type="name" varId="23" variable="0x12ba060" astParent="0x12a3a50"/>
+    <token id="0x12a3bb0" file="677.c" linenr="51" str="," scope="0x12b6030" astParent="0x12a38f0" astOperand1="0x12a3a50" astOperand2="0x12a3d10"/>
+    <token id="0x12a3c60" file="677.c" linenr="51" str="char" scope="0x12b6030" type="name" astParent="0x12a3d10"/>
+    <token id="0x12a3d10" file="677.c" linenr="51" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astParent="0x12a3bb0" astOperand1="0x12a3c60" astOperand2="0x12a3dc0"/>
+    <token id="0x12a3dc0" file="677.c" linenr="51" str="prefix" scope="0x12b6030" type="name" varId="24" variable="0x12ba0d0" astParent="0x12a3d10"/>
+    <token id="0x12a3e70" file="677.c" linenr="51" str=")" scope="0x12b6030" link="0x12a38f0"/>
+    <token id="0x12a3f20" file="677.c" linenr="51" str="{" scope="0x12b82b0" link="0x12a7af0"/>
+    <token id="0x12a3fd0" file="677.c" linenr="52" str="struct" scope="0x12b82b0" type="name"/>
+    <token id="0x12b6910" file="677.c" linenr="52" str="MapSum" scope="0x12b82b0" type="name" type-scope="0x12b6d40" astParent="0x12a4080"/>
+    <token id="0x12a4080" file="677.c" linenr="52" str="*" scope="0x12b82b0" type="op" isArithmeticalOp="True" astOperand1="0x12b6910" astOperand2="0x12a4130"/>
+    <token id="0x12a4130" file="677.c" linenr="52" str="tail" scope="0x12b82b0" type="name" varId="25" variable="0x12b9880" astParent="0x12a4080"/>
+    <token id="0x12a41e0" file="677.c" linenr="52" str=";" scope="0x12b82b0"/>
+    <token id="0x12a6a70" file="677.c" linenr="52" str="tail" scope="0x12b82b0" type="name" varId="25" variable="0x12b9880" astParent="0x12a6c80"/>
+    <token id="0x12a6c80" file="677.c" linenr="52" str="=" scope="0x12b82b0" type="op" isAssignmentOp="True" astOperand1="0x12a6a70" astOperand2="0x12a4290"/>
+    <token id="0x12a4290" file="677.c" linenr="52" str="obj" scope="0x12b82b0" type="name" varId="23" variable="0x12ba060" astParent="0x12a6c80"/>
+    <token id="0x12a4340" file="677.c" linenr="52" str=";" scope="0x12b82b0"/>
+    <token id="0x12a43f0" file="677.c" linenr="53" str="int" scope="0x12b82b0" type="name"/>
+    <token id="0x12a44a0" file="677.c" linenr="53" str="i" scope="0x12b82b0" type="name" varId="26" variable="0x12b98f0"/>
+    <token id="0x12a4550" file="677.c" linenr="53" str=";" scope="0x12b82b0"/>
+    <token id="0x12a7620" file="677.c" linenr="53" str="i" scope="0x12b82b0" type="name" varId="26" variable="0x12b98f0" astParent="0x12a8ac0"/>
+    <token id="0x12a8ac0" file="677.c" linenr="53" str="=" scope="0x12b82b0" type="op" isAssignmentOp="True" astOperand1="0x12a7620" astOperand2="0x12a4600"/>
+    <token id="0x12a4600" file="677.c" linenr="53" str="0" scope="0x12b82b0" type="number" isInt="True" values="0x12a4608" astParent="0x12a8ac0"/>
+    <token id="0x12a46b0" file="677.c" linenr="53" str=";" scope="0x12b82b0"/>
+    <token id="0x12a4760" file="677.c" linenr="54" str="long" scope="0x12b82b0" type="name"/>
+    <token id="0x12a4810" file="677.c" linenr="54" str="len" scope="0x12b82b0" type="name" varId="27" variable="0x12b9960"/>
+    <token id="0x12a48c0" file="677.c" linenr="54" str=";" scope="0x12b82b0"/>
+    <token id="0x12a8f90" file="677.c" linenr="54" str="len" scope="0x12b82b0" type="name" varId="27" variable="0x12b9960" astParent="0x12a9510"/>
+    <token id="0x12a9510" file="677.c" linenr="54" str="=" scope="0x12b82b0" type="op" isAssignmentOp="True" astOperand1="0x12a8f90" astOperand2="0x12a4a20"/>
+    <token id="0x12a4970" file="677.c" linenr="54" str="strlen" scope="0x12b82b0" type="name" astParent="0x12a4a20"/>
+    <token id="0x12a4a20" file="677.c" linenr="54" str="(" scope="0x12b82b0" link="0x12a4b80" astParent="0x12a9510" astOperand1="0x12a4970" astOperand2="0x12a4ad0"/>
+    <token id="0x12a4ad0" file="677.c" linenr="54" str="prefix" scope="0x12b82b0" type="name" varId="24" variable="0x12ba0d0" values="0x12a4ad8" astParent="0x12a4a20"/>
+    <token id="0x12a4b80" file="677.c" linenr="54" str=")" scope="0x12b82b0" link="0x12a4a20"/>
+    <token id="0x12a4c30" file="677.c" linenr="54" str=";" scope="0x12b82b0"/>
+    <token id="0x12a4ce0" file="677.c" linenr="55" str="int" scope="0x12b82b0" type="name"/>
+    <token id="0x12a4d90" file="677.c" linenr="55" str="index" scope="0x12b82b0" type="name" varId="28" variable="0x12b99d0"/>
+    <token id="0x12a4e40" file="677.c" linenr="55" str=";" scope="0x12b82b0"/>
+    <token id="0x12aa220" file="677.c" linenr="55" str="index" scope="0x12b82b0" type="name" varId="28" variable="0x12b99d0" astParent="0x1297cf0"/>
+    <token id="0x1297cf0" file="677.c" linenr="55" str="=" scope="0x12b82b0" type="op" isAssignmentOp="True" astOperand1="0x12aa220" astOperand2="0x12a4ef0"/>
+    <token id="0x12a4ef0" file="677.c" linenr="55" str="0" scope="0x12b82b0" type="number" isInt="True" values="0x12a4ef8" astParent="0x1297cf0"/>
+    <token id="0x12a4fa0" file="677.c" linenr="55" str=";" scope="0x12b82b0"/>
+    <token id="0x12a5050" file="677.c" linenr="56" str="do" scope="0x12b82b0" type="name"/>
+    <token id="0x12a5100" file="677.c" linenr="56" str="{" scope="0x12b83e0" link="0x12a72b0"/>
+    <token id="0x12a51b0" file="677.c" linenr="58" str="struct" scope="0x12b83e0" type="name"/>
+    <token id="0x12b69c0" file="677.c" linenr="58" str="MapSum" scope="0x12b83e0" type="name" type-scope="0x12b6d40" astParent="0x12a5260"/>
+    <token id="0x12a5260" file="677.c" linenr="58" str="*" scope="0x12b83e0" type="op" isArithmeticalOp="True" astOperand1="0x12b69c0" astOperand2="0x12a5310"/>
+    <token id="0x12a5310" file="677.c" linenr="58" str="tmp" scope="0x12b83e0" type="name" varId="29" variable="0x12b9a40" astParent="0x12a5260"/>
+    <token id="0x12a53c0" file="677.c" linenr="58" str=";" scope="0x12b83e0"/>
+    <token id="0x12b50c0" file="677.c" linenr="58" str="tmp" scope="0x12b83e0" type="name" varId="29" variable="0x12b9a40" astParent="0x12b5170"/>
+    <token id="0x12b5170" file="677.c" linenr="58" str="=" scope="0x12b83e0" type="op" isAssignmentOp="True" astOperand1="0x12b50c0" astOperand2="0x12a5520"/>
+    <token id="0x12a5470" file="677.c" linenr="58" str="obj" scope="0x12b83e0" type="name" varId="23" variable="0x12ba060" astParent="0x12a5520"/>
+    <token id="0x12a5520" file="677.c" linenr="58" str="." scope="0x12b83e0" astParent="0x12b5170" astOperand1="0x12a5470" astOperand2="0x12a5680"/>
+    <token id="0x12a5680" file="677.c" linenr="58" str="next" scope="0x12b83e0" type="name" varId="30" variable="0x12b95e0" astParent="0x12a5520"/>
+    <token id="0x12a5730" file="677.c" linenr="58" str=";" scope="0x12b83e0"/>
+    <token id="0x12a57e0" file="677.c" linenr="59" str="if" scope="0x12b83e0" type="name" astParent="0x12a5890"/>
+    <token id="0x12a5890" file="677.c" linenr="59" str="(" scope="0x12b83e0" link="0x12a5c00" astOperand1="0x12a57e0" astOperand2="0x12a59f0"/>
+    <token id="0x12a5940" file="677.c" linenr="59" str="obj" scope="0x12b83e0" type="name" varId="23" variable="0x12ba060" astParent="0x12a59f0"/>
+    <token id="0x12a59f0" file="677.c" linenr="59" str="." scope="0x12b83e0" astParent="0x12a5890" astOperand1="0x12a5940" astOperand2="0x12a5b50"/>
+    <token id="0x12a5b50" file="677.c" linenr="59" str="key" scope="0x12b83e0" type="name" varId="31" variable="0x12b9500" astParent="0x12a59f0"/>
+    <token id="0x12a5c00" file="677.c" linenr="59" str=")" scope="0x12b83e0" link="0x12a5890"/>
+    <token id="0x12a5cb0" file="677.c" linenr="59" str="{" scope="0x12b8510" link="0x12a6f40"/>
+    <token id="0x12a5d60" file="677.c" linenr="61" str="if" scope="0x12b8510" type="name" astParent="0x12a5e10"/>
+    <token id="0x12a5e10" file="677.c" linenr="61" str="(" scope="0x12b8510" link="0x12a67b0" astOperand1="0x12a5d60" astOperand2="0x12a6650"/>
+    <token id="0x12a5ec0" file="677.c" linenr="61" str="memcmp" scope="0x12b8510" type="name" astParent="0x12a5f70"/>
+    <token id="0x12a5f70" file="677.c" linenr="61" str="(" scope="0x12b8510" link="0x12a65a0" astParent="0x12a6650" astOperand1="0x12a5ec0" astOperand2="0x12a6440"/>
+    <token id="0x12a6020" file="677.c" linenr="61" str="obj" scope="0x12b8510" type="name" varId="23" variable="0x12ba060" astParent="0x12a60d0"/>
+    <token id="0x12a60d0" file="677.c" linenr="61" str="." scope="0x12b8510" astParent="0x12a62e0" astOperand1="0x12a6020" astOperand2="0x12a6230"/>
+    <token id="0x12a6230" file="677.c" linenr="61" str="key" scope="0x12b8510" type="name" varId="31" variable="0x12b9500" astParent="0x12a60d0"/>
+    <token id="0x12a62e0" file="677.c" linenr="61" str="," scope="0x12b8510" astParent="0x12a6440" astOperand1="0x12a60d0" astOperand2="0x12a6390"/>
+    <token id="0x12a6390" file="677.c" linenr="61" str="prefix" scope="0x12b8510" type="name" varId="24" variable="0x12ba0d0" astParent="0x12a62e0"/>
+    <token id="0x12a6440" file="677.c" linenr="61" str="," scope="0x12b8510" astParent="0x12a5f70" astOperand1="0x12a62e0" astOperand2="0x12a64f0"/>
+    <token id="0x12a64f0" file="677.c" linenr="61" str="len" scope="0x12b8510" type="name" varId="27" variable="0x12b9960" astParent="0x12a6440"/>
+    <token id="0x12a65a0" file="677.c" linenr="61" str=")" scope="0x12b8510" link="0x12a5f70"/>
+    <token id="0x12a6650" file="677.c" linenr="61" str="==" scope="0x12b8510" type="op" isComparisonOp="True" astParent="0x12a5e10" astOperand1="0x12a5f70" astOperand2="0x12a6700"/>
+    <token id="0x12a6700" file="677.c" linenr="61" str="0" scope="0x12b8510" type="number" isInt="True" values="0x12a6708" astParent="0x12a6650"/>
+    <token id="0x12a67b0" file="677.c" linenr="61" str=")" scope="0x12b8510" link="0x12a5e10"/>
+    <token id="0x12a6860" file="677.c" linenr="61" str="{" scope="0x12b8640" link="0x12a6e90"/>
+    <token id="0x12a6910" file="677.c" linenr="62" str="i" scope="0x12b8640" type="name" varId="26" variable="0x12b98f0" astParent="0x12a69c0"/>
+    <token id="0x12a69c0" file="677.c" linenr="62" str="+=" scope="0x12b8640" type="op" isAssignmentOp="True" astOperand1="0x12a6910" astOperand2="0x12a6bd0"/>
+    <token id="0x12a6b20" file="677.c" linenr="62" str="obj" scope="0x12b8640" type="name" varId="23" variable="0x12ba060" astParent="0x12a6bd0"/>
+    <token id="0x12a6bd0" file="677.c" linenr="62" str="." scope="0x12b8640" astParent="0x12a69c0" astOperand1="0x12a6b20" astOperand2="0x12a6d30"/>
+    <token id="0x12a6d30" file="677.c" linenr="62" str="val" scope="0x12b8640" type="name" varId="32" variable="0x12b9570" astParent="0x12a6bd0"/>
+    <token id="0x12a6de0" file="677.c" linenr="62" str=";" scope="0x12b8640"/>
+    <token id="0x12a6e90" file="677.c" linenr="63" str="}" scope="0x12b8640" link="0x12a6860"/>
+    <token id="0x12a6f40" file="677.c" linenr="65" str="}" scope="0x12b8510" link="0x12a5cb0"/>
+    <token id="0x12a6ff0" file="677.c" linenr="66" str="obj" scope="0x12b83e0" type="name" varId="23" variable="0x12ba060" astParent="0x12a70a0"/>
+    <token id="0x12a70a0" file="677.c" linenr="66" str="=" scope="0x12b83e0" type="op" isAssignmentOp="True" astOperand1="0x12a6ff0" astOperand2="0x12a7150"/>
+    <token id="0x12a7150" file="677.c" linenr="66" str="tmp" scope="0x12b83e0" type="name" varId="29" variable="0x12b9a40" astParent="0x12a70a0"/>
+    <token id="0x12a7200" file="677.c" linenr="66" str=";" scope="0x12b83e0"/>
+    <token id="0x12a72b0" file="677.c" linenr="67" str="}" scope="0x12b83e0" link="0x12a5100"/>
+    <token id="0x12a7360" file="677.c" linenr="67" str="while" scope="0x12b82b0" type="name" astParent="0x12a7410"/>
+    <token id="0x12a7410" file="677.c" linenr="67" str="(" scope="0x12b82b0" link="0x12a7780" astOperand1="0x12a7360" astOperand2="0x12a7570"/>
+    <token id="0x12a74c0" file="677.c" linenr="67" str="obj" scope="0x12b82b0" type="name" varId="23" variable="0x12ba060" astParent="0x12a7570"/>
+    <token id="0x12a7570" file="677.c" linenr="67" str="!=" scope="0x12b82b0" type="op" isComparisonOp="True" astParent="0x12a7410" astOperand1="0x12a74c0" astOperand2="0x12a76d0"/>
+    <token id="0x12a76d0" file="677.c" linenr="67" str="tail" scope="0x12b82b0" type="name" varId="25" variable="0x12b9880" astParent="0x12a7570"/>
+    <token id="0x12a7780" file="677.c" linenr="67" str=")" scope="0x12b82b0" link="0x12a7410"/>
+    <token id="0x12a7830" file="677.c" linenr="67" str=";" scope="0x12b82b0"/>
+    <token id="0x12a78e0" file="677.c" linenr="68" str="return" scope="0x12b82b0" type="name" astOperand1="0x12a7990"/>
+    <token id="0x12a7990" file="677.c" linenr="68" str="i" scope="0x12b82b0" type="name" varId="26" variable="0x12b98f0" values="0x12a7998" astParent="0x12a78e0"/>
+    <token id="0x12a7a40" file="677.c" linenr="68" str=";" scope="0x12b82b0"/>
+    <token id="0x12a7af0" file="677.c" linenr="69" str="}" scope="0x12b82b0" link="0x12a3f20"/>
+    <token id="0x12a7ba0" file="677.c" linenr="71" str="void" scope="0x12b6030" type="name"/>
+    <token id="0x12a7c50" file="677.c" linenr="71" str="mapSumFree" scope="0x12b6030" type="name" function="0x12b8770" astParent="0x12a7d00"/>
+    <token id="0x12a7d00" file="677.c" linenr="71" str="(" scope="0x12b6030" link="0x12a7fc0" astOperand1="0x12a7c50" astOperand2="0x12a7e60"/>
+    <token id="0x12a7db0" file="677.c" linenr="71" str="struct" scope="0x12b6030" type="name"/>
+    <token id="0x12b6a70" file="677.c" linenr="71" str="MapSum" scope="0x12b6030" type="name" type-scope="0x12b6d40" astParent="0x12a7e60"/>
+    <token id="0x12a7e60" file="677.c" linenr="71" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astParent="0x12a7d00" astOperand1="0x12b6a70" astOperand2="0x12a7f10"/>
+    <token id="0x12a7f10" file="677.c" linenr="71" str="obj" scope="0x12b6030" type="name" varId="33" variable="0x12ba140" astParent="0x12a7e60"/>
+    <token id="0x12a7fc0" file="677.c" linenr="71" str=")" scope="0x12b6030" link="0x12a7d00"/>
+    <token id="0x12a8070" file="677.c" linenr="71" str="{" scope="0x12b8810" link="0x12aa4e0"/>
+    <token id="0x12a8120" file="677.c" linenr="72" str="struct" scope="0x12b8810" type="name"/>
+    <token id="0x12b6b20" file="677.c" linenr="72" str="MapSum" scope="0x12b8810" type="name" type-scope="0x12b6d40" astParent="0x12a81d0"/>
+    <token id="0x12a81d0" file="677.c" linenr="72" str="*" scope="0x12b8810" type="op" isArithmeticalOp="True" astOperand1="0x12b6b20" astOperand2="0x12a8280"/>
+    <token id="0x12a8280" file="677.c" linenr="72" str="tail" scope="0x12b8810" type="name" varId="34" variable="0x12b9ab0" astParent="0x12a81d0"/>
+    <token id="0x12a8330" file="677.c" linenr="72" str=";" scope="0x12b8810"/>
+    <token id="0x12b5220" file="677.c" linenr="72" str="tail" scope="0x12b8810" type="name" varId="34" variable="0x12b9ab0" astParent="0x12b5580"/>
+    <token id="0x12b5580" file="677.c" linenr="72" str="=" scope="0x12b8810" type="op" isAssignmentOp="True" astOperand1="0x12b5220" astOperand2="0x12a83e0"/>
+    <token id="0x12a83e0" file="677.c" linenr="72" str="obj" scope="0x12b8810" type="name" varId="33" variable="0x12ba140" astParent="0x12b5580"/>
+    <token id="0x12a8490" file="677.c" linenr="72" str=";" scope="0x12b8810"/>
+    <token id="0x12a8540" file="677.c" linenr="73" str="do" scope="0x12b8810" type="name"/>
+    <token id="0x12a85f0" file="677.c" linenr="73" str="{" scope="0x12b8940" link="0x12a9eb0"/>
+    <token id="0x12a86a0" file="677.c" linenr="74" str="struct" scope="0x12b8940" type="name"/>
+    <token id="0x12b6bd0" file="677.c" linenr="74" str="MapSum" scope="0x12b8940" type="name" type-scope="0x12b6d40" astParent="0x12a8750"/>
+    <token id="0x12a8750" file="677.c" linenr="74" str="*" scope="0x12b8940" type="op" isArithmeticalOp="True" astOperand1="0x12b6bd0" astOperand2="0x12a8800"/>
+    <token id="0x12a8800" file="677.c" linenr="74" str="tmp" scope="0x12b8940" type="name" varId="35" variable="0x12b9b20" astParent="0x12a8750"/>
+    <token id="0x12a88b0" file="677.c" linenr="74" str=";" scope="0x12b8940"/>
+    <token id="0x12b5630" file="677.c" linenr="74" str="tmp" scope="0x12b8940" type="name" varId="35" variable="0x12b9b20" astParent="0x12b56e0"/>
+    <token id="0x12b56e0" file="677.c" linenr="74" str="=" scope="0x12b8940" type="op" isAssignmentOp="True" astOperand1="0x12b5630" astOperand2="0x12a8a10"/>
+    <token id="0x12a8960" file="677.c" linenr="74" str="obj" scope="0x12b8940" type="name" varId="33" variable="0x12ba140" astParent="0x12a8a10"/>
+    <token id="0x12a8a10" file="677.c" linenr="74" str="." scope="0x12b8940" astParent="0x12b56e0" astOperand1="0x12a8960" astOperand2="0x12a8b70"/>
+    <token id="0x12a8b70" file="677.c" linenr="74" str="next" scope="0x12b8940" type="name" varId="36" variable="0x12b95e0" astParent="0x12a8a10"/>
+    <token id="0x12a8c20" file="677.c" linenr="74" str=";" scope="0x12b8940"/>
+    <token id="0x12a8cd0" file="677.c" linenr="75" str="if" scope="0x12b8940" type="name" astParent="0x12a8d80"/>
+    <token id="0x12a8d80" file="677.c" linenr="75" str="(" scope="0x12b8940" link="0x12a90f0" astOperand1="0x12a8cd0" astOperand2="0x12a8ee0"/>
+    <token id="0x12a8e30" file="677.c" linenr="75" str="obj" scope="0x12b8940" type="name" varId="33" variable="0x12ba140" astParent="0x12a8ee0"/>
+    <token id="0x12a8ee0" file="677.c" linenr="75" str="." scope="0x12b8940" astParent="0x12a8d80" astOperand1="0x12a8e30" astOperand2="0x12a9040"/>
+    <token id="0x12a9040" file="677.c" linenr="75" str="key" scope="0x12b8940" type="name" varId="37" variable="0x12b9500" astParent="0x12a8ee0"/>
+    <token id="0x12a90f0" file="677.c" linenr="75" str=")" scope="0x12b8940" link="0x12a8d80"/>
+    <token id="0x12a91a0" file="677.c" linenr="75" str="{" scope="0x12b8a90" link="0x12a97d0"/>
+    <token id="0x12a9250" file="677.c" linenr="76" str="free" scope="0x12b8a90" type="name" astParent="0x12a9300"/>
+    <token id="0x12a9300" file="677.c" linenr="76" str="(" scope="0x12b8a90" link="0x12a9670" astOperand1="0x12a9250" astOperand2="0x12a9460"/>
+    <token id="0x12a93b0" file="677.c" linenr="76" str="obj" scope="0x12b8a90" type="name" varId="33" variable="0x12ba140" astParent="0x12a9460"/>
+    <token id="0x12a9460" file="677.c" linenr="76" str="." scope="0x12b8a90" astParent="0x12a9300" astOperand1="0x12a93b0" astOperand2="0x12a95c0"/>
+    <token id="0x12a95c0" file="677.c" linenr="76" str="key" scope="0x12b8a90" type="name" varId="37" variable="0x12b9500" astParent="0x12a9460"/>
+    <token id="0x12a9670" file="677.c" linenr="76" str=")" scope="0x12b8a90" link="0x12a9300"/>
+    <token id="0x12a9720" file="677.c" linenr="76" str=";" scope="0x12b8a90"/>
+    <token id="0x12a97d0" file="677.c" linenr="77" str="}" scope="0x12b8a90" link="0x12a91a0"/>
+    <token id="0x12a9880" file="677.c" linenr="78" str="free" scope="0x12b8940" type="name" astParent="0x12a9930"/>
+    <token id="0x12a9930" file="677.c" linenr="78" str="(" scope="0x12b8940" link="0x12a9a90" astOperand1="0x12a9880" astOperand2="0x12a99e0"/>
+    <token id="0x12a99e0" file="677.c" linenr="78" str="obj" scope="0x12b8940" type="name" varId="33" variable="0x12ba140" astParent="0x12a9930"/>
+    <token id="0x12a9a90" file="677.c" linenr="78" str=")" scope="0x12b8940" link="0x12a9930"/>
+    <token id="0x12a9b40" file="677.c" linenr="78" str=";" scope="0x12b8940"/>
+    <token id="0x12a9bf0" file="677.c" linenr="79" str="obj" scope="0x12b8940" type="name" varId="33" variable="0x12ba140" astParent="0x12a9ca0"/>
+    <token id="0x12a9ca0" file="677.c" linenr="79" str="=" scope="0x12b8940" type="op" isAssignmentOp="True" astOperand1="0x12a9bf0" astOperand2="0x12a9d50"/>
+    <token id="0x12a9d50" file="677.c" linenr="79" str="tmp" scope="0x12b8940" type="name" varId="35" variable="0x12b9b20" astParent="0x12a9ca0"/>
+    <token id="0x12a9e00" file="677.c" linenr="79" str=";" scope="0x12b8940"/>
+    <token id="0x12a9eb0" file="677.c" linenr="80" str="}" scope="0x12b8940" link="0x12a85f0"/>
+    <token id="0x12a9f60" file="677.c" linenr="80" str="while" scope="0x12b8810" type="name" astParent="0x12aa010"/>
+    <token id="0x12aa010" file="677.c" linenr="80" str="(" scope="0x12b8810" link="0x12aa380" astOperand1="0x12a9f60" astOperand2="0x12aa170"/>
+    <token id="0x12aa0c0" file="677.c" linenr="80" str="obj" scope="0x12b8810" type="name" varId="33" variable="0x12ba140" astParent="0x12aa170"/>
+    <token id="0x12aa170" file="677.c" linenr="80" str="!=" scope="0x12b8810" type="op" isComparisonOp="True" astParent="0x12aa010" astOperand1="0x12aa0c0" astOperand2="0x12aa2d0"/>
+    <token id="0x12aa2d0" file="677.c" linenr="80" str="tail" scope="0x12b8810" type="name" varId="34" variable="0x12b9ab0" astParent="0x12aa170"/>
+    <token id="0x12aa380" file="677.c" linenr="80" str=")" scope="0x12b8810" link="0x12aa010"/>
+    <token id="0x12aa430" file="677.c" linenr="80" str=";" scope="0x12b8810"/>
+    <token id="0x12aa4e0" file="677.c" linenr="81" str="}" scope="0x12b8810" link="0x12a8070"/>
+    <token id="0x12aa590" file="677.c" linenr="147" str="char" scope="0x12b6030" type="name" astParent="0x12aa640"/>
+    <token id="0x12aa640" file="677.c" linenr="147" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astOperand1="0x12aa590" astOperand2="0x12aa7a0"/>
+    <token id="0x12aa6f0" file="677.c" linenr="147" str="genRandomString" scope="0x12b6030" type="name" function="0x12b8be0" astParent="0x12aa7a0"/>
+    <token id="0x12aa7a0" file="677.c" linenr="147" str="(" scope="0x12b6030" link="0x12aa9b0" astParent="0x12aa640" astOperand1="0x12aa6f0" astOperand2="0x12aa900"/>
+    <token id="0x12aa850" file="677.c" linenr="147" str="int" scope="0x12b6030" type="name"/>
+    <token id="0x12aa900" file="677.c" linenr="147" str="length" scope="0x12b6030" type="name" varId="38" variable="0x12ba1b0" astParent="0x12aa7a0"/>
+    <token id="0x12aa9b0" file="677.c" linenr="147" str=")" scope="0x12b6030" link="0x12aa7a0"/>
+    <token id="0x12aaa60" file="677.c" linenr="148" str="{" scope="0x12b8c80" link="0x12b0aa0"/>
+    <token id="0x12aab10" file="677.c" linenr="149" str="int" scope="0x12b8c80" type="name"/>
+    <token id="0x12aabc0" file="677.c" linenr="149" str="flag" scope="0x12b8c80" type="name" varId="39" variable="0x12b9b90"/>
+    <token id="0x12aac70" file="677.c" linenr="149" str=";" scope="0x12b8c80"/>
+    <token id="0x12b57e0" file="677.c" linenr="149" str="int" scope="0x12b8c80" type="name"/>
+    <token id="0x12aad20" file="677.c" linenr="149" str="i" scope="0x12b8c80" type="name" varId="40" variable="0x12b9c00"/>
+    <token id="0x12aadd0" file="677.c" linenr="149" str=";" scope="0x12b8c80"/>
+    <token id="0x12aae80" file="677.c" linenr="150" str="char" scope="0x12b8c80" type="name" astParent="0x12aaf30"/>
+    <token id="0x12aaf30" file="677.c" linenr="150" str="*" scope="0x12b8c80" type="op" isArithmeticalOp="True" astOperand1="0x12aae80" astOperand2="0x12aafe0"/>
+    <token id="0x12aafe0" file="677.c" linenr="150" str="string" scope="0x12b8c80" type="name" varId="41" variable="0x12b9c70" astParent="0x12aaf30"/>
+    <token id="0x12ab090" file="677.c" linenr="150" str=";" scope="0x12b8c80"/>
+    <token id="0x12ab140" file="677.c" linenr="152" str="if" scope="0x12b8c80" type="name" astParent="0x12ab1f0"/>
+    <token id="0x12ab1f0" file="677.c" linenr="152" str="(" scope="0x12b8c80" link="0x12abc40" astOperand1="0x12ab140" astOperand2="0x12abae0"/>
+    <token id="0x12ab2a0" file="677.c" linenr="152" str="(" scope="0x12b8c80" link="0x12aba30"/>
+    <token id="0x12ab350" file="677.c" linenr="152" str="string" scope="0x12b8c80" type="name" varId="41" variable="0x12b9c70" astParent="0x12ab400"/>
+    <token id="0x12ab400" file="677.c" linenr="152" str="=" scope="0x12b8c80" type="op" isAssignmentOp="True" astParent="0x12abae0" astOperand1="0x12ab350" astOperand2="0x12ab4b0"/>
+    <token id="0x12ab4b0" file="677.c" linenr="152" str="(" scope="0x12b8c80" link="0x12ab6c0" astParent="0x12ab400" astOperand1="0x12ab820"/>
+    <token id="0x12ab560" file="677.c" linenr="152" str="char" scope="0x12b8c80" type="name"/>
+    <token id="0x12ab610" file="677.c" linenr="152" str="*" scope="0x12b8c80" type="op" isArithmeticalOp="True"/>
+    <token id="0x12ab6c0" file="677.c" linenr="152" str=")" scope="0x12b8c80" link="0x12ab4b0"/>
+    <token id="0x12ab770" file="677.c" linenr="152" str="malloc" scope="0x12b8c80" type="name" astParent="0x12ab820"/>
+    <token id="0x12ab820" file="677.c" linenr="152" str="(" scope="0x12b8c80" link="0x12ab980" astParent="0x12ab4b0" astOperand1="0x12ab770" astOperand2="0x12ab8d0"/>
+    <token id="0x12ab8d0" file="677.c" linenr="152" str="length" scope="0x12b8c80" type="name" varId="38" variable="0x12ba1b0" astParent="0x12ab820"/>
+    <token id="0x12ab980" file="677.c" linenr="152" str=")" scope="0x12b8c80" link="0x12ab820"/>
+    <token id="0x12aba30" file="677.c" linenr="152" str=")" scope="0x12b8c80" link="0x12ab2a0"/>
+    <token id="0x12abae0" file="677.c" linenr="152" str="==" scope="0x12b8c80" type="op" isComparisonOp="True" astParent="0x12ab1f0" astOperand1="0x12ab400" astOperand2="0x12abb90"/>
+    <token id="0x12abb90" file="677.c" linenr="152" str="0" scope="0x12b8c80" type="number" isInt="True" values="0x12abb98" astParent="0x12abae0"/>
+    <token id="0x12abc40" file="677.c" linenr="152" str=")" scope="0x12b8c80" link="0x12ab1f0"/>
+    <token id="0x12abcf0" file="677.c" linenr="153" str="{" scope="0x12b8dd0" link="0x12abfb0"/>
+    <token id="0x12abda0" file="677.c" linenr="154" str="return" scope="0x12b8dd0" type="name" astOperand1="0x12abe50"/>
+    <token id="0x12abe50" file="677.c" linenr="154" str="0" scope="0x12b8dd0" type="number" isInt="True" values="0x12abe58" astParent="0x12abda0"/>
+    <token id="0x12abf00" file="677.c" linenr="154" str=";" scope="0x12b8dd0"/>
+    <token id="0x12abfb0" file="677.c" linenr="155" str="}" scope="0x12b8dd0" link="0x12abcf0"/>
+    <token id="0x12ac060" file="677.c" linenr="157" str="for" scope="0x12b8c80" type="name" astParent="0x12ac110"/>
+    <token id="0x12ac110" file="677.c" linenr="157" str="(" scope="0x12b8c80" link="0x12aca00" astOperand1="0x12ac060" astOperand2="0x12ac3d0"/>
+    <token id="0x12ac1c0" file="677.c" linenr="157" str="i" scope="0x12b8c80" type="name" varId="40" variable="0x12b9c00" astParent="0x12ac270"/>
+    <token id="0x12ac270" file="677.c" linenr="157" str="=" scope="0x12b8c80" type="op" isAssignmentOp="True" astParent="0x12ac3d0" astOperand1="0x12ac1c0" astOperand2="0x12ac320"/>
+    <token id="0x12ac320" file="677.c" linenr="157" str="0" scope="0x12b8c80" type="number" isInt="True" values="0x12ac328" astParent="0x12ac270"/>
+    <token id="0x12ac3d0" file="677.c" linenr="157" str=";" scope="0x12b8c80" astParent="0x12ac110" astOperand1="0x12ac270" astOperand2="0x12ac7f0"/>
+    <token id="0x12ac480" file="677.c" linenr="157" str="i" scope="0x12b8c80" type="name" varId="40" variable="0x12b9c00" astParent="0x12ac530"/>
+    <token id="0x12ac530" file="677.c" linenr="157" str="&lt;" scope="0x12b8c80" type="op" isComparisonOp="True" astParent="0x12ac7f0" astOperand1="0x12ac480" astOperand2="0x12ac690"/>
+    <token id="0x12ac5e0" file="677.c" linenr="157" str="length" scope="0x12b8c80" type="name" varId="38" variable="0x12ba1b0" astParent="0x12ac690"/>
+    <token id="0x12ac690" file="677.c" linenr="157" str="-" scope="0x12b8c80" type="op" isArithmeticalOp="True" astParent="0x12ac530" astOperand1="0x12ac5e0" astOperand2="0x12ac740"/>
+    <token id="0x12ac740" file="677.c" linenr="157" str="1" scope="0x12b8c80" type="number" isInt="True" values="0x12ac748" astParent="0x12ac690"/>
+    <token id="0x12ac7f0" file="677.c" linenr="157" str=";" scope="0x12b8c80" astParent="0x12ac3d0" astOperand1="0x12ac530" astOperand2="0x12ac950"/>
+    <token id="0x12ac8a0" file="677.c" linenr="157" str="i" scope="0x12b8c80" type="name" varId="40" variable="0x12b9c00" astParent="0x12ac950"/>
+    <token id="0x12ac950" file="677.c" linenr="157" str="++" scope="0x12b8c80" type="op" astParent="0x12ac7f0" astOperand1="0x12ac8a0"/>
+    <token id="0x12aca00" file="677.c" linenr="157" str=")" scope="0x12b8c80" link="0x12ac110"/>
+    <token id="0x12acab0" file="677.c" linenr="158" str="{" scope="0x12b8f20" link="0x12b01b0"/>
+    <token id="0x12acb60" file="677.c" linenr="159" str="flag" scope="0x12b8f20" type="name" varId="39" variable="0x12b9b90" astParent="0x12acc10"/>
+    <token id="0x12acc10" file="677.c" linenr="159" str="=" scope="0x12b8f20" type="op" isAssignmentOp="True" astOperand1="0x12acb60" astOperand2="0x12aced0"/>
+    <token id="0x12accc0" file="677.c" linenr="159" str="rand" scope="0x12b8f20" type="name" astParent="0x12acd70"/>
+    <token id="0x12acd70" file="677.c" linenr="159" str="(" scope="0x12b8f20" link="0x12ace20" astParent="0x12aced0" astOperand1="0x12accc0"/>
+    <token id="0x12ace20" file="677.c" linenr="159" str=")" scope="0x12b8f20" link="0x12acd70"/>
+    <token id="0x12aced0" file="677.c" linenr="159" str="%" scope="0x12b8f20" type="op" isArithmeticalOp="True" astParent="0x12acc10" astOperand1="0x12acd70" astOperand2="0x12acf80"/>
+    <token id="0x12acf80" file="677.c" linenr="159" str="3" scope="0x12b8f20" type="number" isInt="True" values="0x12acf88" astParent="0x12aced0"/>
+    <token id="0x12ad030" file="677.c" linenr="159" str=";" scope="0x12b8f20"/>
+    <token id="0x12ad0e0" file="677.c" linenr="160" str="switch" scope="0x12b8f20" type="name" astParent="0x12ad190"/>
+    <token id="0x12ad190" file="677.c" linenr="160" str="(" scope="0x12b8f20" link="0x12ad2f0" astOperand1="0x12ad0e0" astOperand2="0x12ad240"/>
+    <token id="0x12ad240" file="677.c" linenr="160" str="flag" scope="0x12b8f20" type="name" varId="39" variable="0x12b9b90" astParent="0x12ad190"/>
+    <token id="0x12ad2f0" file="677.c" linenr="160" str=")" scope="0x12b8f20" link="0x12ad190"/>
+    <token id="0x12ad3a0" file="677.c" linenr="161" str="{" scope="0x12b9070" link="0x12b0100"/>
+    <token id="0x12ad450" file="677.c" linenr="162" str="case" scope="0x12b9070" type="name"/>
+    <token id="0x12ad500" file="677.c" linenr="162" str="0" scope="0x12b9070" type="number" isInt="True" values="0x12ad508"/>
+    <token id="0x12ad5b0" file="677.c" linenr="162" str=":" scope="0x12b9070"/>
+    <token id="0x12a0090" file="677.c" linenr="162" str=";" scope="0x12b9070"/>
+    <token id="0x12ad660" file="677.c" linenr="163" str="string" scope="0x12b9070" type="name" varId="41" variable="0x12b9c70" astParent="0x12ad710"/>
+    <token id="0x12ad710" file="677.c" linenr="163" str="[" scope="0x12b9070" link="0x12ad870" astParent="0x12ad920" astOperand1="0x12ad660" astOperand2="0x12ad7c0"/>
+    <token id="0x12ad7c0" file="677.c" linenr="163" str="i" scope="0x12b9070" type="name" varId="40" variable="0x12b9c00" values="0x12ad7c8" astParent="0x12ad710"/>
+    <token id="0x12ad870" file="677.c" linenr="163" str="]" scope="0x12b9070" link="0x12ad710"/>
+    <token id="0x12ad920" file="677.c" linenr="163" str="=" scope="0x12b9070" type="op" isAssignmentOp="True" astOperand1="0x12ad710" astOperand2="0x12ada80"/>
+    <token id="0x12ad9d0" file="677.c" linenr="163" str="'A'" scope="0x12b9070" type="char" values="0x12ad9d8" astParent="0x12ada80"/>
+    <token id="0x12ada80" file="677.c" linenr="163" str="+" scope="0x12b9070" type="op" isArithmeticalOp="True" astParent="0x12ad920" astOperand1="0x12ad9d0" astOperand2="0x12add40"/>
+    <token id="0x12adb30" file="677.c" linenr="163" str="rand" scope="0x12b9070" type="name" astParent="0x12adbe0"/>
+    <token id="0x12adbe0" file="677.c" linenr="163" str="(" scope="0x12b9070" link="0x12adc90" astParent="0x12add40" astOperand1="0x12adb30"/>
+    <token id="0x12adc90" file="677.c" linenr="163" str=")" scope="0x12b9070" link="0x12adbe0"/>
+    <token id="0x12add40" file="677.c" linenr="163" str="%" scope="0x12b9070" type="op" isArithmeticalOp="True" astParent="0x12ada80" astOperand1="0x12adbe0" astOperand2="0x12addf0"/>
+    <token id="0x12addf0" file="677.c" linenr="163" str="26" scope="0x12b9070" type="number" isInt="True" values="0x12addf8" astParent="0x12add40"/>
+    <token id="0x12adea0" file="677.c" linenr="163" str=";" scope="0x12b9070"/>
+    <token id="0x12adf50" file="677.c" linenr="164" str="break" scope="0x12b9070" type="name"/>
+    <token id="0x12ae000" file="677.c" linenr="164" str=";" scope="0x12b9070"/>
+    <token id="0x12ae0b0" file="677.c" linenr="165" str="case" scope="0x12b9070" type="name"/>
+    <token id="0x12ae160" file="677.c" linenr="165" str="1" scope="0x12b9070" type="number" isInt="True" values="0x12ae168"/>
+    <token id="0x12ae210" file="677.c" linenr="165" str=":" scope="0x12b9070"/>
+    <token id="0x12a1060" file="677.c" linenr="165" str=";" scope="0x12b9070"/>
+    <token id="0x12ae2c0" file="677.c" linenr="166" str="string" scope="0x12b9070" type="name" varId="41" variable="0x12b9c70" astParent="0x12ae370"/>
+    <token id="0x12ae370" file="677.c" linenr="166" str="[" scope="0x12b9070" link="0x12ae4d0" astParent="0x12ae580" astOperand1="0x12ae2c0" astOperand2="0x12ae420"/>
+    <token id="0x12ae420" file="677.c" linenr="166" str="i" scope="0x12b9070" type="name" varId="40" variable="0x12b9c00" values="0x12ae428" astParent="0x12ae370"/>
+    <token id="0x12ae4d0" file="677.c" linenr="166" str="]" scope="0x12b9070" link="0x12ae370"/>
+    <token id="0x12ae580" file="677.c" linenr="166" str="=" scope="0x12b9070" type="op" isAssignmentOp="True" astOperand1="0x12ae370" astOperand2="0x12ae6e0"/>
+    <token id="0x12ae630" file="677.c" linenr="166" str="'a'" scope="0x12b9070" type="char" values="0x12ae638" astParent="0x12ae6e0"/>
+    <token id="0x12ae6e0" file="677.c" linenr="166" str="+" scope="0x12b9070" type="op" isArithmeticalOp="True" astParent="0x12ae580" astOperand1="0x12ae630" astOperand2="0x12ae9a0"/>
+    <token id="0x12ae790" file="677.c" linenr="166" str="rand" scope="0x12b9070" type="name" astParent="0x12ae840"/>
+    <token id="0x12ae840" file="677.c" linenr="166" str="(" scope="0x12b9070" link="0x12ae8f0" astParent="0x12ae9a0" astOperand1="0x12ae790"/>
+    <token id="0x12ae8f0" file="677.c" linenr="166" str=")" scope="0x12b9070" link="0x12ae840"/>
+    <token id="0x12ae9a0" file="677.c" linenr="166" str="%" scope="0x12b9070" type="op" isArithmeticalOp="True" astParent="0x12ae6e0" astOperand1="0x12ae840" astOperand2="0x12aea50"/>
+    <token id="0x12aea50" file="677.c" linenr="166" str="26" scope="0x12b9070" type="number" isInt="True" values="0x12aea58" astParent="0x12ae9a0"/>
+    <token id="0x12aeb00" file="677.c" linenr="166" str=";" scope="0x12b9070"/>
+    <token id="0x12aebb0" file="677.c" linenr="167" str="break" scope="0x12b9070" type="name"/>
+    <token id="0x12aec60" file="677.c" linenr="167" str=";" scope="0x12b9070"/>
+    <token id="0x12aed10" file="677.c" linenr="168" str="case" scope="0x12b9070" type="name"/>
+    <token id="0x12aedc0" file="677.c" linenr="168" str="2" scope="0x12b9070" type="number" isInt="True" values="0x12aedc8"/>
+    <token id="0x12aee70" file="677.c" linenr="168" str=":" scope="0x12b9070"/>
+    <token id="0x12a1740" file="677.c" linenr="168" str=";" scope="0x12b9070"/>
+    <token id="0x12aef20" file="677.c" linenr="169" str="string" scope="0x12b9070" type="name" varId="41" variable="0x12b9c70" astParent="0x12aefd0"/>
+    <token id="0x12aefd0" file="677.c" linenr="169" str="[" scope="0x12b9070" link="0x12af130" astParent="0x12af1e0" astOperand1="0x12aef20" astOperand2="0x12af080"/>
+    <token id="0x12af080" file="677.c" linenr="169" str="i" scope="0x12b9070" type="name" varId="40" variable="0x12b9c00" values="0x12af088" astParent="0x12aefd0"/>
+    <token id="0x12af130" file="677.c" linenr="169" str="]" scope="0x12b9070" link="0x12aefd0"/>
+    <token id="0x12af1e0" file="677.c" linenr="169" str="=" scope="0x12b9070" type="op" isAssignmentOp="True" astOperand1="0x12aefd0" astOperand2="0x12af340"/>
+    <token id="0x12af290" file="677.c" linenr="169" str="'0'" scope="0x12b9070" type="char" values="0x12af298" astParent="0x12af340"/>
+    <token id="0x12af340" file="677.c" linenr="169" str="+" scope="0x12b9070" type="op" isArithmeticalOp="True" astParent="0x12af1e0" astOperand1="0x12af290" astOperand2="0x12af600"/>
+    <token id="0x12af3f0" file="677.c" linenr="169" str="rand" scope="0x12b9070" type="name" astParent="0x12af4a0"/>
+    <token id="0x12af4a0" file="677.c" linenr="169" str="(" scope="0x12b9070" link="0x12af550" astParent="0x12af600" astOperand1="0x12af3f0"/>
+    <token id="0x12af550" file="677.c" linenr="169" str=")" scope="0x12b9070" link="0x12af4a0"/>
+    <token id="0x12af600" file="677.c" linenr="169" str="%" scope="0x12b9070" type="op" isArithmeticalOp="True" astParent="0x12af340" astOperand1="0x12af4a0" astOperand2="0x12af6b0"/>
+    <token id="0x12af6b0" file="677.c" linenr="169" str="10" scope="0x12b9070" type="number" isInt="True" values="0x12af6b8" astParent="0x12af600"/>
+    <token id="0x12af760" file="677.c" linenr="169" str=";" scope="0x12b9070"/>
+    <token id="0x12af810" file="677.c" linenr="170" str="break" scope="0x12b9070" type="name"/>
+    <token id="0x12af8c0" file="677.c" linenr="170" str=";" scope="0x12b9070"/>
+    <token id="0x12af970" file="677.c" linenr="171" str="default" scope="0x12b9070" type="name"/>
+    <token id="0x12afa20" file="677.c" linenr="171" str=":" scope="0x12b9070"/>
+    <token id="0x12a1f80" file="677.c" linenr="171" str=";" scope="0x12b9070"/>
+    <token id="0x12afad0" file="677.c" linenr="172" str="string" scope="0x12b9070" type="name" varId="41" variable="0x12b9c70" astParent="0x12afb80"/>
+    <token id="0x12afb80" file="677.c" linenr="172" str="[" scope="0x12b9070" link="0x12afce0" astParent="0x12afd90" astOperand1="0x12afad0" astOperand2="0x12afc30"/>
+    <token id="0x12afc30" file="677.c" linenr="172" str="i" scope="0x12b9070" type="name" varId="40" variable="0x12b9c00" values="0x12afc38" astParent="0x12afb80"/>
+    <token id="0x12afce0" file="677.c" linenr="172" str="]" scope="0x12b9070" link="0x12afb80"/>
+    <token id="0x12afd90" file="677.c" linenr="172" str="=" scope="0x12b9070" type="op" isAssignmentOp="True" astOperand1="0x12afb80" astOperand2="0x12afe40"/>
+    <token id="0x12afe40" file="677.c" linenr="172" str="'x'" scope="0x12b9070" type="char" values="0x12afe48" astParent="0x12afd90"/>
+    <token id="0x12afef0" file="677.c" linenr="172" str=";" scope="0x12b9070"/>
+    <token id="0x12affa0" file="677.c" linenr="173" str="break" scope="0x12b9070" type="name"/>
+    <token id="0x12b0050" file="677.c" linenr="173" str=";" scope="0x12b9070"/>
+    <token id="0x12b0100" file="677.c" linenr="174" str="}" scope="0x12b9070" link="0x12ad3a0"/>
+    <token id="0x12b01b0" file="677.c" linenr="175" str="}" scope="0x12b8f20" link="0x12acab0"/>
+    <token id="0x12b0260" file="677.c" linenr="176" str="string" scope="0x12b8c80" type="name" varId="41" variable="0x12b9c70" astParent="0x12b0310"/>
+    <token id="0x12b0310" file="677.c" linenr="176" str="[" scope="0x12b8c80" link="0x12b05d0" astParent="0x12b0680" astOperand1="0x12b0260" astOperand2="0x12b0470"/>
+    <token id="0x12b03c0" file="677.c" linenr="176" str="length" scope="0x12b8c80" type="name" varId="38" variable="0x12ba1b0" astParent="0x12b0470"/>
+    <token id="0x12b0470" file="677.c" linenr="176" str="-" scope="0x12b8c80" type="op" isArithmeticalOp="True" astParent="0x12b0310" astOperand1="0x12b03c0" astOperand2="0x12b0520"/>
+    <token id="0x12b0520" file="677.c" linenr="176" str="1" scope="0x12b8c80" type="number" isInt="True" values="0x12b0528" astParent="0x12b0470"/>
+    <token id="0x12b05d0" file="677.c" linenr="176" str="]" scope="0x12b8c80" link="0x12b0310"/>
+    <token id="0x12b0680" file="677.c" linenr="176" str="=" scope="0x12b8c80" type="op" isAssignmentOp="True" astOperand1="0x12b0310" astOperand2="0x12b0730"/>
+    <token id="0x12b0730" file="677.c" linenr="176" str="0" scope="0x12b8c80" type="number" isInt="True" values="0x12b0738" astParent="0x12b0680"/>
+    <token id="0x12b07e0" file="677.c" linenr="176" str=";" scope="0x12b8c80"/>
+    <token id="0x12b0890" file="677.c" linenr="177" str="return" scope="0x12b8c80" type="name" astOperand1="0x12b0940"/>
+    <token id="0x12b0940" file="677.c" linenr="177" str="string" scope="0x12b8c80" type="name" varId="41" variable="0x12b9c70" astParent="0x12b0890"/>
+    <token id="0x12b09f0" file="677.c" linenr="177" str=";" scope="0x12b8c80"/>
+    <token id="0x12b0aa0" file="677.c" linenr="178" str="}" scope="0x12b8c80" link="0x12aaa60"/>
+    <token id="0x12b0b50" file="677.c" linenr="182" str="int" scope="0x12b6030" type="name"/>
+    <token id="0x12b0c00" file="677.c" linenr="182" str="main" scope="0x12b6030" type="name" function="0x12b91c0" astParent="0x12b0cb0"/>
+    <token id="0x12b0cb0" file="677.c" linenr="182" str="(" scope="0x12b6030" link="0x12b12e0" astOperand1="0x12b0c00" astOperand2="0x12b0ec0"/>
+    <token id="0x12b0d60" file="677.c" linenr="182" str="int" scope="0x12b6030" type="name"/>
+    <token id="0x12b0e10" file="677.c" linenr="182" str="argc" scope="0x12b6030" type="name" varId="42" variable="0x12ba220" astParent="0x12b0ec0"/>
+    <token id="0x12b0ec0" file="677.c" linenr="182" str="," scope="0x12b6030" astParent="0x12b0cb0" astOperand1="0x12b0e10" astOperand2="0x12b1020"/>
+    <token id="0x12b0f70" file="677.c" linenr="182" str="char" scope="0x12b6030" type="name" astParent="0x12b1020"/>
+    <token id="0x12b1020" file="677.c" linenr="182" str="*" scope="0x12b6030" type="op" isArithmeticalOp="True" astParent="0x12b0ec0" astOperand1="0x12b0f70" astOperand2="0x12b1180"/>
+    <token id="0x12b10d0" file="677.c" linenr="182" str="argv" scope="0x12b6030" type="name" varId="43" variable="0x12ba290" astParent="0x12b1180"/>
+    <token id="0x12b1180" file="677.c" linenr="182" str="[" scope="0x12b6030" link="0x12b1230" astParent="0x12b1020" astOperand1="0x12b10d0"/>
+    <token id="0x12b1230" file="677.c" linenr="182" str="]" scope="0x12b6030" link="0x12b1180"/>
+    <token id="0x12b12e0" file="677.c" linenr="182" str=")" scope="0x12b6030" link="0x12b0cb0"/>
+    <token id="0x12b1390" file="677.c" linenr="183" str="{" scope="0x12b9260" link="0x12b5010"/>
+    <token id="0x12b1440" file="677.c" linenr="184" str="struct" scope="0x12b9260" type="name"/>
+    <token id="0x12b6c80" file="677.c" linenr="184" str="MapSum" scope="0x12b9260" type="name" type-scope="0x12b6d40" astParent="0x12b14f0"/>
+    <token id="0x12b14f0" file="677.c" linenr="184" str="*" scope="0x12b9260" type="op" isArithmeticalOp="True" astOperand1="0x12b6c80" astOperand2="0x12b15a0"/>
+    <token id="0x12b15a0" file="677.c" linenr="184" str="head" scope="0x12b9260" type="name" varId="44" variable="0x12b9ce0" astParent="0x12b14f0"/>
+    <token id="0x12b1650" file="677.c" linenr="184" str=";" scope="0x12b9260"/>
+    <token id="0x12b5890" file="677.c" linenr="184" str="head" scope="0x12b9260" type="name" varId="44" variable="0x12b9ce0" astParent="0x12b5940"/>
+    <token id="0x12b5940" file="677.c" linenr="184" str="=" scope="0x12b9260" type="op" isAssignmentOp="True" astOperand1="0x12b5890" astOperand2="0x12b17b0"/>
+    <token id="0x12b1700" file="677.c" linenr="184" str="mapSumCreate" scope="0x12b9260" type="name" function="0x12b6fa0" astParent="0x12b17b0"/>
+    <token id="0x12b17b0" file="677.c" linenr="184" str="(" scope="0x12b9260" link="0x12b1860" astParent="0x12b5940" astOperand1="0x12b1700"/>
+    <token id="0x12b1860" file="677.c" linenr="184" str=")" scope="0x12b9260" link="0x12b17b0"/>
+    <token id="0x12b1910" file="677.c" linenr="184" str=";" scope="0x12b9260"/>
+    <token id="0x12b19c0" file="677.c" linenr="185" str="srand" scope="0x12b9260" type="name" astParent="0x12b1a70"/>
+    <token id="0x12b1a70" file="677.c" linenr="185" str="(" scope="0x12b9260" link="0x12b1de0" astOperand1="0x12b19c0" astOperand2="0x12b1bd0"/>
+    <token id="0x12b1b20" file="677.c" linenr="185" str="time" scope="0x12b9260" type="name" astParent="0x12b1bd0"/>
+    <token id="0x12b1bd0" file="677.c" linenr="185" str="(" scope="0x12b9260" link="0x12b1d30" astParent="0x12b1a70" astOperand1="0x12b1b20" astOperand2="0x12b1c80"/>
+    <token id="0x12b1c80" file="677.c" linenr="185" str="NULL" scope="0x12b9260" type="name" astParent="0x12b1bd0"/>
+    <token id="0x12b1d30" file="677.c" linenr="185" str=")" scope="0x12b9260" link="0x12b1bd0"/>
+    <token id="0x12b1de0" file="677.c" linenr="185" str=")" scope="0x12b9260" link="0x12b1a70"/>
+    <token id="0x12b1e90" file="677.c" linenr="185" str=";" scope="0x12b9260"/>
+    <token id="0x12b1f40" file="677.c" linenr="186" str="int" scope="0x12b9260" type="name"/>
+    <token id="0x12b1ff0" file="677.c" linenr="186" str="i" scope="0x12b9260" type="name" varId="45" variable="0x12b9d50"/>
+    <token id="0x12b20a0" file="677.c" linenr="186" str=";" scope="0x12b9260"/>
+    <token id="0x12b59f0" file="677.c" linenr="186" str="i" scope="0x12b9260" type="name" varId="45" variable="0x12b9d50" astParent="0x12b5aa0"/>
+    <token id="0x12b5aa0" file="677.c" linenr="186" str="=" scope="0x12b9260" type="op" isAssignmentOp="True" astOperand1="0x12b59f0" astOperand2="0x12b2150"/>
+    <token id="0x12b2150" file="677.c" linenr="186" str="0" scope="0x12b9260" type="number" isInt="True" values="0x12b2158" astParent="0x12b5aa0"/>
+    <token id="0x12b2200" file="677.c" linenr="186" str=";" scope="0x12b9260"/>
+    <token id="0x12b22b0" file="677.c" linenr="187" str="for" scope="0x12b9260" type="name" astParent="0x12b2360"/>
+    <token id="0x12b2360" file="677.c" linenr="187" str="(" scope="0x12b9260" link="0x12b28e0" astOperand1="0x12b22b0" astOperand2="0x12b2410"/>
+    <token id="0x12b2410" file="677.c" linenr="187" str=";" scope="0x12b9260" astParent="0x12b2360" astOperand2="0x12b26d0"/>
+    <token id="0x12b24c0" file="677.c" linenr="187" str="i" scope="0x12b9260" type="name" varId="45" variable="0x12b9d50" astParent="0x12b2570"/>
+    <token id="0x12b2570" file="677.c" linenr="187" str="&lt;" scope="0x12b9260" type="op" isComparisonOp="True" astParent="0x12b26d0" astOperand1="0x12b24c0" astOperand2="0x12b2620"/>
+    <token id="0x12b2620" file="677.c" linenr="187" str="1000" scope="0x12b9260" type="number" isInt="True" values="0x12b2628" astParent="0x12b2570"/>
+    <token id="0x12b26d0" file="677.c" linenr="187" str=";" scope="0x12b9260" astParent="0x12b2410" astOperand1="0x12b2570" astOperand2="0x12b2830"/>
+    <token id="0x12b2780" file="677.c" linenr="187" str="i" scope="0x12b9260" type="name" varId="45" variable="0x12b9d50" astParent="0x12b2830"/>
+    <token id="0x12b2830" file="677.c" linenr="187" str="++" scope="0x12b9260" type="op" astParent="0x12b26d0" astOperand1="0x12b2780"/>
+    <token id="0x12b28e0" file="677.c" linenr="187" str=")" scope="0x12b9260" link="0x12b2360"/>
+    <token id="0x12b2990" file="677.c" linenr="187" str="{" scope="0x12b93b0" link="0x12b3e30"/>
+    <token id="0x12b2a40" file="677.c" linenr="188" str="int" scope="0x12b93b0" type="name"/>
+    <token id="0x12b2af0" file="677.c" linenr="188" str="num" scope="0x12b93b0" type="name" varId="46" variable="0x12b9e30"/>
+    <token id="0x12b2ba0" file="677.c" linenr="188" str=";" scope="0x12b93b0"/>
+    <token id="0x12b5b50" file="677.c" linenr="188" str="num" scope="0x12b93b0" type="name" varId="46" variable="0x12b9e30" astParent="0x12b5c00"/>
+    <token id="0x12b5c00" file="677.c" linenr="188" str="=" scope="0x12b93b0" type="op" isAssignmentOp="True" astOperand1="0x12b5b50" astOperand2="0x12b2e60"/>
+    <token id="0x12b2c50" file="677.c" linenr="188" str="rand" scope="0x12b93b0" type="name" astParent="0x12b2d00"/>
+    <token id="0x12b2d00" file="677.c" linenr="188" str="(" scope="0x12b93b0" link="0x12b2db0" astParent="0x12b2e60" astOperand1="0x12b2c50"/>
+    <token id="0x12b2db0" file="677.c" linenr="188" str=")" scope="0x12b93b0" link="0x12b2d00"/>
+    <token id="0x12b2e60" file="677.c" linenr="188" str="%" scope="0x12b93b0" type="op" isArithmeticalOp="True" astParent="0x12b5c00" astOperand1="0x12b2d00" astOperand2="0x12b2f10"/>
+    <token id="0x12b2f10" file="677.c" linenr="188" str="10" scope="0x12b93b0" type="number" isInt="True" values="0x12b2f18" astParent="0x12b2e60"/>
+    <token id="0x12b2fc0" file="677.c" linenr="188" str=";" scope="0x12b93b0"/>
+    <token id="0x12b3070" file="677.c" linenr="189" str="char" scope="0x12b93b0" type="name" astParent="0x12b3120"/>
+    <token id="0x12b3120" file="677.c" linenr="189" str="*" scope="0x12b93b0" type="op" isArithmeticalOp="True" astOperand1="0x12b3070" astOperand2="0x12b31d0"/>
+    <token id="0x12b31d0" file="677.c" linenr="189" str="str" scope="0x12b93b0" type="name" varId="47" variable="0x12b9ea0" astParent="0x12b3120"/>
+    <token id="0x12b3280" file="677.c" linenr="189" str=";" scope="0x12b93b0"/>
+    <token id="0x12b5cb0" file="677.c" linenr="189" str="str" scope="0x12b93b0" type="name" varId="47" variable="0x12b9ea0" astParent="0x12b5d60"/>
+    <token id="0x12b5d60" file="677.c" linenr="189" str="=" scope="0x12b93b0" type="op" isAssignmentOp="True" astOperand1="0x12b5cb0" astOperand2="0x12b33e0"/>
+    <token id="0x12b3330" file="677.c" linenr="189" str="genRandomString" scope="0x12b93b0" type="name" function="0x12b8be0" astParent="0x12b33e0"/>
+    <token id="0x12b33e0" file="677.c" linenr="189" str="(" scope="0x12b93b0" link="0x12b36a0" astParent="0x12b5d60" astOperand1="0x12b3330" astOperand2="0x12b3540"/>
+    <token id="0x12b3490" file="677.c" linenr="189" str="num" scope="0x12b93b0" type="name" varId="46" variable="0x12b9e30" astParent="0x12b3540"/>
+    <token id="0x12b3540" file="677.c" linenr="189" str="+" scope="0x12b93b0" type="op" isArithmeticalOp="True" astParent="0x12b33e0" astOperand1="0x12b3490" astOperand2="0x12b35f0"/>
+    <token id="0x12b35f0" file="677.c" linenr="189" str="2" scope="0x12b93b0" type="number" isInt="True" values="0x12b35f8" astParent="0x12b3540"/>
+    <token id="0x12b36a0" file="677.c" linenr="189" str=")" scope="0x12b93b0" link="0x12b33e0"/>
+    <token id="0x12b3750" file="677.c" linenr="189" str=";" scope="0x12b93b0"/>
+    <token id="0x12b3800" file="677.c" linenr="190" str="mapSumInsert" scope="0x12b93b0" type="name" function="0x12b7cb0" astParent="0x12b38b0"/>
+    <token id="0x12b38b0" file="677.c" linenr="190" str="(" scope="0x12b93b0" link="0x12b3cd0" astOperand1="0x12b3800" astOperand2="0x12b3b70"/>
+    <token id="0x12b3960" file="677.c" linenr="190" str="head" scope="0x12b93b0" type="name" varId="44" variable="0x12b9ce0" astParent="0x12b3a10"/>
+    <token id="0x12b3a10" file="677.c" linenr="190" str="," scope="0x12b93b0" astParent="0x12b3b70" astOperand1="0x12b3960" astOperand2="0x12b3ac0"/>
+    <token id="0x12b3ac0" file="677.c" linenr="190" str="str" scope="0x12b93b0" type="name" varId="47" variable="0x12b9ea0" astParent="0x12b3a10"/>
+    <token id="0x12b3b70" file="677.c" linenr="190" str="," scope="0x12b93b0" astParent="0x12b38b0" astOperand1="0x12b3a10" astOperand2="0x12b3c20"/>
+    <token id="0x12b3c20" file="677.c" linenr="190" str="num" scope="0x12b93b0" type="name" varId="46" variable="0x12b9e30" astParent="0x12b3b70"/>
+    <token id="0x12b3cd0" file="677.c" linenr="190" str=")" scope="0x12b93b0" link="0x12b38b0"/>
+    <token id="0x12b3d80" file="677.c" linenr="190" str=";" scope="0x12b93b0"/>
+    <token id="0x12b3e30" file="677.c" linenr="191" str="}" scope="0x12b93b0" link="0x12b2990"/>
+    <token id="0x12b3ee0" file="677.c" linenr="194" str="int" scope="0x12b9260" type="name"/>
+    <token id="0x12b3f90" file="677.c" linenr="194" str="r" scope="0x12b9260" type="name" varId="48" variable="0x12b9dc0"/>
+    <token id="0x12b4040" file="677.c" linenr="194" str=";" scope="0x12b9260"/>
+    <token id="0x12b5e10" file="677.c" linenr="194" str="r" scope="0x12b9260" type="name" varId="48" variable="0x12b9dc0" astParent="0x12b5ec0"/>
+    <token id="0x12b5ec0" file="677.c" linenr="194" str="=" scope="0x12b9260" type="op" isAssignmentOp="True" astOperand1="0x12b5e10" astOperand2="0x12b41a0"/>
+    <token id="0x12b40f0" file="677.c" linenr="194" str="mapSumSum" scope="0x12b9260" type="name" function="0x12b8210" astParent="0x12b41a0"/>
+    <token id="0x12b41a0" file="677.c" linenr="194" str="(" scope="0x12b9260" link="0x12b4460" astParent="0x12b5ec0" astOperand1="0x12b40f0" astOperand2="0x12b4300"/>
+    <token id="0x12b4250" file="677.c" linenr="194" str="head" scope="0x12b9260" type="name" varId="44" variable="0x12b9ce0" astParent="0x12b4300"/>
+    <token id="0x12b4300" file="677.c" linenr="194" str="," scope="0x12b9260" astParent="0x12b41a0" astOperand1="0x12b4250" astOperand2="0x12b43b0"/>
+    <token id="0x12b43b0" file="677.c" linenr="194" str="&quot;a&quot;" scope="0x12b9260" type="string" strlen="1" values="0x12b43b8" astParent="0x12b4300"/>
+    <token id="0x12b4460" file="677.c" linenr="194" str=")" scope="0x12b9260" link="0x12b41a0"/>
+    <token id="0x12b4510" file="677.c" linenr="194" str=";" scope="0x12b9260"/>
+    <token id="0x12b45c0" file="677.c" linenr="195" str="printf" scope="0x12b9260" type="name" astParent="0x12b4670"/>
+    <token id="0x12b4670" file="677.c" linenr="195" str="(" scope="0x12b9260" link="0x12b4930" astOperand1="0x12b45c0" astOperand2="0x12b47d0"/>
+    <token id="0x12b4720" file="677.c" linenr="195" str="&quot;ret is %d\n&quot;" scope="0x12b9260" type="string" strlen="10" values="0x12b4728" astParent="0x12b47d0"/>
+    <token id="0x12b47d0" file="677.c" linenr="195" str="," scope="0x12b9260" astParent="0x12b4670" astOperand1="0x12b4720" astOperand2="0x12b4880"/>
+    <token id="0x12b4880" file="677.c" linenr="195" str="r" scope="0x12b9260" type="name" varId="48" variable="0x12b9dc0" astParent="0x12b47d0"/>
+    <token id="0x12b4930" file="677.c" linenr="195" str=")" scope="0x12b9260" link="0x12b4670"/>
+    <token id="0x12b49e0" file="677.c" linenr="195" str=";" scope="0x12b9260"/>
+    <token id="0x12b4a90" file="677.c" linenr="196" str="mapSumFree" scope="0x12b9260" type="name" function="0x12b8770" astParent="0x12b4b40"/>
+    <token id="0x12b4b40" file="677.c" linenr="196" str="(" scope="0x12b9260" link="0x12b4ca0" astOperand1="0x12b4a90" astOperand2="0x12b4bf0"/>
+    <token id="0x12b4bf0" file="677.c" linenr="196" str="head" scope="0x12b9260" type="name" varId="44" variable="0x12b9ce0" astParent="0x12b4b40"/>
+    <token id="0x12b4ca0" file="677.c" linenr="196" str=")" scope="0x12b9260" link="0x12b4b40"/>
+    <token id="0x12b4d50" file="677.c" linenr="196" str=";" scope="0x12b9260"/>
+    <token id="0x12b4e00" file="677.c" linenr="197" str="return" scope="0x12b9260" type="name" astOperand1="0x12b4eb0"/>
+    <token id="0x12b4eb0" file="677.c" linenr="197" str="0" scope="0x12b9260" type="number" isInt="True" values="0x12b4eb8" astParent="0x12b4e00"/>
+    <token id="0x12b4f60" file="677.c" linenr="197" str=";" scope="0x12b9260"/>
+    <token id="0x12b5010" file="677.c" linenr="198" str="}" scope="0x12b9260" link="0x12b1390"/>
+  </tokenlist>
+  <scopes>
+    <scope id="0x12b6030" type="Global">
+      <functionList>
+        <function id="0x12b6fa0" tokenDef="0x1297190" name="mapSumCreate"/>
+        <function id="0x12b7cb0" tokenDef="0x129c130" name="mapSumInsert">
+          <arg nr="1" variable="0x12b9f10"/>
+          <arg nr="2" variable="0x12b9f80"/>
+          <arg nr="3" variable="0x12b9ff0"/>
+        </function>
+        <function id="0x12b8210" tokenDef="0x12a3840" name="mapSumSum">
+          <arg nr="1" variable="0x12ba060"/>
+          <arg nr="2" variable="0x12ba0d0"/>
+        </function>
+        <function id="0x12b8770" tokenDef="0x12a7c50" name="mapSumFree">
+          <arg nr="1" variable="0x12ba140"/>
+        </function>
+        <function id="0x12b8be0" tokenDef="0x12aa6f0" name="genRandomString">
+          <arg nr="1" variable="0x12ba1b0"/>
+        </function>
+        <function id="0x12b91c0" tokenDef="0x12b0c00" name="main">
+          <arg nr="1" variable="0x12ba220"/>
+          <arg nr="2" variable="0x12ba290"/>
+        </function>
+      </functionList>
+    </scope>
+    <scope id="0x12b6d40" type="Struct" className="MapSum" classStart="0x1296320" classEnd="0x1296e20" nestedIn="0x12b6030">
+      <varlist>
+        <var id="0x12b9500"/>
+        <var id="0x12b9570"/>
+        <var id="0x12b95e0"/>
+        <var id="0x12b9650"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b7040" type="Function" className="mapSumCreate" classStart="0x129a7c0" classEnd="0x129bfd0" nestedIn="0x12b6030" function="0x12b6fa0">
+      <varlist>
+        <var id="0x12b96c0"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b7d50" type="Function" className="mapSumInsert" classStart="0x129d170" classEnd="0x12a36e0" nestedIn="0x12b6030" function="0x12b7cb0">
+      <varlist>
+        <var id="0x12b9730"/>
+        <var id="0x12b97a0"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b7e80" type="Do" classStart="0x129dd80" classEnd="0x129fd20" nestedIn="0x12b7d50">
+      <varlist>
+        <var id="0x12b9810"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b7fb0" type="If" classStart="0x129f2d0" classEnd="0x129f9b0" nestedIn="0x12b7e80"/>
+    <scope id="0x12b80e0" type="If" classStart="0x12a0e50" classEnd="0x12a3630" nestedIn="0x12b7d50"/>
+    <scope id="0x12b82b0" type="Function" className="mapSumSum" classStart="0x12a3f20" classEnd="0x12a7af0" nestedIn="0x12b6030" function="0x12b8210">
+      <varlist>
+        <var id="0x12b9880"/>
+        <var id="0x12b98f0"/>
+        <var id="0x12b9960"/>
+        <var id="0x12b99d0"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b83e0" type="Do" classStart="0x12a5100" classEnd="0x12a72b0" nestedIn="0x12b82b0">
+      <varlist>
+        <var id="0x12b9a40"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b8510" type="If" classStart="0x12a5cb0" classEnd="0x12a6f40" nestedIn="0x12b83e0"/>
+    <scope id="0x12b8640" type="If" classStart="0x12a6860" classEnd="0x12a6e90" nestedIn="0x12b8510"/>
+    <scope id="0x12b8810" type="Function" className="mapSumFree" classStart="0x12a8070" classEnd="0x12aa4e0" nestedIn="0x12b6030" function="0x12b8770">
+      <varlist>
+        <var id="0x12b9ab0"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b8940" type="Do" classStart="0x12a85f0" classEnd="0x12a9eb0" nestedIn="0x12b8810">
+      <varlist>
+        <var id="0x12b9b20"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b8a90" type="If" classStart="0x12a91a0" classEnd="0x12a97d0" nestedIn="0x12b8940"/>
+    <scope id="0x12b8c80" type="Function" className="genRandomString" classStart="0x12aaa60" classEnd="0x12b0aa0" nestedIn="0x12b6030" function="0x12b8be0">
+      <varlist>
+        <var id="0x12b9b90"/>
+        <var id="0x12b9c00"/>
+        <var id="0x12b9c70"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b8dd0" type="If" classStart="0x12abcf0" classEnd="0x12abfb0" nestedIn="0x12b8c80"/>
+    <scope id="0x12b8f20" type="For" classStart="0x12acab0" classEnd="0x12b01b0" nestedIn="0x12b8c80"/>
+    <scope id="0x12b9070" type="Switch" classStart="0x12ad3a0" classEnd="0x12b0100" nestedIn="0x12b8f20"/>
+    <scope id="0x12b9260" type="Function" className="main" classStart="0x12b1390" classEnd="0x12b5010" nestedIn="0x12b6030" function="0x12b91c0">
+      <varlist>
+        <var id="0x12b9ce0"/>
+        <var id="0x12b9d50"/>
+        <var id="0x12b9dc0"/>
+      </varlist>
+    </scope>
+    <scope id="0x12b93b0" type="For" classStart="0x12b2990" classEnd="0x12b3e30" nestedIn="0x12b9260">
+      <varlist>
+        <var id="0x12b9e30"/>
+        <var id="0x12b9ea0"/>
+      </varlist>
+    </scope>
+  </scopes>
+  <variables>
+    <var id="0x12b9500" nameToken="0x1296530" typeStartToken="0x12963d0" typeEndToken="0x1296480" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9570" nameToken="0x1296740" typeStartToken="0x1296690" typeEndToken="0x1296690" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b95e0" nameToken="0x1296a00" typeStartToken="0x12968a0" typeEndToken="0x1296950" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9650" nameToken="0x1296cc0" typeStartToken="0x1296b60" typeEndToken="0x1296c10" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b96c0" nameToken="0x129a9d0" typeStartToken="0x129a870" typeEndToken="0x129a920" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9500" nameToken="0x1296530" typeStartToken="0x12963d0" typeEndToken="0x1296480" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b95e0" nameToken="0x1296a00" typeStartToken="0x12968a0" typeEndToken="0x1296950" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9650" nameToken="0x1296cc0" typeStartToken="0x1296b60" typeEndToken="0x1296c10" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9f10" nameToken="0x129cb40" typeStartToken="0x129c9e0" typeEndToken="0x129ca90" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9f80" nameToken="0x129ce00" typeStartToken="0x129cca0" typeEndToken="0x129cd50" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9ff0" nameToken="0x129d010" typeStartToken="0x129cf60" typeEndToken="0x129cf60" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9730" nameToken="0x129d380" typeStartToken="0x129d220" typeEndToken="0x129d2d0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9810" nameToken="0x129df90" typeStartToken="0x129de30" typeEndToken="0x129dee0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b95e0" nameToken="0x1296a00" typeStartToken="0x12968a0" typeEndToken="0x1296950" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9500" nameToken="0x1296530" typeStartToken="0x12963d0" typeEndToken="0x1296480" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9570" nameToken="0x1296740" typeStartToken="0x1296690" typeEndToken="0x1296690" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b97a0" nameToken="0x12a04b0" typeStartToken="0x12a0350" typeEndToken="0x12a0400" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9500" nameToken="0x1296530" typeStartToken="0x12963d0" typeEndToken="0x1296480" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9570" nameToken="0x1296740" typeStartToken="0x1296690" typeEndToken="0x1296690" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9650" nameToken="0x1296cc0" typeStartToken="0x1296b60" typeEndToken="0x1296c10" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b95e0" nameToken="0x1296a00" typeStartToken="0x12968a0" typeEndToken="0x1296950" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9650" nameToken="0x1296cc0" typeStartToken="0x1296b60" typeEndToken="0x1296c10" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12ba060" nameToken="0x12a3b00" typeStartToken="0x12a39a0" typeEndToken="0x12a3a50" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12ba0d0" nameToken="0x12a3dc0" typeStartToken="0x12a3c60" typeEndToken="0x12a3d10" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9880" nameToken="0x12a4130" typeStartToken="0x12a3fd0" typeEndToken="0x12a4080" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b98f0" nameToken="0x12a44a0" typeStartToken="0x12a43f0" typeEndToken="0x12a43f0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9960" nameToken="0x12a4810" typeStartToken="0x12a4760" typeEndToken="0x12a4760" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b99d0" nameToken="0x12a4d90" typeStartToken="0x12a4ce0" typeEndToken="0x12a4ce0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9a40" nameToken="0x12a5310" typeStartToken="0x12a51b0" typeEndToken="0x12a5260" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b95e0" nameToken="0x1296a00" typeStartToken="0x12968a0" typeEndToken="0x1296950" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9500" nameToken="0x1296530" typeStartToken="0x12963d0" typeEndToken="0x1296480" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9570" nameToken="0x1296740" typeStartToken="0x1296690" typeEndToken="0x1296690" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12ba140" nameToken="0x12a7f10" typeStartToken="0x12a7db0" typeEndToken="0x12a7e60" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9ab0" nameToken="0x12a8280" typeStartToken="0x12a8120" typeEndToken="0x12a81d0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9b20" nameToken="0x12a8800" typeStartToken="0x12a86a0" typeEndToken="0x12a8750" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b95e0" nameToken="0x1296a00" typeStartToken="0x12968a0" typeEndToken="0x1296950" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9500" nameToken="0x1296530" typeStartToken="0x12963d0" typeEndToken="0x1296480" isArgument="false" isArray="false" isClass="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12ba1b0" nameToken="0x12aa900" typeStartToken="0x12aa850" typeEndToken="0x12aa850" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9b90" nameToken="0x12aabc0" typeStartToken="0x12aab10" typeEndToken="0x12aab10" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9c00" nameToken="0x12aad20" typeStartToken="0x12b57e0" typeEndToken="0x12b57e0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9c70" nameToken="0x12aafe0" typeStartToken="0x12aae80" typeEndToken="0x12aaf30" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12ba220" nameToken="0x12b0e10" typeStartToken="0x12b0d60" typeEndToken="0x12b0d60" isArgument="true" isArray="false" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12ba290" nameToken="0x12b10d0" typeStartToken="0x12b0f70" typeEndToken="0x12b1020" isArgument="true" isArray="true" isClass="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9ce0" nameToken="0x12b15a0" typeStartToken="0x12b1440" typeEndToken="0x12b14f0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9d50" nameToken="0x12b1ff0" typeStartToken="0x12b1f40" typeEndToken="0x12b1f40" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9e30" nameToken="0x12b2af0" typeStartToken="0x12b2a40" typeEndToken="0x12b2a40" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x12b9ea0" nameToken="0x12b31d0" typeStartToken="0x12b3070" typeEndToken="0x12b3120" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x12b9dc0" nameToken="0x12b3f90" typeStartToken="0x12b3ee0" typeEndToken="0x12b3ee0" isArgument="false" isArray="false" isClass="false" isLocal="true" isPointer="false" isReference="false" isStatic="false"/>
+  </variables>
+  <valueflow>
+    <values id="0x129b428">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x129d7d8">
+      <value tokvalue="0x129d7d0" known="true"/>
+    </values>
+    <values id="0x129f0c8">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12a4608">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12a4ad8">
+      <value tokvalue="0x12b43b0" possible="true"/>
+    </values>
+    <values id="0x12a4ef8">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12a6708">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12a7998">
+      <value intvalue="0" possible="true"/>
+    </values>
+    <values id="0x12abb98">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12abe58">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12ac328">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12ac748">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x12acf88">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x12ad508">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12ad7c8">
+      <value intvalue="0" possible="true"/>
+    </values>
+    <values id="0x12ad9d8">
+      <value intvalue="65" known="true"/>
+    </values>
+    <values id="0x12addf8">
+      <value intvalue="26" known="true"/>
+    </values>
+    <values id="0x12ae168">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x12ae428">
+      <value intvalue="0" possible="true"/>
+    </values>
+    <values id="0x12ae638">
+      <value intvalue="97" known="true"/>
+    </values>
+    <values id="0x12aea58">
+      <value intvalue="26" known="true"/>
+    </values>
+    <values id="0x12aedc8">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x12af088">
+      <value intvalue="0" possible="true"/>
+    </values>
+    <values id="0x12af298">
+      <value intvalue="48" known="true"/>
+    </values>
+    <values id="0x12af6b8">
+      <value intvalue="10" known="true"/>
+    </values>
+    <values id="0x12afc38">
+      <value intvalue="0" possible="true"/>
+    </values>
+    <values id="0x12afe48">
+      <value intvalue="120" known="true"/>
+    </values>
+    <values id="0x12b0528">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x12b0738">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12b2158">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x12b2628">
+      <value intvalue="1000" known="true"/>
+    </values>
+    <values id="0x12b2f18">
+      <value intvalue="10" known="true"/>
+    </values>
+    <values id="0x12b35f8">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x12b43b8">
+      <value tokvalue="0x12b43b0" known="true"/>
+    </values>
+    <values id="0x12b4728">
+      <value tokvalue="0x12b4720" known="true"/>
+    </values>
+    <values id="0x12b4eb8">
+      <value intvalue="0" known="true"/>
+    </values>
+  </valueflow>
+</dump>
+</dumps>
