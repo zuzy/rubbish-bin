@@ -39,7 +39,7 @@ static size_t _str_u8_len(char *str){
                 ++num;
                 tmp <<= 1;
             }
-            printf("num is %d\n", num);
+            // printf("num is %d\n", num);
             ptr += num;
             #endif
         }else{
@@ -56,7 +56,7 @@ static int _cut_string(char *str, int len){
     if(strlen(str) < len){
         return 0;
     }
-    printf("%d:%s\n", strlen(str), str);
+    // printf("%d:%s\n", strlen(str), str);
     char *ptr = str;
     unsigned char tmp = 0;
 
@@ -84,6 +84,42 @@ static int _cut_string(char *str, int len){
     }
     printf("%d: %s\n", strlen(str), str);
     return 0;
+}
+
+static char *str_get_string(char *str, int utflen){
+    if(strlen(str) < utflen){
+        return strdup(str);
+    }
+    // printf("%d:%s\n", strlen(str), str);
+    char *ptr = str;
+    unsigned char tmp = 0;
+
+    int num = 0;
+    int ulength = 0;
+    char t = 0;
+    while(*ptr != '\0'){
+        if(*ptr & 0x80){
+            num = 0;
+            tmp = *ptr;
+            // tmp <<= 1;
+            while(tmp & 0x80){
+                ++num;
+                tmp <<= 1;
+            }
+            ptr += num;
+        }else{
+            ++ptr;
+        }
+        ++ulength;
+        if(ulength >= utflen) {
+            t = *ptr;
+            *ptr = 0;
+        }
+    }
+    char *ret = strdup(str);
+    *ptr = t;
+    printf("%d: %s\n", strlen(ret), ret);
+    return ret;
 }
 
 static char _num_to_hex(uint8_t num){
@@ -186,11 +222,15 @@ void main(){
     printf("%d: %s\n", strlen(str), str);
     printf("_str_u8_len(str) = %d\n", _str_u8_len(str));
     for(i = 40; i < 50; i++){
-        printf("%d:\n",i);
-        char *s1 = malloc(strlen(str) + 1);
-        strcpy(s1, str);
-        _cut_string(s1, i);
-        printf("[end]\n");
+        // printf("%d:\n",i);
+        // char *s1 = malloc(strlen(str) + 1);
+        // strcpy(s1, str);
+        // _cut_string(s1, i);
+        // printf("[end]\n");
+
+        char *tmp  = str_get_string(str, i);
+        printf("get str %d %s\n[end]\n", i, tmp);
+        free(tmp);
     }
 
     char *bbb = (char *)malloc(1000);
