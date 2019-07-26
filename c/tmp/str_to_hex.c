@@ -10,10 +10,10 @@ static int custom_to_hex(char *input, char *ret, int length)
     size_t ilen = strlen(input);
     if(ilen > 100 ||  ilen == 0) 
         goto End;
-    retlen = ilen >> 1;
+    // retlen = ilen >> 1;
     
     char *p = input;
-    unsigned char *r = ret;
+    unsigned char *r = (unsigned char *)ret;
     unsigned char flag = 1;
     while(*p) {
         unsigned char val = 0;
@@ -39,6 +39,7 @@ static int custom_to_hex(char *input, char *ret, int length)
         } else {
             *r = (*r << 4) | val;
             ++r;
+            ++retlen;
         }
         if(length < (char *)r - ret) {
             return length;
@@ -49,6 +50,7 @@ static int custom_to_hex(char *input, char *ret, int length)
     }
     if(!flag) {
         *r <<= 4;
+        ++retlen;
     }
     End:
         return retlen;
@@ -56,7 +58,7 @@ static int custom_to_hex(char *input, char *ret, int length)
 
 int main(int argc, char *argv[])
 {
-    char *s = "123456 78901";
+    char *s = "12 34 56 78 90  ";
     char tmp[50] = {};
     int to = custom_to_hex(s, tmp, 50);
     printf("ret %s\n", s);
