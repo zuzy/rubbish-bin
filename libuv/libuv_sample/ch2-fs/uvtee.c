@@ -18,7 +18,7 @@ uv_pipe_t file_pipe;
 
 void alloc_buffer(uv_handle_t *handle, size_t suggested_size, uv_buf_t *buf) {
     // suggest length is 65536 so stack can be used a lot?
-    printf("suggest length is %ld\n", suggested_size);
+    // printf("suggest length is %ld\n", suggested_size);
     // *buf = uv_buf_init((char*) malloc(suggested_size), suggested_size);
     *buf = uv_buf_init((char*) malloc(1024), 1024);
 }
@@ -48,6 +48,7 @@ void read_stdin(uv_stream_t *stream, ssize_t nread, const uv_buf_t *buf) {
     if (nread < 0){
         if (nread == UV_EOF){
             // end of file
+            // printf("end of file\n");
             uv_close((uv_handle_t *)&stdin_pipe, NULL);
             uv_close((uv_handle_t *)&stdout_pipe, NULL);
             uv_close((uv_handle_t *)&file_pipe, NULL);
@@ -63,6 +64,8 @@ void read_stdin(uv_stream_t *stream, ssize_t nread, const uv_buf_t *buf) {
 }
 
 int main(int argc, char **argv) {
+    
+    signal(SIGPIPE, SIG_IGN);
     loop = uv_default_loop();
 
     uv_pipe_init(loop, &stdin_pipe, 0);
@@ -74,7 +77,9 @@ int main(int argc, char **argv) {
     uv_fs_t file_req;
     int fd = uv_fs_open(loop, &file_req, argv[1], O_CREAT | O_RDWR, 0644, NULL);
     uv_pipe_init(loop, &file_pipe, 0);
-    uv_pipe_open(&file_pipe, fd);
+
+    // uv_pipe_open(&file_pipe, fd);
+    uv_pipe_open(&file_pipe, file_req.result);
 
     uv_read_start((uv_stream_t*)&stdin_pipe, alloc_buffer, read_stdin);
 
