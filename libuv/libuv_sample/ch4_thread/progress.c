@@ -6,6 +6,8 @@
 
 uv_loop_t *loop;
 uv_async_t async;
+uv_barrier_t barrier;
+
 typedef struct botan_t{
     uv_work_t req;
     int size;
@@ -23,24 +25,27 @@ void fake_download(uv_work_t *req) {
     int downloaded = 0;
     while (downloaded < size) {
         // percentage = downloaded*100.0/size;
-        printf("%f\n", percentage);
-        tmp->percentage = downloaded * 100 / size;
-        async.data = (void*) &tmp;
+        tmp->percentage = downloaded * 100.0 / size;
+        // printf("%.2f%%\n", tmp->percentage);
+        async.data = (void*) tmp;
         uv_async_send(&async);
 
         sleep(1);
         downloaded += (200+random())%1000; // can only download max 1000bytes/sec,
                                            // but at least a 200;
-        printf("persentage %d\n", downloaded);
+        // printf("persentage %d\n", downloaded);
     }
 }
 
+static int index = 0;
 void after(uv_work_t *req, int status) {
 
     botan_t *tmp = (botan_t *)req->data;
 
-    fprintf(stderr, "Download complete\n");
-    uv_close((uv_handle_t*) &async, NULL);
+    fprintf(stderr, "[%d] Download complete\n", tmp->index);
+    --index;
+    if(!index)
+        uv_close((uv_handle_t*) &async, NULL);
     free(tmp);
 }
 
@@ -55,7 +60,6 @@ void print_progress(uv_async_t *handle) {
 
 int main() {
     loop = uv_default_loop();
-
     // uv_work_t req[3];
     // int size = 10240;
     // req.data = (void*) &size;
@@ -68,8 +72,10 @@ int main() {
         tmp->index = i;
         tmp->req.data = (void *)tmp;
         uv_queue_work(loop, &tmp->req, fake_download, after);
+        ++index;
     }
 
 
-    return uv_run(loop, UV_RUN_DEFAULT);
+    uv_run(loop, UV_RUN_DEFAULT);
+    return 0;
 }
