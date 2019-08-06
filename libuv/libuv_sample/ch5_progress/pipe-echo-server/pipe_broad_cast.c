@@ -15,16 +15,47 @@ typedef struct _uv_stream_list_t{
     struct _uv_stream_list_t *prev;
     struct _uv_stream_list_t *next;
     uv_stream_t *stream;
+    int size;
 } uv_stream_list_t;
+
+static uv_stream_list_t head = {
+    .prev = &head,
+    .next = &head,
+    .stream = NULL,
+    .size = 0,
+};
 
 static int _add_stream_to_list(uv_stream_t *stream, uv_stream_list_t *head)
 {
     uv_stream_list_t *tmp = malloc(sizeof(uv_stream_list_t));
+    if(!tmp) return -1;
     tmp->next = head;
     tmp->prev = head->prev;
     tmp->stream = stream;
     head->prev->next = tmp;
     head->prev = tmp;
+    ++head->size;
+    return 0;
+}
+
+static int _delete_stream_from_list(uv_stream_t *stream, uv_stream_list_t *head)
+{
+    uv_stream_list_t *ptr = head;
+    do {
+        if(ptr->stream == stream) {
+            goto Find;
+        }
+        ptr = ptr->next;
+    } while(ptr != head);
+    uv_close((uv_handle_t*)stream, NULL);
+    return 0;
+    Find: {
+        --head->size;
+        ptr->prev->next = ptr->next;
+        ptr->next->prev = ptr->prev;
+        uv_close((uv_handle_t*) ptr->stream, NULL);
+        free(ptr);
+    }
     return 0;
 }
 
@@ -46,19 +77,29 @@ void echo_write(uv_write_t *req, int status) {
     free_write_req(req);
 }
 
+// static void count_write(uv_write_t *req, int status) {
+//     if (status < 0) {
+//         fprintf(stderr, "Write error %s\n", uv_err_name(status));
+//     }
+// }
+
 void echo_read(uv_stream_t *client, ssize_t nread, const uv_buf_t *buf) {
     if (nread > 0) {
-        write_req_t *req = (write_req_t*) malloc(sizeof(write_req_t));
-        req->buf = uv_buf_init(buf->base, nread);
-        printf("read %s", req->buf.base);
-        uv_write((uv_write_t*) req, client, &req->buf, 1, echo_write);
+        uv_stream_list_t *ptr = head.next;
+        while(ptr != &head) {
+            write_req_t *req = (write_req_t*) malloc(sizeof(write_req_t));
+            req->buf = uv_buf_init(buf->base, nread);
+            printf("read %s", req->buf.base);
+            uv_write((uv_write_t*) req, client, &req->buf, 1, echo_write);
+        }
         return;
     }
 
     if (nread < 0) {
         if (nread != UV_EOF)
             fprintf(stderr, "Read error %s\n", uv_err_name(nread));
-        uv_close((uv_handle_t*) client, NULL);
+        _delete_stream_from_list(client, &head);
+        // uv_close((uv_handle_t*) client, NULL);
     }
 
     free(buf->base);
@@ -73,6 +114,7 @@ void on_new_connection(uv_stream_t *server, int status) {
     uv_pipe_t *client = (uv_pipe_t*) malloc(sizeof(uv_pipe_t));
     uv_pipe_init(loop, client, 0);
     if (uv_accept(server, (uv_stream_t*) client) == 0) {
+        _add_stream_to_list((uv_stream_t *)client, &head);
         uv_read_start((uv_stream_t*) client, alloc_buffer, echo_read);
     }
     else {
