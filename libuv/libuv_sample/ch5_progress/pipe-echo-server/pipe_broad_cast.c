@@ -91,6 +91,7 @@ void echo_read(uv_stream_t *client, ssize_t nread, const uv_buf_t *buf) {
             req->buf = uv_buf_init(buf->base, nread);
             printf("read %s", req->buf.base);
             uv_write((uv_write_t*) req, client, &req->buf, 1, echo_write);
+            ptr = ptr->next;
         }
         return;
     }
