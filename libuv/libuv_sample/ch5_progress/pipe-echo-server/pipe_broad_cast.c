@@ -16,6 +16,7 @@ typedef struct _uv_stream_list_t{
     struct _uv_stream_list_t *next;
     uv_stream_t *stream;
     int size;
+    uv_buf_t buf;
 } uv_stream_list_t;
 
 static uv_stream_list_t head = {
@@ -70,11 +71,18 @@ void alloc_buffer(uv_handle_t *handle, size_t suggested_size, uv_buf_t *buf) {
   buf->len = suggested_size;
 }
 
-void echo_write(uv_write_t *req, int status) {
+void echo_write_final(uv_write_t *req, int status) {
     if (status < 0) {
         fprintf(stderr, "Write error %s\n", uv_err_name(status));
     }
     free_write_req(req);
+}
+
+void echo_write(uv_write_t *req, int status) {
+    if(status < 0) {
+        fprintf(stderr, "write error %s\n", uv_err_name(status));
+    }
+    free(req);
 }
 
 // static void count_write(uv_write_t *req, int status) {
@@ -86,12 +94,18 @@ void echo_write(uv_write_t *req, int status) {
 void echo_read(uv_stream_t *client, ssize_t nread, const uv_buf_t *buf) {
     if (nread > 0) {
         uv_stream_list_t *ptr = head.next;
-        while(ptr != &head) {
+        while(ptr != head.prev) {
             write_req_t *req = (write_req_t*) malloc(sizeof(write_req_t));
             req->buf = uv_buf_init(buf->base, nread);
-            printf("read %s", req->buf.base);
-            uv_write((uv_write_t*) req, client, &req->buf, 1, echo_write);
+            printf("write %s", req->buf.base);
+            uv_write((uv_write_t*) req, ptr->stream, &req->buf, 1, echo_write);
             ptr = ptr->next;
+        }
+        if(ptr != &head) {
+            write_req_t *req = (write_req_t*) malloc(sizeof(write_req_t));
+            req->buf = uv_buf_init(buf->base, nread);
+            printf("write final %s", req->buf.base);
+            uv_write((uv_write_t*) req, ptr->stream, &req->buf, 1, echo_write_final);
         }
         return;
     }
@@ -99,6 +113,7 @@ void echo_read(uv_stream_t *client, ssize_t nread, const uv_buf_t *buf) {
     if (nread < 0) {
         if (nread != UV_EOF)
             fprintf(stderr, "Read error %s\n", uv_err_name(nread));
+        printf("delete!!\n");
         _delete_stream_from_list(client, &head);
         // uv_close((uv_handle_t*) client, NULL);
     }
