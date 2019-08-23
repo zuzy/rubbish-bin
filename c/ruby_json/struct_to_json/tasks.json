@@ -1,0 +1,7 @@
+{
+    "version": "0.1.0",
+    "command": "g++",
+    "isShellCommand": true,
+    "args": ["-g","${workspaceRoot}/ruby_json/main.c"],
+    "showOutput": "always"
+}
