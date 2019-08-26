@@ -7,16 +7,6 @@
 #include "cJSON.h"
 #include "cJSON_format.h"
 
-
-// #define _NODE_(T, N, E)
-// #define PAYLOAD \
-//     _NODE_(char*, name, P_STR) \
-//     _NODE_(int, value, NUMBER) \
-//     _NODE_(char, payload[34], A_STR)
-// #undef _NODE_
-
-
-
 #define _NODE_(T, N, E)
 #define _NODE_ARRAY(T, S, N, E)
 #define PAYLOAD \
@@ -168,6 +158,13 @@ int main(int argc, char *argv[])
     char *out = cJSON_Print(root);
     cJSON_Delete(root);
     print_jmt("root is %s\n", out);
+    free(out);
+
+    root = struct_to_json(&t, fmt_test, sizeof(fmt_test) / sizeof(fmt_test[0]), NULL, NULL);
+
+    out = cJSON_Print(root);
+    print_jmt("test is %s\n", out);
+    cJSON_Delete(root);
     free(out);
     return 0;
 }
