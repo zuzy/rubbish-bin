@@ -6,7 +6,8 @@
 #include <string.h>
 #include <unistd.h>
 
-#define FIFO_SERVER "/tmp/fifoserver"
+// #define FIFO_SERVER "/tmp/fifoserver"
+#define FIFO_SERVER "/tmp/echo.sock"
 int main(int argc, char **argv)
 //参数为即将写入的字节数
 {
@@ -23,7 +24,9 @@ int main(int argc, char **argv)
     //设置非阻塞标志
     fd=open(FIFO_SERVER,O_WRONLY,0);
     //设置阻塞标志
-    real_wnum = write(fd, w_buf, 2048);
+
+    // real_wnum = write(fd, w_buf, 2048);
+    real_wnum = write(fd, argv[0], strlen(argv[0]));
     if (real_wnum == -1)
     {
         if (errno == EAGAIN)
