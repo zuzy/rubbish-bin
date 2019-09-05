@@ -36,7 +36,7 @@ void _add_to_range_list(range_list_t *dummy, int start, int end)
 {
     range_list_t *ptr = dummy->next;
     while(ptr->next != dummy) {
-
+        
     }
 }
 
