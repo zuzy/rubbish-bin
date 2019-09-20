@@ -7,37 +7,34 @@
  */
 
 
-static int get(int row, int col)
-{
-    if(row < 0 || col < 0 || row < col) {
-        return 0;
-    }
-    printf("(%d %d)", row, col);
-    if(col == 0) {
-        printf(" --> 1\n");
-        return 1;
-    } 
-    if(col == row) {
-        printf(" --> 1\n");
-        return 1;
-    }
-    printf("\n");
-    return get(row - 1, col - 1) + get(row - 1, col);
-}
-
 int* getRow(int rowIndex, int* returnSize){
     int i = 0;
     *returnSize = rowIndex + 1;
     int *ret = malloc(sizeof(int) * (*returnSize));
-    printf("return size %d\n", *returnSize);
-    int size = *returnSize / 2;
-    for(; i < size; i++) {
-        ret[i] = get(rowIndex, i);
-        printf("[%d] -> %d\n", i, ret[i]);
+    int array[*returnSize];
+
+    int count = *returnSize;
+    for(i = 0; i < count; i++){
+        array[i] = 1;
     }
-    size = *returnSize - 1;
-    for(; i < *returnSize; i++) {
-        ret[i] = ret[size - i];
+    
+    int size = *returnSize >> 1;
+
+    for(i = 0; i < size; i++) {
+        ret[i] = array[--count];
+        printf("%d -> %d\n", i, ret[i]);
+        int j, sum = 0;
+        for(j = 0; j < count; j++){
+            sum += array[j];
+            array[j] = sum;
+        }
+    }
+
+    int *end = ret + rowIndex;
+    int *start = ret;
+
+    while(start < end) {
+        *end-- = *start++;
     }
     return ret;
 }
@@ -46,7 +43,7 @@ int* getRow(int rowIndex, int* returnSize){
 int main(int argc, char *argv[])
 {
     int s = 0;
-    int *ret = getRow(3, &s);
+    int *ret = getRow(28, &s);
     int i = 0;
     for(; i < s; i++) {
         printf("ret [%d] -> %d\n", i, ret[i]);
