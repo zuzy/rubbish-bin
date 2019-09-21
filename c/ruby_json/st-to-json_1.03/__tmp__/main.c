@@ -7,16 +7,6 @@
 #include "cJSON.h"
 #include "cJSON_format.h"
 
-
-// #define _NODE_(T, N, E)
-// #define PAYLOAD \
-//     _NODE_(char*, name, P_STR) \
-//     _NODE_(int, value, NUMBER) \
-//     _NODE_(char, payload[34], A_STR)
-// #undef _NODE_
-
-
-
 #define _NODE_(T, N, E)
 #define _NODE_ARRAY(T, S, N, E)
 #define PAYLOAD \
