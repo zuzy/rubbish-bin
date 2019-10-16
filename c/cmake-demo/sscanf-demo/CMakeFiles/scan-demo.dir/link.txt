@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/scan-demo.dir/sscanf-tmp.c.o  -o scan-demo -rdynamic 
