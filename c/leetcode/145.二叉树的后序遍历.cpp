@@ -30,6 +30,9 @@ public:
     vector<int> postorderTraversal(TreeNode* root) 
     {
         vector<int> ret;
+        #if 0
+        helper(root, ret);
+        #else
         vector<TreeNode*> t_list;
         while(root || t_list.size()) {
             while(root) {
@@ -38,11 +41,21 @@ public:
             }
             root = t_list.back();
             root = root->right;
-            if(root->right)
-            ret.push_back(root->val);
             t_list.pop_back();
+            if(!root->right)
+                ret.push_back(root->val);
         }
+        #endif
         return ret;
+    }
+
+    void helper(TreeNode *root, vector<int> &ret)
+    {
+        if(root) {
+            helper(root->left, ret);
+            helper(root->right, ret);
+            ret.push_back(root->val);
+        }
     }
 };
 // @lc code=end
