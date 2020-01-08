@@ -5,6 +5,7 @@
  */
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -33,17 +34,20 @@ public:
         #if 0
         helper(root, ret);
         #else
-        vector<TreeNode*> t_list;
-        while(root || t_list.size()) {
-            while(root) {
-                t_list.push_back(root);
-                root = root->left;
+        stack<TreeNode*> stk;
+        if(root) {
+            stk.push(root);
+            while(!stk.empty()) {
+                TreeNode* node = stk.top();
+                stk.pop();
+                ret.insert(ret.begin(), node->val);
+                if(node->left) {
+                    stk.push(node->left);
+                }
+                if(node->right) {
+                    stk.push(node->right);
+                }
             }
-            root = t_list.back();
-            root = root->right;
-            t_list.pop_back();
-            if(!root->right)
-                ret.push_back(root->val);
         }
         #endif
         return ret;
