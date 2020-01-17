@@ -74,10 +74,11 @@ End:
 int main()
 {
     char ip[64] = "\0";
-    char *interface = "enp5s0";
+    // char *interface = "enp5s0";
+    char *interface = "enp0s31f6";
     // char *interface = "eth0";
     int ret = _get_ip_from_interface(ip, sizeof(ip), interface);
-    printf("ret is %d\n");
+    printf("ret is %d\n", ret);
     printf("get ip %s\n", ip);
 
     char mac[64] = "\0";
