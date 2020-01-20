@@ -60,30 +60,39 @@ using namespace std;
 // @lc code=start
 class MyLinkedList {
 private:
-    struct _list{
+    struct _node{
         int val;
-        _list *next;
-        _list(): val(0), next(NULL) {}
-        _list(int v): val(v), next(NULL) {}
-        _list(int v, _list *n): val(v), next(n) {}
-        _list(_list *n): val(0), next(n) {}
+        _node *next;
+        _node(int v = 0, _node *n = NULL): val(v), next(n) {}
     };
-public:
-    _list head;
-    _list *tail;
+    _node *head;
+    _node *tail;
     int size;
+public:
     /** Initialize your data structure here. */
     MyLinkedList()
     {
         size = 0;
-        cout << head.val << endl;
-        // tail = &head;
+        head = new _node;
+        tail = head;
+    }
+
+    ~MyLinkedList()
+    {
+        _node *p, *t;
+        p = head;
+        while(p!= NULL) {
+            t = p->next;
+            delete p;
+            p = t;
+        }
     }
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
+        // cout << "get " << index << endl;
         if(index < 0 || index >= size) return -1;
-        _list *p = head.next;
+        _node *p = head->next;
         while(index--) {
             p = p->next;
         }
@@ -92,30 +101,35 @@ public:
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-        _list *p = head.next;
-        _list *n = new _list(val, p);
-        head.next = n;
+        // cout << "insert " << val << endl;
+        _node *p = head->next;
+        _node *n = new _node(val, p);
+        head->next = n;
         ++size;
+        if(tail == head) tail = tail->next;
     }
     
     /** Append a node of value val to the last element of the linked list. */
     void addAtTail(int val) {
-        tail->next = new _list(val);
+        tail->next = new _node(val);
+        tail = tail->next;
         ++size;
     }
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
         if(index > size) return;
-        if(index == size) {
+        if(index == 0) {
+            addAtHead(val);
+        } else if(index == size) {
             addAtTail(val);
         } else {
-            _list *p = &head;
+            _node *p = head;
             while(index--) {
                 p = p->next;
             }
-            _list *q = p->next;
-            p->next = new _list(val);
+            _node *q = p->next;
+            p->next = new _node(val);
             p->next->next = q;
             ++size;
         }
@@ -124,12 +138,15 @@ public:
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
         if(index < 0 || index >= size) return;
-        _list *p = &head;
+        _node *p = head;
         while(index--) {
             p = p->next;
         }
-        _list *q = p->next;
+        _node *q = p->next;
         p->next = q->next;
+        if(q == tail) {
+            tail = p;
+        }
         delete q;
         --size;
     }
