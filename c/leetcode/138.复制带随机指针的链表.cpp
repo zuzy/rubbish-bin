@@ -34,9 +34,63 @@ public:
 };
 */
 class Solution {
+    void _print(Node *head) 
+    {
+        return;
+        Node *p = head;
+        if(p) {
+            cout << "(" << p->val << ", " << (p->random ? p->random->val : -1) << ")";
+            p = p->next;
+        }
+        while(p) {
+            cout << " --> (" << p->val << ", " << (p->random ? p->random->val : -1) << ")";
+            p = p->next;
+        }
+        cout << endl;
+    }
+    void _copy(Node *head)
+    {
+        Node *p = head;
+        while(p) {
+            Node *t = new Node(p->val);
+            t->next = p->next;
+            t->random = p->random;
+            p->next = t;
+            p = t->next;
+        }
+        p = head;
+        while(p) {
+            p = p->next;
+            if(p->random) {
+                p->random = p->random->next;
+            }
+            p = p->next;
+        }
+    }
 public:
-    Node* copyRandomList(Node* head) {
-        
+    Node* copyRandomList(Node* head) 
+    {
+        if(!head) return head;
+        _print(head);
+        _copy(head);
+        _print(head);
+        Node *p = head;
+        Node *ret, *cur, *pre;
+        ret = p->next;
+        pre = NULL;
+        while(p) {
+            cur = p->next;
+            if(pre) {
+                pre->next = cur;
+            }
+            pre = cur;
+            p->next = cur->next;
+            p = p->next;
+        }
+        cur->next = NULL;
+        _print(ret);
+        _print(head);
+        return ret;
     }
 };
 // @lc code=end
