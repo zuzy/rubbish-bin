@@ -58,6 +58,8 @@
 using namespace std;
 
 // @lc code=start
+#if 0
+// 单链
 class MyLinkedList {
 private:
     struct _node{
@@ -151,7 +153,108 @@ public:
         --size;
     }
 };
+#else 
+// 双链
+class MyLinkedList {
+    struct _node{
+        int val;
+        _node *next;
+        _node *prev;
+        _node(int v = 0, _node *p = NULL, _node *n = NULL): val(v), prev(p), next(n){}
+    };
+    _node *head;
+    int size;
+public:
+    /** Initialize your data structure here. */
+    MyLinkedList() 
+    {
+        head = new _node();
+        head->next = head->prev = head;
+        size = 0;
+    }
 
+    ~MyLinkedList()
+    {
+        _node *t, *p;
+        p = head->next;
+        while(p != head) {
+            t = p->next;
+            delete p;
+            p = t;
+        }
+        delete p;
+    }
+    
+    /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+    int get(int index) {
+        if(index >= size) {
+            return -1;
+        }
+        
+        _node *p = head;
+        for(int i = 0; i <= index; i++) {
+            p = p->next;
+        }
+        return p->val;
+    }
+    
+    /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
+    void addAtHead(int val) {
+        _node *t = new _node(val);
+        t->next = head->next;
+        t->prev = head;
+        head->next->prev = t;
+        head->next = t;
+        ++size;
+    }
+    
+    /** Append a node of value val to the last element of the linked list. */
+    void addAtTail(int val) {
+        _node *t = new _node(val);
+        t->next = head;
+        t->prev = head->prev;
+        head->prev->next = t;
+        head->prev = t;
+        ++size;
+    }
+    
+    /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
+    void addAtIndex(int index, int val) {
+        if(index >= size) {
+            addAtTail(val);
+        } else if(index == 0) {
+            addAtHead(val);
+        } else {
+            _node *p = head->next;
+            for(int i = 1; i < index; ++i) {
+                p = p->next;
+            }
+            cout << "add at " << p->val << endl;
+            _node *t = new _node(val);
+            t->next = p->next;
+            t->prev = p;
+            p->next->prev = t;
+            p->next = t;
+            ++size;
+        }
+    }
+    
+    /** Delete the index-th node in the linked list, if the index is valid. */
+    void deleteAtIndex(int index) {
+        if(index >= size) {
+            return;
+        }
+        _node *p = head->next;
+        for(int i = 0; i < index; ++i) {
+            p = p->next;
+        }
+        p->prev->next = p->next;
+        p->next->prev = p->prev;
+        delete p;
+        --size;
+    }
+};
+#endif 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * MyLinkedList* obj = new MyLinkedList();
