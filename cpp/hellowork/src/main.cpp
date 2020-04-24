@@ -31,6 +31,16 @@ Dog::~Dog()
     cout << "goodbye " << name << endl;
 }
 
+OwnedDog::OwnedDog(string n)
+{   
+    cout << __FILE__ << ":" << __LINE__ << "\tconstruct!" << endl;
+    set_name(n);
+    bark();
+}
+
+// OwnedDog::~OwnedDog()
+// {
+// }
 
 void OwnedDog::set_owner(const string & owner_name)
 {
@@ -69,9 +79,9 @@ int main(int argc, char **argv)
     dg.bark();
     dg.print();
 
-    OwnedDog own;
+    OwnedDog own("gg");
     own.set_owner("zizy");
-    own.set_name("gg");
+    // own.set_name("gg");
     own.set_weight(8);
     own.bark();
     own.print();
