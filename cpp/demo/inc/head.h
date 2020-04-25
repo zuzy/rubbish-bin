@@ -26,8 +26,6 @@ public:
 class OwnedDog : public Dog
 {
 public:
-    OwnedDog(string n);
-    // virtual ~OwnedDog(void);
     void set_owner(const string & owner_name);
     void print() const override;
 private:

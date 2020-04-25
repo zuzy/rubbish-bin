@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 
 #define exit(n) _exit(n)
-#define PORT 1234
+#define PORT 12345
 #define MAXDATASIZE 100
 
 int main(){
