@@ -91,17 +91,17 @@ private:
         ~Payloads()
         {
             m_mutex.lock();
-            // for(auto iter = m_payloads.begin(); iter != m_payloads.end();) {
-            //     m_payloads.erase(iter++);
-            // }
+            #if 1
             while(m_payloads.size()) {
                 str_t *tmp = m_payloads[0];
-                // if(tmp) {
-                //     if(tmp->p) free(tmp->p);
-                // }
                 m_payloads.erase(m_payloads.begin());
                 delete tmp;
             }
+            #else
+            for(auto iter = m_payloads.begin(); iter != m_payloads.end();) {
+                m_payloads.erase(iter++);
+            }
+            #endif
             m_mutex.unlock();
         }
 
