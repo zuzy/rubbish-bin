@@ -45,7 +45,8 @@ public:
     {
         int len = s.size();
         for(;left >= 0 && right < len && s[left] == s[right]; --left, ++right);
-        return pair<int, int>(left + 1, right - 1);
+        // return pair<int, int>(left + 1, right - 1);
+        return {left + 1, right - 1};
     }
 
     string longestPalindrome(string s) 
