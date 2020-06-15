@@ -62,7 +62,7 @@ public:
         return k1;
     }
 #else 
-int rob(vector<int>& nums) {
+    int rob(vector<int>& nums) {
         auto s = nums.size();
         if(s == 0) {
             return 0;
