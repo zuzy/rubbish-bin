@@ -11,6 +11,11 @@
 
 #include <stdint.h>
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 
 char str[] = "{\"albumName\":\"狂想曲(夏日狂欢庆功限量影音版)\",\"authorName\":\"萧敬腾\",\"displayName\":\"06.怎么说我不爱你\",\"musicName\":\"06.怎么说我不爱你\",\"musicId\":20,\"musicTime\":268}]} er";
 
@@ -133,7 +138,7 @@ static char _num_to_hex(uint8_t num){
     return out;
 }
 
-int add_x_www_couple(char *des, char *key, char *body, int len)
+int add_x_www_couple(char *des, const char *key, const char *body, int len)
 {
     #define JUDGE(d, p, l)    (((p) - (d)) >= (l))
     if(key[0] == 0 || body[0] == 0 || len <= 0){
@@ -143,8 +148,8 @@ int add_x_www_couple(char *des, char *key, char *body, int len)
     }
     char *ori = des + strlen(des);
     char *ptr = ori;
-    char *p_k = key;
-    char *p_b = body;
+    char *p_k = (char *)key;
+    char *p_b = (char *)body;
 
     if(ptr != des) {
         *ptr++ = '&';
@@ -217,6 +222,100 @@ Error:
     return -1;
 }
 
+
+string formatToURL(const char *target, size_t size)
+{
+    string ret = "";
+    if(!target || target[0] == 0 || size == 0) {
+        return ret;
+    }
+
+    for(int i = 0; i < size; ++i) {
+        if(target[i] == '\0') break;
+        switch(target[i]) {
+            case '0' ... '9':
+            case 'A' ... 'Z':
+            case 'a' ... 'z':
+            case '!':
+            case '$':
+            case '\'' ... '.':
+            case '_': {
+                ret += target[i];
+                break;
+            }
+            default: {
+                char hex[4];
+                sprintf(hex, "%%%02X", (unsigned char)target[i]);
+                ret += hex;
+                break;
+            }
+
+        }
+    }
+    return ret;
+}
+
+string formatFromURL(const char *target, size_t size)
+{
+    string ret = "";
+    if(!target || target[0] == 0 || size == 0) {
+        return ret;
+    }
+
+    for(int i = 0; i < size; ) {
+        if(target[i] == '\0') break;
+        if(target[i] == '%') {
+            if(size > (i + 2) && target[i + 1] && target[i + 2]) {
+                unsigned int c;
+                sscanf(target+i, "%%%02x", &c);
+                ret += c;
+                i += 3;
+            }
+        } else {
+            ret += target[i++];
+        }
+    }
+    return ret;
+}
+
+// string &trim(string &s)
+// {
+//     for (auto i = s.begin(); i != s.end(); ++i) {
+//         if(*i != '\t' && *i != ' ') {
+//             s.erase(s.begin(), i);
+//             break;
+//         }
+//     }
+//     return s;
+// }
+
+string trim(string s)
+{
+    for (auto i = s.begin(); i != s.end(); ++i) {
+        if(*i != '\t' && *i != ' ') {
+            return string(i, s.end());
+            // s.erase(s.begin(), i);
+            // break;
+        }
+    }
+    return s;
+}
+
+bool trimCompare(string des, string tar)
+{
+    bool ret = false;
+    for (auto i = des.begin(); i != des.end(); ++i) {
+        if(*i != '\t' && *i != ' ') {
+            int b = distance(des.begin(), i);
+            if(des.compare(b, b + tar.size(), tar, 0, tar.size()) == 0) {
+                ret = true;
+            }
+            break;
+        }
+    }
+    return ret;
+}
+
 int main(){
     int i;
     printf("%ld: %s\n", strlen(str), str);
@@ -234,17 +333,28 @@ int main(){
     }
 
     char *bbb = (char *)malloc(1000);
-    char *lll = malloc(0);
-    printf("%p\n", lll);
-    free(lll);
-    printf("%p\n", lll);
-
-    printf("%p\n", bbb);
-    free(bbb);
-    printf("%p\n", bbb);
-    char *s = NULL;
     memset(bbb, 0, 1000);
-    add_x_www_couple(bbb, "bb是的方式的方式地方", "中国", 1000);
-    printf("bbb is %s\n", bbb);
+    add_x_www_couple(bbb, "bb#$#$%#^#%&*#@!\n是的方式的方式地方", "中国", 1000);
+    printf("bbb is  %s\n", bbb);
+    const char *tar = "bb#$#$%#^#%&*#@!\n是的方式的方式地方=中国";
+    string ret = formatToURL(tar, strlen(tar) + 1);
+    printf("ret:    %s[end]\n", ret.c_str());
+    string from = formatFromURL(ret.c_str(), ret.size());
+    printf("%s[end]\n%s[end]\n", tar, from.c_str());
+    string test = "";
+    printf("[%s]\n", test.c_str());
+    printf("[%s]\n", trim(test).c_str());
+
+    string tar_test = "import \"../common/unit_test_common.erpc\"";
+    string exHead = "import";
+    if(trim(tar_test).compare(0, exHead.size(), exHead, 0, exHead.size()) != 0) {
+        printf("!\n");
+    } else {
+        printf("!!!1\n");
+    }
+
+    int c = trimCompare(tar_test, exHead);
+    printf("compare: %d\n", c);
+
     return 0;
 }

@@ -12,7 +12,7 @@
 #include <string>
 #include <chrono>
 
- 
+#include <unistd.h>
 
 
 #define Z_COMMON_DEBUG 1
@@ -46,42 +46,53 @@ struct mg_str {
     size_t len;    /* Memory chunk length */
 };
 
+struct str_t {
+    char *p;
+    uint32_t len;
+
+    str_t(void)
+    : p(NULL)
+    , len(0)
+    {}
+
+    str_t(mg_str *tar)
+    : len(tar->len)
+    {
+        p = (char *)malloc(tar->len);
+        if(p) memcpy(p, tar->p, tar->len);
+    }
+
+    str_t(const str_t & str)
+    : len(str.len)
+    {
+        p = (char *)malloc(len);
+        if(p) mempcpy(p, str.p, len);
+    }
+
+    str_t(char *des, uint32_t l)
+    : len(l)
+    {
+        p = (char *)malloc(len);
+        if(p) mempcpy(p, des, len);
+    }
+
+    ~str_t(void)
+    {
+        if(p) free(p);
+        p = NULL;
+        len = 0;
+    }
+};
+
 class PayloadList 
 {
 private:
     struct Payloads {
 
-        struct str_t {
-            char *p;
-            size_t len;
-
-            str_t(mg_str *tar)
-            : len(tar->len)
-            {
-                p = (char *)malloc(tar->len);
-                if(p) memcpy(p, tar->p, tar->len);
-                // print_common("new [%lu] %.*s", len, (int)len, p);
-            }
-
-            str_t(const str_t & str)
-            : len(str.len)
-            {
-                p = (char *)malloc(len);
-                if(p) mempcpy(p, str.p, len);
-            }
-
-            ~str_t(void)
-            {
-                if(p) free(p);
-                p = NULL;
-                len = 0;
-            }
-        };
-
         vector<str_t*>  m_payloads;
         uint32_t        m_size;
         char            *m_cursor;
-        std::mutex           m_mutex;
+        mutex           m_mutex;
 
         Payloads()
         : m_size(0)
@@ -91,50 +102,60 @@ private:
         ~Payloads()
         {
             m_mutex.lock();
-            #if 1
             while(m_payloads.size()) {
                 str_t *tmp = m_payloads[0];
                 m_payloads.erase(m_payloads.begin());
                 delete tmp;
             }
-            #else
-            for(auto iter = m_payloads.begin(); iter != m_payloads.end();) {
-                m_payloads.erase(iter++);
-            }
-            #endif
             m_mutex.unlock();
         }
 
         Payloads &operator+=(mg_str *msg) 
         {
-            // print_common("+= %.*s", int(msg->len), msg->p);
             str_t *tmp = new str_t(msg);
-            if(!m_cursor) m_cursor = (char *)tmp->p;
+            *this += tmp;
+            return *this;
+        }
+
+        Payloads &operator+=(str_t *msg) 
+        {
             m_mutex.lock();
-            m_payloads.push_back(tmp);
+            if(!m_cursor) m_cursor = (char *)msg->p;
+            m_payloads.push_back(msg);
             m_size += msg->len;
             m_mutex.unlock();
             return *this;
         }
 
-
-
-        int get(char *data, size_t len)
+        int get(char *data, uint32_t len, bool force = false)
         {
-            // print_common();
-            if(m_size < len) {
-                return 1;
+            if(force) {
+                if(m_size < len) len = m_size;
+            }
+            m_mutex.lock();
+            int ret = len;
+            if(m_size < len || m_size == 0) {
+                print_common("msize: %u < %u", m_size, len);
+                len = 0;
+                ret = 0;
             }
             while(len) {
                 str_t *tmp = m_payloads[0];
-                // print_common("cursor %s", m_cursor);
                 if(!m_cursor) {
-                    return 1;
+                    print_common("m_cursor is NULL (m: %u, l: %u)", m_size, len);
+                    if((m_size == len) && (tmp != NULL)) {
+                        print_common("reset to tmp!");
+                        m_cursor = tmp->p;
+                    } else {
+                        print_common("tmp %p len: %u", tmp, tmp->len);
+                        print_common("????? %u", m_size - len);
+                        exit(1);
+                    }
+                    print_common("reset ok");
                 }
                 if(tmp->len <= len) {
                     memcpy(data, m_cursor, tmp->len);
                     len -= tmp->len;
-                    // print_common("len -> %lu", len);
                     data += tmp->len;
                     pop();
                 } else {
@@ -142,14 +163,11 @@ private:
                     tmp->len -= len;
                     m_size -= len;
                     m_cursor += len;
-
-                    str_t *ttmp = m_payloads[0];
-                    // print_common("first len: %lu", ttmp->len);
-
                     break;
                 }
             }
-            return 0;
+            m_mutex.unlock();
+            return ret;
         }
 
         int pop()
@@ -157,10 +175,9 @@ private:
             if(m_payloads.size() <= 0) {
                 return 1;
             }
-            m_mutex.lock();
+            
             str_t *tmp = m_payloads[0];
             m_payloads.erase(m_payloads.begin());
-            m_mutex.unlock();
             
             if(tmp) {
                 m_size -= tmp->len;
@@ -172,56 +189,124 @@ private:
             } else {
                 m_cursor = NULL;
             }
+	    return 0;
         }
-
     };
 
     map <string, Payloads> m_payload_list;
+    mutex m_mutex;
     
 public:
     virtual ~PayloadList(void)
     {
         for(map<string, Payloads>::iterator it = m_payload_list.begin();
             it != m_payload_list.end();) {
-            print_common("erase: %s", it->first.c_str());
+            // print_common("erase: %s", it->first.c_str());
             m_payload_list.erase(it++);
         }
     }
-
+    
+    void push_back(mg_str *payload);
     void push_back(mg_str *topic, mg_str *payload);
+    void push_back(string topic, char *p, uint32_t len);
 
     int read(string topic, char *data, size_t len);
+    int pop(string &topic, char *data, size_t len);
+
+    int size(string topic);
+    int size(void);
 
     void print(void);
-    // void print_count(void);
-
-    // size_t size(string topic);
     
     void clear(string topic);
 };
+
+
+void PayloadList::push_back(mg_str *payload)
+{
+    if(!payload || !payload->len) {
+        return;
+    }
+    char *p = strchr((char *)payload->p, 0x0a);
+    if(!p) {
+        return;
+    }
+    string top = string(payload->p, p - payload->p);
+Retry:
+    str_t *realp = new str_t();
+    if(!realp) {
+        usleep(10);
+        goto Retry;
+    }
+    realp->len = payload->len - (p + 1 - payload->p);
+    realp->p = (char *)malloc(realp->len);
+    memcpy(realp->p, p + 1, realp->len);
+
+    m_mutex.lock();
+    m_payload_list[top] += realp;
+    m_mutex.unlock();
+}
 
 void PayloadList::push_back(mg_str *topic, mg_str *payload)
 {
     if(!topic || !payload || !topic->len || !payload->len) {
         return;
     }
+    string s = string(topic->p, topic->len);
+    m_mutex.lock();
     m_payload_list[string(topic->p, topic->len)] += payload;
+    m_mutex.unlock();
 }
+
+void PayloadList::push_back(string topic, char *p, uint32_t len)
+{
+    str_t *tmp = new str_t(p, len);
+    m_mutex.lock();
+    m_payload_list[topic] += tmp;
+    m_mutex.unlock();
+}
+
 
 int PayloadList::read(string topic, char *data, size_t len)
 {
-    print_common("read %s", topic.c_str());
     return m_payload_list[topic].get(data, len);
 }
+
+int PayloadList::pop(string &topic, char *data, size_t len)
+{
+    int ret = 0;
+    m_mutex.lock();
+    auto b = m_payload_list.begin(); 
+    while(b != m_payload_list.end()) {
+        if(b->second.m_size == 0) {
+            m_payload_list.erase(b++);
+        } else {
+            topic = b->first;
+            ret = b->second.get(data, len, true);
+            break;
+        }
+    }
+    m_mutex.unlock();
+    return ret;
+}
+
+int PayloadList::size(string topic)
+{
+    return m_payload_list[topic].m_size;
+}
+
+int PayloadList::size(void)
+{
+    return m_payload_list.size();
+}
+
+
 
 void PayloadList::print(void)
 {
     for(auto &it: m_payload_list) {
         cout << "topic: " << it.first << endl;
         cout << "\t" << it.second.m_size << " : " << it.second.m_payloads.size() << endl;
-        for(auto &iit: it.second.m_payloads) {
-            cout << "\t" << string(iit->p, iit->len) << endl;
-        }
     }
 }
 
@@ -229,10 +314,11 @@ void PayloadList::clear(string topic)
 {
     auto it = m_payload_list.find(topic);
     if(it != m_payload_list.end()) {
+        m_mutex.lock();
         m_payload_list.erase(it);
+        m_mutex.unlock();
     }
 }
-
 
 #define TOPIC1 "topic1"
 #define TOPIC2 "topic2"
