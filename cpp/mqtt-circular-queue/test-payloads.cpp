@@ -86,170 +86,145 @@ struct str_t {
     }
 };
 
-
-#define MAX_QUEUE_SIZE 100
-#define INIT_QUEUE_SIZE 32
-
 class PayloadList 
 {
 private:
     struct Payloads {
-        uint8_t     *m_buffer;
-        uint32_t    m_size;
-        uint32_t    m_head;
-        uint32_t    m_tail;
-        uint32_t    m_valid;
-        uint32_t    m_remain;
-        mutex       m_mutex;
 
-        Payloads()
-        : m_size(INIT_QUEUE_SIZE)
-        , m_head(0)
-        , m_tail(0)
-        , m_valid(0)
-        , m_remain(INIT_QUEUE_SIZE)
+        vector<str_t*>  m_payloads;
+        uint32_t        m_size;
+        char            *m_cursor;
+        std::mutex      m_mutex;
+
+        Payloads(void)
+        : m_size(0)
+        , m_cursor(NULL)
+        {}
+
+        ~Payloads(void)
         {
-            m_buffer = (uint8_t*)malloc(INIT_QUEUE_SIZE);
-        }
-        
-
-        ~Payloads()
-        {
-            if(m_buffer) free(m_buffer);
-            m_buffer = NULL;
-        }
-
-        int _append_(uint32_t length)
-        {
-            uint32_t size = m_size + (length << 2);
-            if(size > MAX_QUEUE_SIZE) {
-                size = m_size + length;
-                if(size > MAX_QUEUE_SIZE) {
-                    // m_mutex.unlock();
-                    return 1;
-                }
-            }
-
-            m_buffer = (uint8_t *)realloc(m_buffer, size);
-            if(!m_buffer) {
-                perror("realloc failed");
-                exit(2);
-            }
-
             m_mutex.lock();
-            uint32_t extra = size - m_size;
-            if(m_head) {
-                if(m_head >= m_tail) {
-                    uint32_t after_head = m_size - m_head;
-                    memmove(m_buffer + m_head + extra, m_buffer + m_head, after_head);
-                    m_head += extra;
-                }
+            m_size = 0;
+            m_cursor = NULL;
+            while(m_payloads.size()) {
+                delete m_payloads[0];
+                m_payloads.erase(m_payloads.begin());
             }
-            m_remain += extra;
-            if(m_head == 0 && m_tail == 0) {
-                m_tail = m_size;
-            }
-            m_size = size;
             m_mutex.unlock();
-            return 0;
         }
 
-        int push(uint8_t *data, uint32_t len)
+        Payloads &operator+=(mg_str *msg) 
         {
-            while(m_remain < len) {
-                _append_(len);
-                usleep(0);
-            }
+            str_t *tmp = new str_t(msg);
+            *this += tmp;
+            return *this;
+        }
+
+        Payloads &operator+=(str_t *msg) 
+        {
             m_mutex.lock();
-            uint32_t after_tail = m_size - m_tail;
-            if(after_tail >= len) {
-                memcpy(m_buffer + m_tail, data, len);
-                if(after_tail != len) {
-                    m_tail += len;
-                } else {
-                    m_tail = 0;
-                }
-            } else {
-                uint32_t remain_of_tail = len - after_tail;
-                memcpy(m_buffer + m_tail, data, after_tail);
-                memcpy(m_buffer, data + after_tail, remain_of_tail);
-                m_tail = remain_of_tail;
-            }
-            m_remain -= len;
-            m_valid += len;
+            if(!m_cursor) m_cursor = (char *)msg->p;
+            m_payloads.push_back(msg);
+            m_size += msg->len;
             m_mutex.unlock();
-            return 0;
+            return *this;
         }
 
-        inline size_t size(void) 
+        int get(char *data, uint32_t len, bool force = false)
         {
-            return m_valid;
-        }
-
-        int get(char *data, uint32_t len)
-        {
-            m_mutex.lock();
-            int ret = len < m_valid ? len : m_valid;
-            len = ret;
-            uint32_t after_head = m_size - m_head;
-            if(after_head >= len) {
-                memcpy(data, m_buffer + m_head, len);
-                if(after_head != len) {
-                    m_head += len;
-                } else {
-                    m_head = 0;
-                }
-            } else {
-                uint32_t remain_of_head = len - after_head;
-                memcpy(data, m_buffer + m_head, after_head);
-                memcpy(data + after_head, m_buffer, remain_of_head);
-                m_head = remain_of_head;
+            if(force) {
+                if(m_size < len) len = m_size;
             }
-
-            m_valid -= len;
-            m_remain += len;
+            m_mutex.lock();
+            int ret = len;
+            if(m_size < len || m_size == 0) {
+                len = 0;
+                ret = 0;
+            }
+            while(len) {
+                str_t *tmp = m_payloads[0];
+                if(!m_cursor) {
+                    if((m_size == len) && (tmp != NULL)) {
+                        m_cursor = tmp->p;
+                    } else {
+                        exit(1);
+                    }
+                }
+                if(tmp->len <= len) {
+                    memcpy(data, m_cursor, tmp->len);
+                    len -= tmp->len;
+                    data += tmp->len;
+                    pop();
+                } else {
+                    memcpy(data, m_cursor, len);
+                    tmp->len -= len;
+                    m_size -= len;
+                    m_cursor += len;
+                    break;
+                }
+            }
             m_mutex.unlock();
             return ret;
+        }
+
+        int pop(void)
+        {
+            if(m_payloads.size() <= 0) {
+                return 1;
+            }
+            str_t *tmp = m_payloads[0];
+            m_payloads.erase(m_payloads.begin());
+            if(tmp) {
+                m_size -= tmp->len;
+                delete tmp;
+            }
+            if(m_payloads.size() > 0) {
+                tmp = m_payloads[0];
+                m_cursor = (char *)tmp->p;
+            } else {
+                m_cursor = NULL;
+            }
+    	    return 0;
         }
     };
 
     map <string, Payloads> m_payload_list;
+    pthread_mutex_t     m_mutex;
+    pthread_cond_t      m_cond;
+    int                 m_to;
     
 public:
+    PayloadList(void)
+    : m_mutex(PTHREAD_MUTEX_INITIALIZER)
+    , m_cond(PTHREAD_COND_INITIALIZER)
+    , m_to(-1)
+    {}
+
+    PayloadList(int timeout)
+    : m_mutex(PTHREAD_MUTEX_INITIALIZER)
+    , m_cond(PTHREAD_COND_INITIALIZER)
+    , m_to(timeout)
+    {}
+
     virtual ~PayloadList(void)
     {
-        for(map<string, Payloads>::iterator it = m_payload_list.begin();
-            it != m_payload_list.end();) {
-            m_payload_list.erase(it++);
-        }
+        m_payload_list.clear();
     }
     
     void push_back(mg_str *payload);
+    void push_back(mg_str *topic, mg_str *payload);
+    void push_back(string topic, char *p, uint32_t len);
 
-    inline void push_back(mg_str *topic, mg_str *payload) 
-    {
-        m_payload_list[topic->p].push((uint8_t *)payload->p, payload->len);
-    }
-
-    inline void push_back(string topic, char *p, uint32_t len) 
-    {
-        m_payload_list[topic].push((uint8_t *)p, len);
-    }
-
-    inline int read(string topic, char *data, size_t len) 
-    {
-        return m_payload_list[topic].get(data, len);
-    }
+    int read(string topic, char *data, size_t len);
     int pop(string &topic, char *data, size_t len);
 
-    inline int size(string topic) 
-    {
-        return m_payload_list[topic].m_valid;
-    }
+    int size(string topic);
+    int size(void);
 
     void print(void);
     
     void clear(string topic);
+    void clear(void);
 };
 
 
@@ -263,42 +238,119 @@ void PayloadList::push_back(mg_str *payload)
         return;
     }
     string top = string(payload->p, p - payload->p);
-    uint32_t len = payload->len - (p + 1 - payload->p);
+Retry:
+    str_t *realp = new str_t();
+    if(!realp) {
+        usleep(10);
+        goto Retry;
+    }
+    realp->len = payload->len - (p + 1 - payload->p);
+    realp->p = (char *)malloc(realp->len);
+    memcpy(realp->p, p + 1, realp->len);
 
-    m_payload_list[top].push((uint8_t *)p, len);
+    pthread_mutex_lock(&m_mutex);
+    m_payload_list[top] += realp;
+    pthread_mutex_unlock(&m_mutex);
+    pthread_cond_broadcast(&m_cond);
+}
+
+void PayloadList::push_back(mg_str *topic, mg_str *payload)
+{
+    if(!topic || !payload || !topic->len || !payload->len) {
+        return;
+    }
+    string s = string(topic->p, topic->len);
+    pthread_mutex_lock(&m_mutex);
+    m_payload_list[string(topic->p, topic->len)] += payload;
+    pthread_mutex_unlock(&m_mutex);
+    pthread_cond_broadcast(&m_cond);
+}
+
+void PayloadList::push_back(string topic, char *p, uint32_t len)
+{
+    str_t *tmp = new str_t(p, len);
+    pthread_mutex_lock(&m_mutex);
+    m_payload_list[topic] += tmp;
+    pthread_mutex_unlock(&m_mutex);
+    pthread_cond_broadcast(&m_cond);
+}
+
+
+int PayloadList::read(string topic, char *data, size_t len)
+{
+    return m_payload_list[topic].get(data, len);
 }
 
 int PayloadList::pop(string &topic, char *data, size_t len)
 {
     int ret = 0;
-    auto b = m_payload_list.begin(); 
-    while(b != m_payload_list.end()) {
-        if(b->second.m_size == 0) {
-            m_payload_list.erase(b++);
+    pthread_mutex_lock(&m_mutex);
+    if(m_payload_list.size() == 0) {
+        if(m_to >= 0) {
+            timespec ts;
+            ts.tv_sec = m_to / 1000;
+            ts.tv_nsec = (m_to % 1000) * 1000000;
+            ret = pthread_cond_timedwait(&m_cond, &m_mutex, &ts);
+            if(ret) {
+                goto End;
+            }
         } else {
-            topic = b->first;
-            ret = b->second.get(data, len);
-            break;
+            ret = pthread_cond_wait(&m_cond, &m_mutex);
+            if(ret) {
+                goto End;
+            }
         }
     }
+    {
+        auto b = m_payload_list.begin(); 
+        while(b != m_payload_list.end()) {
+            if(b->second.m_size == 0) {
+                b = m_payload_list.erase(b);
+            } else {
+                topic = b->first;
+                ret = b->second.get(data, len, true);
+                break;
+            }
+        }
+    }
+End:
+    pthread_mutex_unlock(&m_mutex);
     return ret;
+}
+
+int PayloadList::size(string topic)
+{
+    return m_payload_list[topic].m_size;
+}
+
+int PayloadList::size(void)
+{
+    return m_payload_list.size();
 }
 
 void PayloadList::print(void)
 {
-    print_common();
     for(auto &it: m_payload_list) {
         cout << "topic: " << it.first << endl;
-        cout << "\t" << it.second.m_size << " : " << it.second.m_valid << endl;
+        cout << "\t" << it.second.m_size << " : " << it.second.m_payloads.size() << endl;
     }
 }
 
 void PayloadList::clear(string topic)
 {
+    pthread_mutex_lock(&m_mutex);
     auto it = m_payload_list.find(topic);
     if(it != m_payload_list.end()) {
-        m_payload_list.erase(it);
+        it = m_payload_list.erase(it);
     }
+    pthread_mutex_unlock(&m_mutex);    
+}
+
+void PayloadList::clear(void)
+{
+    pthread_mutex_lock(&m_mutex);
+    m_payload_list.clear();
+    pthread_mutex_unlock(&m_mutex);
 }
 
 #define TOPIC1 "topic1"
