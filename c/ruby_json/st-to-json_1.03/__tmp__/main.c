@@ -103,7 +103,7 @@ char *get_name(const char *target)
     if(!target) return NULL;
     char *return_str = calloc(1,strlen(target) + 1);
     if(!return_str) return NULL;
-    char *pr = return_str, *pt = target;
+    char *pr = return_str, *pt = (char *)target;
     while(*pt) {
         if(*pt >= ' ' && *pt <= '`') {
             *pr++ = *pt;

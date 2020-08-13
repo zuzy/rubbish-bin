@@ -6,9 +6,12 @@ CTAGS = -M
 
 OBJ := cJSON.o cJSON_format.o main.o
 LINK_LIB := -lm -lpthread
-.PHONY: clean
+.PHONY: clean test
 # all : multicast multitest tcp_server
 all: demo
+
+test: all
+	./demo
 
 demo:$(OBJ)
 	gcc -o demo $(OBJ) $(LINK_LIB) -g

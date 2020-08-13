@@ -26,28 +26,9 @@ static int get_num_from_string(char *input)
     return n;
 }
 
-static uint64_t _buffer_to_num(char *input, int num)
+cJSON *struct_to_json(void *input, json_fmt_t *fmt, int length, char *key, cJSON *target)
 {
-    uint8_t *buf = (uint8_t *)input;
-    uint64_t ret = 0;
-    int j = 0;
-
-    for( ; j < num; ++j, ++buf) {
-#if _BIG_ENDIAN == 1
-        ret <<= 8;
-        ret += *buf++;
-#else
-        ret += *buf << (8 * j);
-        // print_jmt("ret %lu, num %d 8<<num %d", ret, j, 8 * j);
-#endif
-    }
-    return ret;
-}
-
-
-cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *target)
-{
-    if(!input || !fmt || size <= 0) {
+    if(!input || !fmt || length <= 0) {
         return NULL;
     }
     
@@ -59,14 +40,14 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
     if(target && key && *key) {
         cJSON_AddItemToObject(target, key, root);
     }
-    for(i = 0; i < size; i++) {
+    for(i = 0; i < length; i++) {
         size_t offset = fmt[i].offset;
         size_t size = fmt[i].size;
         char *name = fmt[i].name;
         size_t size_node = fmt[i].size_node;
 
         size_t count = 1;        
-        print_jmt("Array of str, size is %d, offset %d, size_node %d", size, offset, size_node);
+        print_jmt("Array of str, size is %lu, offset %lu, size_node %lu", size, offset, size_node);
         if(size_node) {
             count = size / size_node;
             int j;
@@ -142,7 +123,7 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
                     break;
                 }
                 case A_STR: {
-                    print_jmt("Array of str, size is %d, offset %d", size, offset);
+                    print_jmt("Array of str, size is %lu, offset %lu", size, offset);
                     cJSON_AddStringToObject(root, name, input + offset);
                     // char *tmp = malloc(size + 1);
                     // snprintf(tmp, size, "%s", input + offset);
@@ -151,7 +132,7 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
                     break;
                 }
                 case P_STR: {
-                    print_jmt("Pointer of str, size is %d, offset %d", size, offset);
+                    print_jmt("Pointer of str, size is %lu, offset %lu", size, offset);
                     char **p = input + offset;
                     print_jmt("tmp is %p %p; %p %s", p,input + offset, *p, *p);
                     cJSON_AddStringToObject(root, name, *p);
@@ -159,8 +140,8 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
                 }
                 case P_INT: {
                     int **p = input + offset;
-                    print_jmt("Pointer of str, size is %d, offset %d", size, offset);
-                    print_jmt("tmp is %p %p; %p %s", p,input + offset, *p, *p);
+                    print_jmt("Pointer of str, size is %lu, offset %lu", size, offset);
+                    print_jmt("tmp is %p %p; %p %s", p, input + offset, *p, (char *)*p);
                     if(!*p) {
                         cJSON_AddStringToObject(root, name,"nil");
                     } else {
@@ -170,7 +151,7 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
                 }
                 case P_FLOAT: {
                     float **p = input + offset;
-                    print_jmt("Array of str, size is %d, offset %d", size, offset);
+                    print_jmt("Array of str, size is %lu, offset %lu", size, offset);
                     if(!*p) {
                         cJSON_AddStringToObject(root, name,"nil");
                     } else {
@@ -180,7 +161,7 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
                 }
                 case P_DOUBLE: {
                     double **p = input + offset;
-                    print_jmt("Array of str, size is %d, offset %d", size, offset);
+                    print_jmt("Array of str, size is %lu, offset %lu", size, offset);
                     if(!*p) {
                         cJSON_AddStringToObject(root, name,"nil");
                     } else {
@@ -190,7 +171,7 @@ cJSON *struct_to_json(void *input, json_fmt_t *fmt, int size, char *key, cJSON *
                 }
                 case STRUCT: {
                     void *p = input + offset;
-                    print_jmt("tmp is %p %p; %p %s", p,input + offset, p, p);
+                    print_jmt("tmp is %p %p; %p %s", p,input + offset, p, (char *)p);
                     struct_to_json(input + offset, fmt[i].fmt, fmt[i].fmt_size, name, root);
                     // struct_to_json(intput + offset, )
                     break;
