@@ -97,7 +97,8 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    typedef int (*callback) (vector<vector<char>> &b, int x, int y);
+    using callback = int (*)(vector<vector<char>>&, int, int);
+    // typedef int (*callback) (vector<vector<char>> &b, int x, int y);
     static int loop(vector<vector<char>> &board, int x, int y, callback fun) 
     {
         int ret = 0;
