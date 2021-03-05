@@ -13,6 +13,11 @@
 #include <string.h>
 #include "microhttpd.h"
 
+#define ENCODE 0
+#if ENCODE
+#include "encode.h"
+#endif
+
 #ifdef _MSC_VER
 #ifndef strcasecmp
 #define strcasecmp(a, b) _stricmp((a), (b))
@@ -62,16 +67,20 @@ struct connection_info_struct
    * HTTP status code we will return, 0 for undecided.
    */
     unsigned int answercode;
-};
 
+    char *cmd;
+    char *filename;
+    char *reply;
+};
 const char *askpage =
     "<html><body>\n\
-                       Upload a file, please!<br>\n\
-                       There are %u clients uploading at the moment.<br>\n\
-                       <form action=\"/filepost\" method=\"post\" enctype=\"multipart/form-data\">\n\
-                       <input name=\"file\" type=\"file\">\n\
-                       <input type=\"submit\" value=\" Send \"></form>\n\
-                       </body></html>";
+                <form action=\"/filepost\" method=\"post\" enctype=\"multipart/form-data\">\n\
+                Input CMD here: \n\
+                <input type=\"text\" cols=\"80\" name=\"cmd\" value=\"echo hello\"><br>\n\
+                Upload a file here: \n\
+                <input name=\"file\" type=\"file\">\n\
+                <input type=\"submit\" value=\" Send \"></form>\n\
+                </body></html>";
 const char *busypage =
     "<html><body>This server is busy, please try again later.</body></html>";
 const char *completepage =
@@ -86,6 +95,15 @@ const char *fileioerror =
     "<html><body>IO error writing to disk.</body></html>";
 const char *const postprocerror =
     "<html><head><title>Error</title></head><body>Error processing POST data</body></html>";
+
+#define REPLY_FMT "<html>\
+                        <head charset=\"UTF-8\"><title>LOG</title></head>\
+                        <body charset=\"UTF-8\">Upload %s %s<br><br>\
+                        <textarea charset=\"UTF-8\" lang=\"en_US\" rows=\"40\" cols=\"80\">%s</textarea>\
+                        </body>\
+                    </html>"
+
+#define S_REPLY_FMT strlen(REPLY_FMT)
 
 static enum MHD_Result
 send_page(struct MHD_Connection *connection,
@@ -112,16 +130,31 @@ send_page(struct MHD_Connection *connection,
     return ret;
 }
 
-static enum MHD_Result
-iterate_post(void *coninfo_cls,
-             enum MHD_ValueKind kind,
-             const char *key,
-             const char *filename,
-             const char *content_type,
-             const char *transfer_encoding,
-             const char *data,
-             uint64_t off,
-             size_t size)
+typedef enum MHD_Result (*cmd_cb)(void *,
+                                  enum MHD_ValueKind, const char *,
+                                  const char *, const char *,
+                                  const char *, const char *,
+                                  uint64_t, size_t);
+
+typedef struct _cmd_hash
+{
+    const char *cmd;
+    cmd_cb cb;
+} _cmd_hash_t;
+
+#define _SER_HASHS \
+    _SER_XXX(file) \
+    _SER_XXX(cmd)
+
+static enum MHD_Result _file_handler(void *coninfo_cls,
+                                     enum MHD_ValueKind kind,
+                                     const char *key,
+                                     const char *filename,
+                                     const char *content_type,
+                                     const char *transfer_encoding,
+                                     const char *data,
+                                     uint64_t off,
+                                     size_t size)
 {
     struct connection_info_struct *con_info = coninfo_cls;
     FILE *fp;
@@ -130,10 +163,13 @@ iterate_post(void *coninfo_cls,
     (void)transfer_encoding; /* Unused. Silent compiler warning. */
     (void)off;               /* Unused. Silent compiler warning. */
 
-    if (0 != strcmp(key, "file"))
+    if (con_info->answercode)
     {
-        con_info->answerstring = servererrorpage;
-        con_info->answercode = MHD_HTTP_BAD_REQUEST;
+        return MHD_YES;
+    }
+
+    if (strcasecmp(key, "file") != 0)
+    {
         return MHD_YES;
     }
 
@@ -144,13 +180,8 @@ iterate_post(void *coninfo_cls,
         if (NULL != (fp = fopen(filename, "rb")))
         {
             fclose(fp);
-            con_info->answerstring = fileexistspage;
-            con_info->answercode = MHD_HTTP_FORBIDDEN;
-            return MHD_YES;
+            remove(filename);
         }
-        /* NOTE: This is technically a race with the 'fopen()' above,
-       but there is no easy fix, short of moving to open(O_EXCL)
-       instead of using fopen(). For the example, we do not care. */
         con_info->fp = fopen(filename, "ab");
         if (!con_info->fp)
         {
@@ -170,8 +201,142 @@ iterate_post(void *coninfo_cls,
         }
     }
 
+    if (!con_info->filename)
+    {
+        con_info->filename = strdup(filename);
+    }
+
     return MHD_YES;
 }
+
+static enum MHD_Result _cmd_handler(void *coninfo_cls,
+                                    enum MHD_ValueKind kind,
+                                    const char *key,
+                                    const char *filename,
+                                    const char *content_type,
+                                    const char *transfer_encoding,
+                                    const char *data,
+                                    uint64_t off,
+                                    size_t size)
+{
+    struct connection_info_struct *con_info = coninfo_cls;
+    FILE *fp;
+    (void)kind;              /* Unused. Silent compiler warning. */
+    (void)content_type;      /* Unused. Silent compiler warning. */
+    (void)transfer_encoding; /* Unused. Silent compiler warning. */
+    (void)off;               /* Unused. Silent compiler warning. */
+    if (strcasecmp(key, "cmd") != 0)
+    {
+        return MHD_YES;
+    }
+    con_info->cmd = strdup(data);
+    return MHD_YES;
+}
+
+_cmd_hash_t cbs[] = {
+#define _SER_XXX(key) {#key, _##key##_handler},
+    _SER_HASHS
+#undef _SER_XXX
+    {NULL, NULL}};
+
+static enum MHD_Result
+iterate_post(void *coninfo_cls,
+             enum MHD_ValueKind kind,
+             const char *key,
+             const char *filename,
+             const char *content_type,
+             const char *transfer_encoding,
+             const char *data,
+             uint64_t off,
+             size_t size)
+{
+    _cmd_hash_t *pc = cbs;
+    enum MHD_Result result = MHD_YES;
+    while (pc->cb && pc->cmd)
+    {
+        if (0 == strcasecmp(key, pc->cmd))
+        {
+            result &= pc->cb(coninfo_cls, kind, key, filename, content_type, transfer_encoding, data, off, size);
+        }
+        ++pc;
+    }
+    return result;
+}
+
+#define _TAR_ ("##FILE##")
+#define _TAR_LEN_ strlen(_TAR_)
+
+char *replace(char *tar, char *arg)
+{
+    if (!tar)
+    {
+        return NULL;
+    }
+    char *ret = NULL;
+    char *ph = tar;
+    char *pt = NULL;
+    size_t offset = 0;
+    size_t arglen = arg ? strlen(arg) : 0;
+    size_t tarlen = strlen(tar);
+
+    while ((pt = strstr(ph, _TAR_)) != NULL)
+    {
+        ret = realloc(ret, (ret ? strlen(ret) : 0) + tarlen + arglen);
+        memcpy(ret + offset, ph, pt - ph);
+        offset += pt - ph;
+        memcpy(ret + offset, arg, arglen);
+        offset += arglen;
+        ret[offset] = 0;
+        ph = pt + _TAR_LEN_;
+    }
+    if (!ret)
+    {
+        ret = strdup(tar);
+    }
+    else
+    {
+        size_t l = strlen(ph);
+        memcpy(ret + offset, ph, l);
+        *(ret + offset + l) = 0;
+    }
+    return ret;
+}
+
+static char *_call_system(const char *cmd)
+{
+    if (!cmd)
+    {
+        return NULL;
+    }
+    char *ret = NULL;
+    char buf[1024] = {0};
+    int len = 0;
+    int offset = 0;
+    FILE *fp = popen(cmd, "r");
+    while ((len = fread(buf, 1, sizeof(buf), fp)) != 0)
+    {
+        ret = realloc(ret, offset + len);
+        if (!ret)
+        {
+            return ret;
+        }
+        memcpy(ret + offset, buf, len);
+        offset += len;
+    }
+    if (ret)
+    {
+        ret[offset] = 0;
+    }
+#if ENCODE
+    char *encode_ret = encode(ret);
+    free(ret);
+    return encode_ret;
+#else
+    return ret;
+#endif
+}
+
+static char *sreply = NULL;
 
 static void
 request_completed(void *cls,
@@ -180,10 +345,13 @@ request_completed(void *cls,
                   enum MHD_RequestTerminationCode toe)
 {
     struct connection_info_struct *con_info = *con_cls;
-    (void)cls;        /* Unused. Silent compiler warning. */
-    (void)connection; /* Unused. Silent compiler warning. */
-    (void)toe;        /* Unused. Silent compiler warning. */
-
+    (void)cls; /* Unused. Silent compiler warning. */
+    (void)toe; /* Unused. Silent compiler warning. */
+    if (sreply)
+    {
+        free(sreply);
+        sreply = NULL;
+    }
     if (NULL == con_info)
         return;
 
@@ -199,6 +367,21 @@ request_completed(void *cls,
             fclose(con_info->fp);
     }
 
+    if (con_info->cmd)
+    {
+        free(con_info->cmd);
+        con_info->cmd = NULL;
+    }
+    if (con_info->filename)
+    {
+        free(con_info->filename);
+        con_info->filename = NULL;
+    }
+    if (con_info->reply)
+    {
+        free(con_info->reply);
+        con_info->reply = NULL;
+    }
     free(con_info);
     *con_cls = NULL;
 }
@@ -216,7 +399,6 @@ answer_to_connection(void *cls,
     (void)cls;     /* Unused. Silent compiler warning. */
     (void)url;     /* Unused. Silent compiler warning. */
     (void)version; /* Unused. Silent compiler warning. */
-
     if (NULL == *con_cls)
     {
         /* First call, setup data structures */
@@ -232,6 +414,9 @@ answer_to_connection(void *cls,
             return MHD_NO;
         con_info->answercode = 0; /* none yet */
         con_info->fp = NULL;
+        con_info->cmd = NULL;
+        con_info->filename = NULL;
+        con_info->reply = NULL;
 
         if (0 == strcasecmp(method, MHD_HTTP_METHOD_POST))
         {
@@ -264,12 +449,9 @@ answer_to_connection(void *cls,
     if (0 == strcasecmp(method, MHD_HTTP_METHOD_GET))
     {
         /* We just return the standard form for uploads on all GET requests */
-        char buffer[1024];
+        char buffer[1024] = {0};
 
-        snprintf(buffer,
-                 sizeof(buffer),
-                 askpage,
-                 nr_of_uploading_clients);
+        strncpy(buffer, askpage, sizeof(buffer) - 1);
         return send_page(connection,
                          buffer,
                          MHD_HTTP_OK);
@@ -306,15 +488,34 @@ answer_to_connection(void *cls,
             fclose(con_info->fp);
             con_info->fp = NULL;
         }
-        if (0 == con_info->answercode)
+
+        char *cmd = replace(con_info->cmd, con_info->filename);
+        if (cmd)
+        {
+            char *reply = NULL;
+            reply = _call_system(cmd);
+            size_t len = S_REPLY_FMT + (reply ? strlen(reply) : 1) + (con_info->filename ? strlen(con_info->filename) : 0) + 10;
+            sreply = malloc(len);
+            snprintf(sreply, len, REPLY_FMT, con_info->filename, con_info->answercode == 0 ? "Success" : "Failed", reply ?: "");
+            if (reply)
+            {
+                free(reply);
+            }
+            free(cmd);
+            con_info->answerstring = sreply;
+            con_info->answercode = MHD_HTTP_OK;
+        }
+        else if (0 == con_info->answercode)
         {
             /* No errors encountered, declare success */
             con_info->answerstring = completepage;
             con_info->answercode = MHD_HTTP_OK;
         }
+
         return send_page(connection,
                          con_info->answerstring,
                          con_info->answercode);
+        // return MHD_YES;
     }
 
     /* Note a GET or a POST, generate error */
@@ -325,17 +526,22 @@ answer_to_connection(void *cls,
 
 int main(int argc, char *argv[])
 {
-
-    if (argc != 2)
+    int port = 80;
+    if (argc > 1)
     {
-        printf("%s PORT\n", argv[0]);
-        return 1;
+        port = atoi(argv[1]);
     }
 
+    if (port <= 0)
+    {
+        port = 80;
+    }
+
+    printf("Server Listen on %d\n", port);
     struct MHD_Daemon *daemon;
 
     daemon = MHD_start_daemon(MHD_USE_INTERNAL_POLLING_THREAD,
-                              atoi(argv[1]), NULL, NULL,
+                              port, NULL, NULL,
                               &answer_to_connection, NULL,
                               MHD_OPTION_NOTIFY_COMPLETED, &request_completed,
                               NULL,
