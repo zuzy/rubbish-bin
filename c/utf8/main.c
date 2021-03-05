@@ -150,6 +150,47 @@ int add_x_www_couple(char *des, char *key, char *body, int len)
         *ptr++ = '&';
     }
     while(*p_k != '\0') {
+    #if 1
+        switch (*p_k) {
+            case 'a'...'z':
+            case 'A'...'Z':
+            case '0'...'9':
+            case '.':
+            case '-':
+            case '_': {
+                *ptr++ = *p_k++;
+                if(JUDGE(des, ptr, len)) {
+                    goto Error;
+                }
+                break;
+            }
+            case ' ': {
+                *ptr++ = '+';
+                ++p_k;
+                if(JUDGE(des, ptr, len)) {
+                    goto Error;
+                }
+                break;
+            }
+            
+            
+            default: {
+                *ptr++ = '%';
+                if(JUDGE(des, ptr, len)){
+                    goto Error;
+                }
+                *ptr++ = _num_to_hex(*p_k >> 4);
+                if(JUDGE(des, ptr, len)) {
+                    goto Error;
+                }
+                *ptr++ = _num_to_hex(*p_k++);
+                if(JUDGE(des, ptr, len)) {
+                    goto Error;
+                }
+                break;
+            }
+        }
+    #else
         if((*p_k <= 'z' && *p_k >= 'a') || (*p_k <= 'Z' && *p_k >= 'A') || (*p_k <= '9' && *p_k >= '0') || *p_k == '.' || *p_k == '-' || *p_k == '_') {
             *ptr++ = *p_k++;
             if(JUDGE(des, ptr, len)) {
@@ -175,6 +216,7 @@ int add_x_www_couple(char *des, char *key, char *body, int len)
                 goto Error;
             }
         }
+    #endif
     }
 
     *ptr++ = '=';
@@ -217,6 +259,65 @@ Error:
     return -1;
 }
 
+static int _append_(void **tar, size_t *len, size_t unit)
+{
+    *len += unit;
+    *tar = realloc(*tar, *len);
+    return *tar == NULL;
+}
+
+char *encode(char *target)
+{
+    #ifndef JUDGE
+    #define JUDGE(d, p, l)    (((p) - (d)) >= (l))
+    #endif
+    size_t len = 0;
+    size_t unit = strlen(target);
+    char *ret = NULL;
+    size_t offset = 0;
+    size_t i = 0;
+    char *ptr = ret;
+    for(; i < unit; ++i) {
+        if(JUDGE(0, offset, len)) {
+            if(_append_((void **)&ret, &len, unit)) {
+                return ret;
+            }
+        }
+        switch (target[i]) {
+            case 'a'...'z':
+            case 'A'...'Z':
+            case '0'...'9':
+            case '.':
+            case '-':
+            case '_': {
+                ret[offset++] = target[i];
+                break;
+            }
+            case ' ': {
+                ret[offset++] = '+';
+                break;
+            }
+            default: {
+                ret[offset++] = '%';
+                if(JUDGE(0, offset, len)){
+                    if(_append_((void **)&ret, &len, unit)) {
+                        return ret;
+                    }
+                }
+                ret[offset++] = _num_to_hex(target[i] >> 4);
+                if(JUDGE(0, offset, len)) {
+                    if(_append_((void **)&ret, &len, unit)) {
+                        return ret;
+                    }
+                }
+                ret[offset++] = _num_to_hex(target[i]);
+                break;
+            }
+        }
+    }
+    return ret;
+}
+
 int main(){
     int i;
     printf("%ld: %s\n", strlen(str), str);
@@ -240,11 +341,16 @@ int main(){
     printf("%p\n", lll);
 
     printf("%p\n", bbb);
-    free(bbb);
     printf("%p\n", bbb);
     char *s = NULL;
     memset(bbb, 0, 1000);
     add_x_www_couple(bbb, "bb是的方式的方式地方", "中国", 1000);
     printf("bbb is %s\n", bbb);
+    free(bbb);
+
+
+    char *sss = encode("bb是的方式的方式地方");
+    printf("bbb is %s\n", sss);
+    free(sss);
     return 0;
 }
