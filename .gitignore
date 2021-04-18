@@ -2,3 +2,8 @@
 **.out
 **/vgcore.*
 **~
+**.ko
+**.o
+**.mod.*
+**.order
+**.symvers
