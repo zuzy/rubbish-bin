@@ -1,0 +1,4 @@
+#fun:*bad_foo*
+#fun:_Z7bad_foov
+src:foo*
+#fun:*bad_foo_2*

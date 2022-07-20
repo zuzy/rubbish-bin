@@ -8,7 +8,7 @@ OBJ := $(patsubst %.c,%.o, $(wildcard *.c))
 SHARED_LIB_PATH:=
 SHARED_LIB_CFLAGS:= -Wl,-rpath=$(SHARED_LIB_PATH)
 
-GLOBAL_CFLAGS := -fPIC $(SHARED_LIB_CFLAGS)
+GLOBAL_CFLAGS := -fPIC $(SHARED_LIB_CFLAGS) -ftime-report -std=c++17 -Ofast -DNDEBUG
 
 EXTR_CFLAGS:= -Dlinux
 
