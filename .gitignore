@@ -9,3 +9,8 @@
 **.symvers
 **/build
 **.tar
+**.o
+**.out
+**.gcno
+**.gcda
+**.gcov
