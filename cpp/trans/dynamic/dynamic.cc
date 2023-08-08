@@ -6,15 +6,28 @@
 #include <bitset>
 
 using namespace std;
+// #define use_union
 
 int FastLog2(int x) {
-  float f_x(x);
   unsigned int l_x, exp;
-
+#ifndef use_union
+  float f_x(x);
   l_x = *(unsigned int*)&(f_x);
+#else
+  union {
+    float f;
+    uint32_t u32;
+  } f_x;
+  f_x.f = x;
+  l_x = f_x.u32;
+#endif
   exp = (l_x >> 23) & 0xFF;
   cout << bitset<32>(x) << endl;
+#ifndef use_union
   cout << bitset<32>(f_x) << endl;
+#else
+  cout << bitset<32>(f_x.f) << " && " << bitset<32>(f_x.u32) << endl;
+#endif
 
 //   printf("%s:%d f_x:%f l_x:%u exp:%u\n", __FILE__, __LINE__, f_x, l_x, exp);
 

@@ -1,0 +1,6 @@
+*.o
+*.gc*
+*.out
+dynamic
+dynamic_ignore-strict-aliasing
+dynamic_union
